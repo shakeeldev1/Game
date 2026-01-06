@@ -4,6 +4,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import Navbar from './pages/Navbar';
 import Notification from './pages/Notification';
+import WalletPage from './pages/WalletPage';
 
 const MainFunction = () => {
   return (
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/learn-more", element: <Notification /> },
-
+      { path: "/wallet", element: <WalletPage /> },  
     ]
   }
 ])
