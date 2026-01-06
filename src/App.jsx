@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Navbar from "./pages/Navbar";
 import Notification from "./pages/Notification";
 import Promotions from "./pages/Promotions";
+import WalletPage from "./pages/WalletPage";
 
 const MainFunction = () => {
   return (
@@ -33,6 +34,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/learn-more", element: <Notification /> },
       { path: "/promotions", element: <Promotions /> },
+      { path: "/wallet", element: <WalletPage /> },
+
     ],
   },
 ]);
