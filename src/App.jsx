@@ -7,6 +7,14 @@ import Navbar from "./pages/Navbar";
 import Notification from "./pages/Notification";
 import Promotions from "./pages/Promotions";
 import WalletPage from "./pages/WalletPage";
+import LoginPage from "./components/common/Login";
+import Account from "./pages/Account";
+import SafeBox from "./pages/SafeBox";
+import GameStatistics from "./pages/GameStatistics";
+import Setting from "./pages/Setting";
+import Feedback from "./pages/Feedback";
+import Guide from "./pages/Guide";
+import About from "./pages/About";
 
 const MainFunction = () => {
   return (

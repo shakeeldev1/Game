@@ -5,7 +5,7 @@ import {
   FaEnvelope,
   FaDownload,
 } from 'react-icons/fa';
-import logo from '../../assets/download.png';
+import logo from '../assets/download.png';
 
 function Navbar() {
   return (
