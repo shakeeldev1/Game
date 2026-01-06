@@ -5,21 +5,21 @@ export default function EarningChart() {
         {
             position: 2,
             name: 'Player 2',
-            earnings: '₹45,000',
+            earnings: 'Rs-45,000',
             gradient: 'bg-gradient-to-tr from-cyan-400 to-blue-500',
             height: 'h-32'
         },
         {
             position: 1,
             name: 'Player 1',
-            earnings: '₹75,000',
+            earnings: 'Rs-75,000',
             gradient: 'bg-gradient-to-tr from-yellow-400 to-orange-500',
             height: 'h-42'
         },
         {
             position: 3,
             name: 'Player 3',
-            earnings: '₹30,000',
+            earnings: 'Rs-30,000',
             gradient: 'bg-gradient-to-tr from-purple-400 to-pink-500',
             height: 'h-32'
         }
@@ -51,11 +51,11 @@ export default function EarningChart() {
                             group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300`}>
                             <div className='text-center'>
                                 <div className='font-bold text-sm'>{winner.name}</div>
-                                <div className='text-xs font-semibold mt-2'>{winner.earnings}</div>
+                                <div className='text-xs font-semibold mt-2 mb-3'>{winner.earnings}</div>
                             </div>
                             <div className='bg-white bg-opacity-30 rounded-full w-12 h-12 flex items-center 
                                 justify-center font-bold text-xl border-2 border-white'>
-                                {winner.position}
+                                <img src="https://pakgame.net/pak_game/upload/avtar/man.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ export default function EarningChart() {
                 </div>
                 <div className='group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300'>
                     <p className='text-sm text-gray-600 group-hover:text-blue-600'>Total Earnings</p>
-                    <p className='font-bold text-gray-800'>₹150,000</p>
+                    <p className='font-bold text-gray-800'>Rs-150,000</p>
                 </div>
                 <div className='group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300'>
                     <p className='text-sm text-gray-600 group-hover:text-blue-600'>Participants</p>
