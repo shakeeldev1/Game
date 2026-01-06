@@ -1,0 +1,19 @@
+/* Gradient vertical scrollbar */
+.scrollbar-gradient::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-gradient::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-gradient::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: linear-gradient(to top right, #facc15, #f97316);
+}
+
+/* Firefox */
+.scrollbar-gradient {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 transparent;
+}
