@@ -9,7 +9,7 @@ const Footer = () => {
     // { path: '/activity', label: 'Activity', icon: '📊' },
     { path: "/promotions", label: "Promotion", icon: "🎯", isCenter: true },
     { path: "/wallet", label: "Wallet", icon: "💰" },
-    { path: "/account", label: "Account", icon: "👤" },
+    { path: "/login", label: "Account", icon: "👤" },
   ];
 
   return (

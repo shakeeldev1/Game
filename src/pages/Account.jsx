@@ -26,26 +26,26 @@ const Account = () => {
       
       {/* User Profile Card */}
       <div className="max-w-lg mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="p-6 bg-gradient-to-r from-yellow-400 to-orange-500">
+        <div className="p-6 ">
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center border-2 border-white">
               <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center">
-                <span className="text-blue-600 font-bold text-lg">RM</span>
+                <span className="text-yellow-400 font-bold text-lg">SH</span>
               </div>
             </div>
             <div className="flex-1">
               <div className="flex items-center space-x-2">
-                <h6 className="text-white font-semibold text-xl">rMUSol</h6>
-                <span className="text-yellow-50">✓</span>
+                <h6 className="text-black font-semibold text-xl">rMUSol</h6>
+                <span className="text-black">✓</span>
               </div>
               <div className="flex items-center space-x-3 mt-1">
                 <a 
                   href="/register?referral=HQUNXG" 
-                  className="text-xs text-blue-50 hover:text-white transition"
+                  className="text-xs text-black transition"
                 >
                   RLink | HQUNXG
                 </a>
-                <button className="text-white hover:text-blue-200 transition">
+                <button className="text-black  transition">
                   <FiExternalLink size={14} />
                 </button>
                 <a href="#" className="text-green-400 hover:text-green-300 transition">
@@ -56,7 +56,7 @@ const Account = () => {
           </div>
 
           {/* Balance Card */}
-          <div className="mt-6 bg-white/20 backdrop-blur-sm rounded-xl p-4 shadow-inner">
+          <div className="mt-6 bg-gradient-to-r from-yellow-400 to-orange-500 backdrop-blur-sm rounded-xl p-4 shadow-inner">
             <p className="text-sm text-blue-100">Total Balance</p>
             <div className="flex items-center justify-between mt-1">
               <h5 className="text-white text-2xl font-bold">Rs 0.00</h5>
