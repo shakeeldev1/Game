@@ -1,45 +1,81 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import {
+  FaHome,
+  FaBullhorn,
+  FaWallet,
+  FaUser,
+} from 'react-icons/fa';
 
 const Footer = () => {
   const location = useLocation();
 
   const menuItems = [
-    { path: '/', label: 'Home', icon: '🏠' },
-    // { path: '/activity', label: 'Activity', icon: '📊' },
-    { path: '/agency', label: 'Promotion', icon: '🎯', isCenter: true },
-    { path: '/wallet', label: 'Wallet', icon: '💰' },
-    { path: '/account', label: 'Account', icon: '👤' }
+    { path: '/', label: 'Home', icon: FaHome },
+    {
+      path: '/agency',
+      label: 'Promotion',
+      icon: FaBullhorn,
+      isCenter: true,
+    },
+    { path: '/wallet', label: 'Wallet', icon: FaWallet },
+    { path: '/login', label: 'Account', icon: FaUser },
   ];
 
   return (
-    <div className=" sticky bottom-0 z-1000 bg-white border-t border-gray-200 shadow-lg">
-      <div className="max-w-7xl mx-auto">
+    <div className="sticky bg-white bottom-0 z-50 ">
+      <div className="max-w-7xl mx-auto px-4 pb-3">
         <div className="flex justify-center">
-          <div className="w-full max-w-md">
-            <div className="flex justify-between items-center px-6 py-3">
+          <div className="w-full max-w-md relative">
+
+            {/* Glass Footer */}
+            <div className="flex justify-between items-center px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-xl shadow-lg border border-white/40">
+
               {menuItems.map((item) => {
                 const isActive = location.pathname === item.path;
-                
+                const Icon = item.icon;
+
                 return (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`flex flex-col items-center justify-center ${
-                      isActive ? 'text-[#f95c5c]' : 'text-gray-500'
-                    }`}
+                    className="flex flex-col items-center flex-1"
                   >
                     {item.isCenter ? (
-                      <div className="flex flex-col items-center justify-center -mt-6">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-r from-[#f95c5c] to-[#ff7b7b] flex items-center justify-center shadow-lg">
-                          <span className="text-xl text-white">{item.icon}</span>
+                      <div className="-mt-10 flex flex-col items-center">
+                        <div
+                          className={`w-16 h-16 rounded-full flex items-center justify-center shadow-xl transition ${
+                            isActive
+                              ? 'bg-gradient-to-tr from-yellow-400 to-orange-500 scale-105'
+                              : 'bg-gradient-to-tr from-yellow-300 to-orange-400'
+                          }`}
+                        >
+                          <Icon className="text-white text-xl" />
                         </div>
-                        <span className="text-xs mt-1 font-medium">{item.label}</span>
+                        <span
+                          className={`mt-1 text-xs font-semibold ${
+                            isActive ? 'text-orange-500' : 'text-gray-500'
+                          }`}
+                        >
+                          {item.label}
+                        </span>
                       </div>
                     ) : (
                       <>
-                        <span className="text-2xl mb-1">{item.icon}</span>
-                        <span className="text-xs font-medium">{item.label}</span>
+                        <Icon
+                          className={`text-xl mb-1 transition ${
+                            isActive
+                              ? 'text-orange-500 scale-110'
+                              : 'text-gray-400'
+                          }`}
+                        />
+                        <span
+                          className={`text-xs font-medium ${
+                            isActive ? 'text-orange-500' : 'text-gray-500'
+                          }`}
+                        >
+                          {item.label}
+                        </span>
                       </>
                     )}
                   </Link>
