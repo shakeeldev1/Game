@@ -7,11 +7,11 @@ import Notification from './pages/Notification';
 
 const MainFunction = () => {
   return (
-    <div className=' bg-gray-300 h-[100vh] overflow-y-scroll'>
+    <div className=' bg-gray-300 h-screen overflow-y-scroll'>
       <div className='relative bg-white min-h-full sm:w-[40%] w-full mx-auto flex flex-col'>
         <Navbar />
         <hr />
-        <div className="flex-grow">
+        <div className="grow">
           <Outlet />
         </div>
         <Footer />
