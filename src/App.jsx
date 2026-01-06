@@ -20,22 +20,24 @@ const MainFunction = () => {
             <Footer />
           </div>
         </div>
-        );
+      </div>
+    </div>
+  );
 };
 
-        const router = createBrowserRouter([
-        {
-          element: <MainFunction />,
-        children: [
-        {path: "/", element: <Home /> },
-        {path: "/learn-more", element: <Notification /> },
-        {path: "/promotions", element: <Promotions /> },
-        ],
+const router = createBrowserRouter([
+  {
+    element: <MainFunction />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/learn-more", element: <Notification /> },
+      { path: "/promotions", element: <Promotions /> },
+    ],
   },
-        ]);
+]);
 
-        function App() {
+function App() {
   return <RouterProvider router={router} />;
 }
 
-        export default App;
+export default App;
