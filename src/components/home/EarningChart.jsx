@@ -26,36 +26,49 @@ export default function EarningChart() {
     ]
 
     return (
-        <div className='bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300'>
+        <div className='bg-[#1a1033]/60 backdrop-blur-xl rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)] p-6 hover:shadow-[0_0_40px_rgba(124,58,237,0.2)] transition-shadow duration-300 border border-white/5 ring-1 ring-purple-500/20'>
             {/* Header */}
-            <div className='mb-6'>
-                <h2 className='text-2xl font-bold text-gray-800'>Top Earners</h2>
-                <p className='text-sm text-gray-500 mt-1'>Today's Earning Chart</p>
+            <div className='mb-6 text-center'>
+                <h2 className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-cyan-400 flex items-center justify-center gap-2'>
+                    <span className="w-8 h-[2px] bg-gradient-to-r from-transparent to-fuchsia-500"></span>
+                    Top Earners
+                    <span className="w-8 h-[2px] bg-gradient-to-l from-transparent to-cyan-500"></span>
+                </h2>
+                <p className='text-[10px] font-bold text-purple-300/80 mt-1 uppercase tracking-[0.2em]'>Today's Leaderboard</p>
             </div>
 
             {/* Podium Chart */}
-            <div className='flex items-end justify-center gap-4 mb-6'>
+            <div className='flex items-end justify-center gap-4 mb-8'>
                 {winners.map((winner) => (
                     <div
                         key={winner.position}
                         className='flex flex-col items-center group cursor-pointer'
                     >
                         {/* Medal Icon */}
-                        <div className='text-4xl mb-3 transform group-hover:scale-125 transition-transform duration-300'>
+                        <div className='text-4xl mb-3 transform group-hover:-translate-y-2 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]'>
                             {winner.position === 1 ? '👑' : winner.position === 2 ? '🥈' : '🥉'}
                         </div>
 
                         {/* Winner Card */}
-                        <div className={`${winner.gradient} ${winner.height} w-24 sm:w-28 rounded-xl shadow-lg 
-                            flex flex-col justify-around items-center p-4 text-white transform 
-                            group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300`}>
-                            <div className='text-center'>
-                                <div className='font-bold text-sm'>{winner.name}</div>
-                                <div className='text-xs font-semibold mt-2 mb-3'>{winner.earnings}</div>
+                        <div className={`
+                            ${winner.position === 1 ? 'bg-gradient-to-b from-yellow-500 to-orange-600 shadow-[0_0_30px_rgba(251,191,36,0.4)]' : ''}
+                            ${winner.position === 2 ? 'bg-gradient-to-b from-slate-300 to-slate-500 shadow-[0_0_20px_rgba(203,213,225,0.3)]' : ''}
+                            ${winner.position === 3 ? 'bg-gradient-to-b from-amber-700 to-orange-900 shadow-[0_0_20px_rgba(146,64,14,0.3)]' : ''}
+                            ${winner.height} w-24 sm:w-28 rounded-t-xl
+                            flex flex-col justify-between items-center p-3 text-white transform 
+                            group-hover:scale-105 transition-all duration-300 border-t border-white/30 relative overflow-hidden
+                        `}>
+                            {/* Shine effect */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-700"></div>
+
+                            <div className='text-center z-10 w-full'>
+                                <div className='font-bold text-sm drop-shadow-md truncate w-full'>{winner.name}</div>
+                                <div className='text-[10px] font-bold mt-1 bg-black/30 px-2 py-0.5 rounded-full backdrop-blur-sm inline-block'>{winner.earnings}</div>
                             </div>
-                            <div className='bg-white bg-opacity-30 rounded-full w-12 h-12 flex items-center 
-                                justify-center font-bold text-xl border-2 border-white'>
-                                <img src="https://pakgame.net/pak_game/upload/avtar/man.png" alt="" />
+
+                            <div className='bg-white/20 backdrop-blur-md rounded-full w-10 h-10 flex items-center 
+                                justify-center border border-white/40 shadow-inner z-10 mb-2'>
+                                <img src="https://pakgame.net/pak_game/upload/avtar/man.png" alt="" className="drop-shadow-sm w-8 h-8 rounded-full" />
                             </div>
                         </div>
                     </div>
@@ -63,18 +76,18 @@ export default function EarningChart() {
             </div>
 
             {/* Footer Stats */}
-            <div className='border-t pt-4 grid grid-cols-3 gap-4 text-center'>
-                <div className='group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300'>
-                    <p className='text-sm text-gray-600 group-hover:text-blue-600'>Winner</p>
-                    <p className='font-bold text-gray-800'>Player 1</p>
+            <div className='border-t border-purple-500/20 pt-4 grid grid-cols-3 gap-2 text-center'>
+                <div className='group hover:bg-purple-500/10 p-2 rounded-lg transition-colors duration-300'>
+                    <p className='text-[10px] text-purple-400 group-hover:text-cyan-400 transition-colors uppercase font-bold tracking-wider mb-1'>Winner</p>
+                    <p className='font-bold text-gray-200 text-sm'>Player 1</p>
                 </div>
-                <div className='group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300'>
-                    <p className='text-sm text-gray-600 group-hover:text-blue-600'>Total Earnings</p>
-                    <p className='font-bold text-gray-800'>Rs-150,000</p>
+                <div className='group hover:bg-purple-500/10 p-2 rounded-lg transition-colors duration-300'>
+                    <p className='text-[10px] text-purple-400 group-hover:text-cyan-400 transition-colors uppercase font-bold tracking-wider mb-1'>Total</p>
+                    <p className='font-bold text-green-400 text-sm drop-shadow-[0_0_5px_rgba(74,222,128,0.5)]'>Rs-150,000</p>
                 </div>
-                <div className='group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300'>
-                    <p className='text-sm text-gray-600 group-hover:text-blue-600'>Participants</p>
-                    <p className='font-bold text-gray-800'>3</p>
+                <div className='group hover:bg-purple-500/10 p-2 rounded-lg transition-colors duration-300'>
+                    <p className='text-[10px] text-purple-400 group-hover:text-cyan-400 transition-colors uppercase font-bold tracking-wider mb-1'>Users</p>
+                    <p className='font-bold text-gray-200 text-sm'>3</p>
                 </div>
             </div>
         </div>

@@ -1,21 +1,24 @@
 import React from "react";
-import { 
-  FiUser, 
-  FiLock, 
-  FiMail, 
-  FiSettings, 
-  FiCheckCircle, 
-  FiArrowRight 
+import {
+  FiUser,
+  FiLock,
+  FiMail,
+  FiSettings,
+  FiCheckCircle,
+  FiArrowRight
 } from "react-icons/fi";
 
 const Setting = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-start py-10">
-      <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
-        
+    <div className="min-h-screen items-start py-10 px-4">
+      <div className="w-full max-w-md mx-auto bg-[#1a1033]/80 backdrop-blur-xl border border-white/5 rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.5)] p-6 relative overflow-hidden">
+
+        {/* Background Glow */}
+        <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-[60px]"></div>
+
         {/* User Top Section */}
-        <div className="flex items-center mb-6">
-          <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300">
+        <div className="flex items-center mb-8 relative z-10">
+          <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkI8KFHCpG5Sn2hffa6Bteb33YYrKLodkIlSdtueqKOw&s"
               alt="Avatar"
@@ -25,89 +28,108 @@ const Setting = () => {
           <div className="ml-4 flex flex-col">
             <a
               href="/"
-              className="flex items-center text-gray-700 font-semibold hover:text-blue-500 hover:underline transition"
+              className="flex items-center text-white font-bold text-lg hover:text-cyan-400 transition-colors group"
             >
               Change Avatar
-              <FiArrowRight className="ml-2 text-gray-400" />
+              <div className="ml-2 w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                <FiArrowRight className="text-gray-400 group-hover:text-cyan-400 text-xs" />
+              </div>
             </a>
           </div>
         </div>
 
-        {/* Nickname */}
-        <div className="flex justify-between items-center bg-gray-50 rounded-xl p-3 mb-3 shadow hover:bg-gray-100 transition cursor-pointer">
-          <div className="flex items-center space-x-3">
-            <FiUser className="text-gray-500 w-5 h-5" />
-            <span className="font-semibold text-gray-800">rMUSol</span>
+        {/* Nickname & ID Cards */}
+        <div className="space-y-3 mb-8 relative z-10">
+          <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-cyan-500/30 transition-colors group cursor-pointer">
+            <div className="flex items-center space-x-3">
+              <div className="p-2 bg-purple-500/10 rounded-lg text-purple-400">
+                <FiUser className="w-5 h-5" />
+              </div>
+              <span className="font-bold text-gray-200 group-hover:text-white transition-colors">rMUSol</span>
+            </div>
+            <FiArrowRight className="text-gray-600 group-hover:text-cyan-400 transition-colors" />
           </div>
-          <FiArrowRight className="text-gray-400 w-5 h-5" />
-        </div>
 
-        {/* R-Code */}
-        <div className="flex justify-between items-center bg-gray-50 rounded-xl p-3 mb-3 shadow hover:bg-gray-100 transition cursor-pointer">
-          <div className="flex items-center space-x-3">
-            <FiSettings className="text-gray-500 w-5 h-5" />
-            <span className="font-semibold text-gray-800">HQUNXG</span>
+          <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-cyan-500/30 transition-colors group cursor-pointer">
+            <div className="flex items-center space-x-3">
+              <div className="p-2 bg-cyan-500/10 rounded-lg text-cyan-400">
+                <FiSettings className="w-5 h-5" />
+              </div>
+              <span className="font-bold text-gray-200 group-hover:text-white transition-colors">HQUNXG</span>
+            </div>
+            <FiArrowRight className="text-gray-600 group-hover:text-cyan-400 transition-colors" />
           </div>
-          <FiArrowRight className="text-gray-400 w-5 h-5" />
         </div>
 
         {/* Security Information Section */}
-        <div className="mt-6">
-          <h2 className="text-lg font-bold mb-3 text-gray-800">Security Information</h2>
+        <div className="relative z-10">
+          <h2 className="text-sm font-bold mb-4 text-gray-500 uppercase tracking-widest pl-1">Security Information</h2>
 
-          {/* Login Password */}
-          <div className="flex justify-between items-center bg-gray-50 rounded-xl p-3 mb-2 shadow hover:bg-gray-100 transition">
-            <div className="flex items-center space-x-3">
-              <FiLock className="text-yellow-500 w-5 h-5" />
-              <span className="text-gray-800 font-medium">Login Password</span>
+          <div className="space-y-3">
+            {/* Login Password */}
+            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-yellow-500/10 rounded-lg text-yellow-400">
+                  <FiLock className="w-5 h-5" />
+                </div>
+                <span className="text-gray-300 font-medium">Login Password</span>
+              </div>
+              <a href="/ChangePassword" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center">
+                Edit <FiArrowRight className="ml-1" />
+              </a>
             </div>
-            <a href="/ChangePassword" className="flex items-center text-yellow-500 font-medium hover:underline">
-              Edit <FiArrowRight className="ml-1" />
-            </a>
-          </div>
 
-          {/* Bind Mailbox */}
-          <div className="flex justify-between items-center bg-gray-50 rounded-xl p-3 mb-2 shadow hover:bg-gray-100 transition">
-            <div className="flex items-center space-x-3">
-              <FiMail className="text-yellow-500 w-5 h-5" />
-              <span className="text-gray-800 font-medium">Bind Mailbox</span>
+            {/* Bind Mailbox */}
+            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-red-500/10 rounded-lg text-red-400">
+                  <FiMail className="w-5 h-5" />
+                </div>
+                <span className="text-gray-300 font-medium">Bind Mailbox</span>
+              </div>
+              <button className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center">
+                Bind <FiArrowRight className="ml-1" />
+              </button>
             </div>
-            <button className="flex items-center text-yellow-500 font-medium hover:underline">
-              Bind <FiArrowRight className="ml-1" />
-            </button>
-          </div>
 
-          {/* Update Profile */}
-          <div className="flex justify-between items-center bg-gray-50 rounded-xl p-3 mb-2 shadow hover:bg-gray-100 transition">
-            <div className="flex items-center space-x-3">
-              <FiUser className="text-yellow-500 w-5 h-5" />
-              <span className="text-gray-800 font-medium">Update Your Profile</span>
+            {/* Update Profile */}
+            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-green-500/10 rounded-lg text-green-400">
+                  <FiUser className="w-5 h-5" />
+                </div>
+                <span className="text-gray-300 font-medium">Update Profile</span>
+              </div>
+              <a href="/UpdateDetails" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center">
+                Edit <FiArrowRight className="ml-1" />
+              </a>
             </div>
-            <a href="/UpdateDetails" className="flex items-center text-yellow-500 font-medium hover:underline">
-              Edit <FiArrowRight className="ml-1" />
-            </a>
-          </div>
 
-          {/* Google Verification */}
-          <div className="flex justify-between items-center bg-gray-50 rounded-xl p-3 mb-2 shadow hover:bg-gray-100 transition">
-            <div className="flex items-center space-x-3">
-              <FiCheckCircle className="text-yellow-500 w-5 h-5" />
-              <span className="text-gray-800 font-medium">Google Verification</span>
+            {/* Google Verification */}
+            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
+                  <FiCheckCircle className="w-5 h-5" />
+                </div>
+                <span className="text-gray-300 font-medium">Google Verification</span>
+              </div>
+              <button className="text-sm font-medium text-gray-500 flex items-center cursor-not-allowed">
+                Unopened <FiArrowRight className="ml-1" />
+              </button>
             </div>
-            <button className="flex items-center text-gray-500 font-medium hover:text-gray-700 transition">
-              Unopened <FiArrowRight className="ml-1" />
-            </button>
-          </div>
 
-          {/* Updated Version */}
-          <div className="flex justify-between items-center bg-gray-50 rounded-xl p-3 shadow hover:bg-gray-100 transition">
-            <div className="flex items-center space-x-3">
-              <FiSettings className="text-yellow-500 w-5 h-5" />
-              <span className="text-gray-800 font-medium">Updated Version</span>
+            {/* Updated Version */}
+            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gray-500/10 rounded-lg text-gray-400">
+                  <FiSettings className="w-5 h-5" />
+                </div>
+                <span className="text-gray-300 font-medium">Version</span>
+              </div>
+              <span className="text-sm font-bold text-fuchsia-400 flex items-center">
+                1.0.9
+              </span>
             </div>
-            <span className="flex items-center text-gray-500 font-medium">
-              1.0.9 <FiArrowRight className="ml-1" />
-            </span>
           </div>
         </div>
       </div>

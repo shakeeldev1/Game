@@ -20,16 +20,15 @@ import MoreGames from "./components/home/MoreGames";
 
 const MainFunction = () => {
   return (
-    <div className=" bg-gray-300 h-[100vh] overflow-y-scroll">
-      <div className="relative bg-white min-h-full sm:w-[40%] w-full mx-auto flex flex-col">
-            <Navbar />
-            <hr />
-            <div className="grow">
-              <Outlet />
-            </div>
-            <Footer />
-          </div>
+    <div className="min-h-screen flex items-center justify-center font-sans bg-gray-100">
+      <div className="relative bg-[#f8fafc] h-[100vh] sm:max-h-[850px] w-full sm:w-[400px] md:w-[420px] sm:rounded-[10px] shadow-2xl overflow-hidden flex flex-col border border-white ring-1 ring-gray-200">
+        <Navbar />
+        <div className="grow overflow-y-auto no-scrollbar scroll-smooth bg-slate-50">
+          <Outlet />
         </div>
+        <Footer />
+      </div>
+    </div>
   );
 };
 
@@ -49,8 +48,8 @@ const router = createBrowserRouter([
       { path: "/learn-more", element: <Notification /> },
       { path: "/promotions", element: <Promotions /> },
       { path: "/wallet", element: <WalletPage /> },
-      { path: "/categories", element: <CategoriesListing  /> },
-      { path: "/more-games", element: <MoreGames  /> },
+      { path: "/categories", element: <CategoriesListing /> },
+      { path: "/more-games", element: <MoreGames /> },
 
     ],
   },

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default function GamesSection() {
-     const services = [
+    const services = [
         {
             name: "Plinko",
             gameimage:
@@ -38,36 +38,41 @@ export default function GamesSection() {
             gameimage:
                 "https://agstatic.com/games/redgenn/aviatrix.jpg",
         },
-       
+
     ];
     return (
         <div>
-            <h1 className='text-black text-lg font-bold text-center mb-4'>Popular Games</h1>
-            <div className="grid grid-cols-3 gap-3">
+            <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 text-lg font-bold text-center mb-4 flex items-center justify-center gap-2'>
+                <span className="w-8 h-[2px] bg-gradient-to-r from-transparent to-cyan-500"></span>
+                Popular Games
+                <span className="w-8 h-[2px] bg-gradient-to-l from-transparent to-purple-500"></span>
+            </h1>
+            <div className="grid grid-cols-3 gap-3 px-2">
                 {services.map((item, index) => (
                     <div
                         key={index}
-                        className="bg-gray-200/20 rounded-xl shadow-lg  text-center hover:shadow-xl cursor-pointer transition shadow-gray-400"
+                        className="bg-purple-900/20 rounded-xl shadow-lg border border-white/5 text-center hover:shadow-[0_0_20px_rgba(217,70,239,0.3)] hover:-translate-y-1 cursor-pointer transition-all duration-300 group hover:border-fuchsia-500/40"
                     >
                         {/* Image */}
-                        <img
-                            src={item.gameimage}
-                            alt={item.name}
-                            className="w-full rounded-md h-full mx-auto object-contain"
-                        />
-
-                       
+                        <div className="relative overflow-hidden rounded-xl aspect-square">
+                            <img
+                                src={item.gameimage}
+                                alt={item.name}
+                                className="w-full h-full mx-auto object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-fuchsia-500/10 transition-colors duration-300"></div>
+                        </div>
                     </div>
                 ))}
 
             </div>
-            <div className=" flex items-center justify-center w-full py-3">
+            <div className=" flex items-center justify-center w-full py-4">
                 <Link to="/more-games">
-               
-                <button className="px-3 py-1 text-xs font-medium rounded-full text-[10px] sm:text-sm cursor-pointer bg-gradient-to-tr from-yellow-400 to-orange-500 text-white hover:opacity-90">
-                    See More
-                </button>
-                 </Link>
+
+                    <button className="px-6 py-1.5 text-xs font-bold rounded-full cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 transform hover:scale-105 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-400/30 uppercase tracking-wide">
+                        See More
+                    </button>
+                </Link>
             </div>
         </div>
     )
