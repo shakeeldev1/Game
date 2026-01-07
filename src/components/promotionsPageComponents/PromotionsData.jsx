@@ -10,23 +10,31 @@ function PromotionData() {
 
   return (
     <div className="px-6 my-10">
-      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 space-y-6">
+      <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-gray-200 pb-5">
-          <div className="w-10 h-10 flex items-center justify-center rounded-full bg-orange-100 text-orange-500 text-lg">
+          <div className="w-10 h-10 flex items-center justify-center rounded-full 
+                          bg-gradient-to-tr from-yellow-400 to-orange-500 text-white text-lg shadow-md">
             📊
           </div>
-          <h2 className="text-gray-800 font-semibold capitalize">
-            promotion data
+          <h2 className="text-gray-900 font-semibold capitalize text-lg">
+            Promotion Data
           </h2>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 gap-6">
           {stats.map((item, index) => (
-            <div key={index} className="text-center">
-              <p className="text-2xl font-bold text-orange-500">{item.value}</p>
-              <p className="text-sm text-gray-500 mt-1">{item.label}</p>
+            <div
+              key={index}
+              className="p-4 bg-white rounded-xl border border-gray-100 shadow-sm 
+                         hover:shadow-lg transition hover:scale-105"
+            >
+              <p className="text-2xl font-extrabold bg-clip-text text-transparent 
+                            bg-gradient-to-tr from-yellow-400 to-orange-500">
+                {item.value}
+              </p>
+              <p className="text-sm text-gray-500 mt-1 text-center">{item.label}</p>
             </div>
           ))}
         </div>

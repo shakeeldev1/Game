@@ -5,7 +5,7 @@ import {
   FaEnvelope,
   FaDownload,
 } from 'react-icons/fa';
-import logo from '../assets/download.png';
+import logo from '../assets/logo.png';
 
 function Navbar() {
   return (
@@ -22,7 +22,7 @@ function Navbar() {
                 <img
                   src={logo}
                   alt="Logo"
-                  className="h-8 w-auto object-contain"
+                  className="h-10 w-25 object-contain"
                 />
               </Link>
 

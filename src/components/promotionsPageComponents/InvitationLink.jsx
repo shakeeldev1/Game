@@ -1,39 +1,39 @@
 import React from "react";
 import {
-  FaHandHoldingDollar,
+  FaCoins,
   FaBook,
   FaHeadset,
-  FaSackDollar,
-  FaArrowRight,
+  FaMoneyBillWave,
   FaSitemap,
-} from "react-icons/fa6";
+  FaArrowRight,
+} from "react-icons/fa";
 import { FiLink, FiCopy } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 function InvitationLink() {
   const items = [
     { icon: <FaSitemap />, label: "Subordinate data" },
-    { icon: <FaHandHoldingDollar />, label: "Commission details" },
+    { icon: <FaCoins />, label: "Commission details" },
     { icon: <FaBook />, label: "Invitation rules" },
     { icon: <FaHeadset />, label: "Agent line customer service" },
-    { icon: <FaSackDollar />, label: "Rebate ratio" },
+    { icon: <FaMoneyBillWave />, label: "Rebate ratio" },
   ];
 
   return (
     <>
       {/* Invitation Button */}
       <div className="flex items-center justify-center py-12">
-        <button className="uppercase py-3 px-6 bg-gradient-to-r from-orange-600 to-yellow-500 rounded-full text-white font-bold cursor-pointer hover:scale-105 transition-transform">
+        <button className="uppercase py-3 px-6 bg-gradient-to-tr from-yellow-400 to-orange-500 rounded-full text-white font-bold cursor-pointer hover:scale-105 transition-transform shadow-lg">
           Invitation Link
         </button>
       </div>
 
-      <div className="px-6 space-y-4">
+      <div className="px-6 space-y-6">
         {/* Referral Link Card */}
-        <div className="bg-white flex items-center justify-between shadow-lg border border-gray-100 p-4 mb-10 rounded-xl">
-          <FiLink className="text-xl text-orange-500" />
+        <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-4 flex items-center justify-between">
+          <FiLink className="text-2xl text-transparent bg-clip-text bg-gradient-to-tr from-yellow-400 to-orange-500" />
 
-          <Link className="hover:text-orange-400 font-medium">
+          <Link className="text-gray-800 font-medium hover:text-orange-500 transition-colors">
             Open Referral Link
           </Link>
 
@@ -46,9 +46,9 @@ function InvitationLink() {
         </div>
 
         {/* Items List */}
-        <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
           {items.map((item, index) => (
-            <ClickAbleLink key={index} item={item} />
+            <ClickableLink key={index} item={item} />
           ))}
         </div>
       </div>
@@ -57,17 +57,19 @@ function InvitationLink() {
 }
 
 // Clickable Item Component
-function ClickAbleLink({ item }) {
+function ClickableLink({ item }) {
   return (
-    <div className="flex items-center justify-between p-4 hover:bg-gray-50 border-b border-gray-50 last:border-0 cursor-pointer transition-colors group">
+    <div className="flex items-center justify-between p-4 bg-gray-50 border-b border-gray-50 last:border-0 cursor-pointer transition-all group">
       <div className="flex items-center gap-4">
-        <div className="text-2xl text-orange-500 bg-orange-50 p-2 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition-all">
+        <div className="text-2xl text-white bg-gradient-to-tr from-yellow-400 to-orange-500 
+                        bg-gray-50 p-2 rounded-lg group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:to-orange-500 
+                        group-hover:text-white transition-all shadow-sm">
           {item.icon}
         </div>
         <p className="text-gray-800 font-medium">{item.label}</p>
       </div>
 
-      <FaArrowRight className="text-gray-300 group-hover:text-orange-500 transition-colors" />
+      <FaArrowRight className="text-gray-800 group-hover:text-gray-500 group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:to-orange-500 transition-all" />
     </div>
   );
 }
