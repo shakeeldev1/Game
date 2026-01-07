@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // Mock data
 const mockGames = [
@@ -327,8 +328,13 @@ const GameListing = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
-      <div className="mb-8">
+      {/* Header */} 
+      <div className="mb-8 flex gap-5">
+         <Link to="/">
+                          <button className="px-6 py-1.5 text-xs font-bold rounded-full cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 transform hover:scale-105 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-400/30 uppercase tracking-wide">
+                              Go Back
+                          </button>
+                      </Link>
         <h5 className="text-2xl font-bold text-gray-900 ">Game Listing</h5>
       </div>
 
@@ -374,7 +380,7 @@ const GameListing = () => {
         <div className="mt-12 text-center">
           <button
             onClick={loadMoreGames}
-            className="inline-flex items-center px-3 py-1 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-600 hover:to-yellow-400 cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex rounded-full items-center px-3 py-1 border border-transparent text-base font-medium  text-white bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             See More
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -391,15 +397,15 @@ const GameListing = () => {
       <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="text-center">
-            <p className="text-2xl font-bold text-yellow-600">{games.length}</p>
+            <p className="text-2xl font-bold text-cyan-600">{games.length}</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">Total Games</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-yellow-600">24+</p>
+            <p className="text-2xl font-bold text-cyan-600">24+</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">Providers</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-yellow-600">New</p>
+            <p className="text-2xl font-bold text-cyan-600">New</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">Daily Additions</p>
           </div>
         </div>

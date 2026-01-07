@@ -14,7 +14,7 @@ const Footer = () => {
       isCenter: true,
     },
     // { path: "/wallet", label: "Wallet", icon: Wallet },
-    { path: "/account", label: "Account", icon: User },
+    { path: "/login", label: "Account", icon: User },
   ];
 
   return (

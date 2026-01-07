@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link
 
 export default function JackPots() {
   const jackpots = [
@@ -40,11 +41,13 @@ export default function JackPots() {
 
         <div className="grid grid-cols-3 gap-3">
           {jackpots.map((item) => (
-            <div
+            /* Wrap the entire card in a Link */
+            <Link
+              to="/more-games"
               key={item.id}
-              className="bg-[#1a1033]/60 backdrop-blur-md rounded-xl p-4 text-center border border-white/5 hover:scale-105 transition duration-300 hover:bg-[#1a1033]/80 hover:border-cyan-500/50 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] group cursor-pointer"
+              className="bg-[#1a1033]/60 backdrop-blur-md rounded-xl p-4 text-center border border-white/5 hover:scale-105 transition duration-300 hover:bg-[#1a1033]/80 hover:border-cyan-500/50 shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] group cursor-pointer block"
             >
-              {/* Icon */}
+              {/* Icon Container */}
               <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-900/40 group-hover:scale-110 transition-transform">
                 <img
                   src={item.img}
@@ -58,9 +61,9 @@ export default function JackPots() {
                 {item.name}
               </h3>
 
-              {/* Accent */}
+              {/* Accent Line */}
               <div className="mt-2 h-0.5 w-8 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-transparent group-hover:w-12 transition-all"></div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

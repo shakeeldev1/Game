@@ -1,45 +1,54 @@
 import React from "react";
+import { IoBarChartOutline, IoTrendingUpOutline, IoPeopleOutline, IoWalletOutline } from "react-icons/io5";
 
 function PromotionData() {
   const stats = [
-    { value: 0, label: "This week" },
-    { value: 0, label: "Total commission" },
-    { value: 0, label: "Direct subordinate" },
-    { value: 0, label: "Total number of subordinates" },
+    { value: "0.00", label: "This week", icon: <IoTrendingUpOutline />, color: "text-cyan-600", bg: "bg-cyan-50" },
+    { value: "0.00", label: "Total commission", icon: <IoWalletOutline />, color: "text-fuchsia-600", bg: "bg-fuchsia-50" },
+    { value: "0", label: "Direct sub", icon: <IoPeopleOutline />, color: "text-blue-600", bg: "bg-blue-50" },
+    { value: "0", label: "Total sub", icon: <IoBarChartOutline />, color: "text-slate-900", bg: "bg-slate-100" },
   ];
 
   return (
-    <div className="px-6 my-8">
-      <div className="bg-[#1a1033]/80 backdrop-blur-xl rounded-3xl shadow-lg border border-white/5 p-6 space-y-6 relative overflow-hidden">
-        {/* Background Glow */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-[50px]"></div>
-
-        {/* Header */}
-        <div className="flex items-center gap-4 border-b border-white/5 pb-5 relative z-10">
-          <div className="w-12 h-12 flex items-center justify-center rounded-2xl 
-                          bg-gradient-to-br from-cyan-500/20 to-blue-500/20 text-2xl shadow-inner border border-white/5">
-            📊
+    <div className="px-4 my-6">
+      <div className="bg-white rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-slate-100 p-5 relative overflow-hidden">
+        
+        {/* Header - Compact for mobile */}
+        <div className="flex items-center justify-between mb-6 relative z-10">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 text-slate-700 border border-slate-100">
+              <IoBarChartOutline size={20} />
+            </div>
+            <h2 className="text-slate-900 font-bold text-lg tracking-tight">
+              Promotion Data
+            </h2>
           </div>
-          <h2 className="text-white font-bold capitalize text-xl tracking-wide">
-            Promotion Data
-          </h2>
+          <div className="hidden xs:block px-2 py-1 bg-green-50 rounded-md border border-green-100">
+            <span className="text-[9px] font-bold text-green-600 uppercase tracking-tight">Live</span>
+          </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 gap-4 relative z-10">
+        {/* Stats Grid - Responsive logic to prevent wrapping */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 relative z-10">
           {stats.map((item, index) => (
             <div
               key={index}
-              className="p-4 bg-[#0f0720]/50 rounded-2xl border border-white/5 shadow-inner 
-                         hover:border-cyan-500/30 transition-all duration-300 hover:-translate-y-1 group"
+              className="p-4 bg-slate-50/50 rounded-2xl border border-slate-100 flex flex-col justify-between hover:bg-white hover:shadow-lg transition-all duration-300 group"
             >
-              <p className="text-2xl font-black bg-clip-text text-transparent 
-                            bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-sm group-hover:from-cyan-300 group-hover:to-blue-400">
-                {item.value}
-              </p>
-              <p className="text-xs text-gray-500 mt-2 font-medium leading-tight group-hover:text-gray-400 transition-colors uppercase tracking-wide">
-                {item.label}
-              </p>
+              <div className="flex items-center justify-between mb-3">
+                <div className={`w-8 h-8 ${item.bg} ${item.color} rounded-lg flex items-center justify-center text-lg`}>
+                  {item.icon}
+                </div>
+              </div>
+              
+              <div>
+                <p className={`text-xl xs:text-2xl font-black ${item.color} tracking-tight truncate`}>
+                  {item.value}
+                </p>
+                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wide truncate mt-0.5">
+                  {item.label}
+                </p>
+              </div>
             </div>
           ))}
         </div>

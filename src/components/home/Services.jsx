@@ -30,9 +30,11 @@ export default function Services() {
 
             <div className="grid grid-cols-3 gap-3">
                 {services.map((item, index) => (
-                    <div
-                        key={index}
-                        className="bg-[#1e103f]/40 rounded-xl shadow-lg p-4 text-center hover:shadow-[0_0_20px_rgba(217,70,239,0.2)] hover:-translate-y-1 cursor-pointer transition border border-white/5 hover:border-fuchsia-500/30 group"
+                    /* Wrap each card in a Link to make the whole area clickable */
+                    <Link 
+                        to="/categories" 
+                        key={index} 
+                        className="block bg-[#1e103f]/40 rounded-xl shadow-lg p-4 text-center hover:shadow-[0_0_20px_rgba(217,70,239,0.2)] hover:-translate-y-1 cursor-pointer transition border border-white/5 hover:border-fuchsia-500/30 group"
                     >
                         {/* Image */}
                         <img
@@ -45,11 +47,11 @@ export default function Services() {
                         <h3 className="text-[10px] sm:text-sm font-bold text-gray-300 group-hover:text-fuchsia-300 transition-colors">
                             {item.name}
                         </h3>
-                    </div>
+                    </Link>
                 ))}
-
             </div>
-            <div className=" flex items-center justify-center w-full py-4">
+
+            <div className="flex items-center justify-center w-full py-4">
                 <Link to="/categories">
                     <button className="px-6 py-1.5 text-xs font-bold rounded-full cursor-pointer bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white hover:from-fuchsia-500 hover:to-purple-500 transform hover:scale-105 transition-all shadow-[0_0_15px_rgba(217,70,239,0.4)] border border-fuchsia-400/30 uppercase tracking-wide">
                         See More

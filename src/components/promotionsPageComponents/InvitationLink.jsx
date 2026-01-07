@@ -5,74 +5,78 @@ import {
   FaHeadset,
   FaMoneyBillWave,
   FaSitemap,
-  FaArrowRight,
+  FaChevronRight,
 } from "react-icons/fa";
 import { FiLink, FiCopy } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 function InvitationLink() {
   const items = [
-    { icon: <FaSitemap />, label: "Subordinate data", color: "text-cyan-400" },
-    { icon: <FaCoins />, label: "Commission details", color: "text-fuchsia-400" },
-    { icon: <FaBook />, label: "Invitation rules", color: "text-purple-400" },
-    { icon: <FaHeadset />, label: "Agent line customer service", color: "text-green-400" },
-    { icon: <FaMoneyBillWave />, label: "Rebate ratio", color: "text-yellow-400" },
+    { icon: <FaSitemap />, label: "Subordinate data", color: "text-cyan-600", bg: "bg-cyan-50" },
+    { icon: <FaCoins />, label: "Commission details", color: "text-fuchsia-600", bg: "bg-fuchsia-50" },
+    { icon: <FaBook />, label: "Invitation rules", color: "text-purple-600", bg: "bg-purple-50" },
+    { icon: <FaHeadset />, label: "Customer service", color: "text-emerald-600", bg: "bg-emerald-50" },
+    { icon: <FaMoneyBillWave />, label: "Rebate ratio", color: "text-amber-600", bg: "bg-amber-50" },
   ];
 
   return (
-    <>
-      {/* Invitation Button */}
-      <div className="flex items-center justify-center py-8">
-        <button className="uppercase py-3 px-8 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 rounded-full text-white font-bold cursor-pointer hover:scale-105 transition-all shadow-[0_0_20px_rgba(6,182,212,0.5)] border border-cyan-400/30 tracking-wider">
+    <div className="max-w-2xl mx-auto">
+      {/* Primary Action Button */}
+      <div className="flex items-center justify-center py-10">
+        <button className="uppercase py-4 px-10 bg-slate-900 hover:bg-fuchsia-600 text-white text-xs font-black rounded-2xl cursor-pointer transition-all shadow-xl shadow-slate-200 hover:shadow-fuchsia-200 tracking-[0.2em] active:scale-95">
           Invitation Link
         </button>
       </div>
 
-      <div className="px-6 space-y-6 pb-24">
+      <div className="px-6 space-y-4 pb-24">
         {/* Referral Link Card */}
-        <div className="bg-[#1a1033]/80 backdrop-blur-xl rounded-3xl shadow-lg border border-white/10 p-5 flex items-center justify-between group hover:border-cyan-500/30 transition-colors">
-          <div className="p-3 rounded-full bg-cyan-500/10 text-cyan-400 group-hover:text-cyan-300 transition-colors">
-            <FiLink className="text-2xl" />
+        <div className="bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 p-4 flex items-center gap-4 group transition-all">
+          <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-fuchsia-50 group-hover:text-fuchsia-600 transition-colors">
+            <FiLink className="text-xl" />
           </div>
 
-          <Link className="text-gray-300 font-medium hover:text-white transition-colors flex-1 text-center">
-            Open Referral Link
-          </Link>
-
-          <div className="p-3 relative bg-white/5 rounded-full hover:bg-cyan-500/20 cursor-pointer transition-colors group/copy">
-            <FiCopy className="text-xl text-gray-400 group-hover/copy:text-cyan-400 transition-colors" />
-            <p className="absolute bg-black/90 text-white text-[10px] hidden group-hover/copy:block -left-8 py-1 -top-8 px-2 rounded whitespace-nowrap border border-white/20">
-              Copy Link
-            </p>
+          <div className="flex-1">
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Your Referral Link</p>
+            <Link className="text-slate-700 font-bold hover:text-fuchsia-600 transition-colors block truncate pr-4">
+              https://agencyhub.com/ref/8291...
+            </Link>
           </div>
+
+          <button className="p-3 bg-slate-50 rounded-xl hover:bg-slate-100 text-slate-400 hover:text-slate-900 transition-all active:scale-90 relative group/copy">
+            <FiCopy className="text-lg" />
+            <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover/copy:opacity-100 transition-opacity pointer-events-none">
+              Copy
+            </span>
+          </button>
         </div>
 
-        {/* Items List */}
-        <div className="bg-[#1a1033]/80 backdrop-blur-xl rounded-3xl shadow-lg overflow-hidden border border-white/10">
-          <div className="divide-y divide-white/5">
+        {/* Navigation List */}
+        <div className="bg-white rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.03)] border border-slate-100 overflow-hidden">
+          <div className="divide-y divide-slate-50">
             {items.map((item, index) => (
               <ClickableLink key={index} item={item} />
             ))}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-// Clickable Item Component
 function ClickableLink({ item }) {
   return (
-    <div className="flex items-center justify-between p-4 hover:bg-white/5 cursor-pointer transition-all group border-l-2 border-transparent hover:border-cyan-500">
+    <div className="flex items-center justify-between p-5 hover:bg-slate-50/80 cursor-pointer transition-all group">
       <div className="flex items-center gap-4">
-        <div className={`text-xl p-2.5 rounded-xl bg-white/5 border border-white/5 ${item.color} group-hover:scale-110 transition-transform shadow-inner`}>
+        <div className={`w-10 h-10 rounded-xl ${item.bg} ${item.color} flex items-center justify-center text-lg transition-transform group-hover:scale-110`}>
           {item.icon}
         </div>
-        <p className="text-gray-300 font-medium group-hover:text-white transition-colors">{item.label}</p>
+        <p className="text-slate-700 font-bold text-sm tracking-tight group-hover:text-slate-900 transition-colors">
+          {item.label}
+        </p>
       </div>
 
-      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white/5 group-hover:bg-cyan-500/20 transition-colors">
-        <FaArrowRight className="text-gray-500 group-hover:text-cyan-400 transition-colors text-xs" />
+      <div className="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 group-hover:text-fuchsia-500 group-hover:translate-x-1 transition-all">
+        <FaChevronRight className="text-xs" />
       </div>
     </div>
   );
