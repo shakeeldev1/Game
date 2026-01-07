@@ -19,7 +19,7 @@ const Home = () => {
                 <div className=" p-2 text-[10px] text-center md:text-sm w-[80%]">
                     Attention ALL Members! Customer service is currently available only via official channels.
                 </div>
-                <Link to='/learn-more'><div className=" px-2 py-2 bg-red-600 rounded-lg cursor-pointer text-[10px] sm:text-sm text-nowrap text-white">
+                <Link to='/learn-more'><div className=" px-2 py-2 bg-gradient-to-tr from-[#5b0b43] via-[#8f8fa8] via-[#467b33] rounded-lg cursor-pointer text-[10px] sm:text-sm text-nowrap text-white">
                     Learn more
                 </div></Link>
             </div>
