@@ -6,17 +6,17 @@ export default function Services() {
         {
             name: "Plinko",
             gameimage:
-                "https://pakgame.net/pak_game/upload/games/678d517118a67_image-removebg-preview%20(5).png",
+                "/HomePic/plinko.png",
         },
         {
             name: "Virtual Sports",
             gameimage:
-                "https://pakgame.net/pak_game/upload/games/678d5db9c5056_image-removebg-preview%20(9).png",
+                "https://thixpro.com/game-image/virtual-game2.jpg",
         },
         {
             name: "Live Casino",
             gameimage:
-                "https://pakgame.net/pak_game/upload/games/678d5e24799ed_image-removebg-preview%20(10).png",
+                "https://www.gammastack.com/wp-content/uploads/2024/09/white-label-casino-game-development_img.png",
         },
     ];
 
@@ -34,17 +34,17 @@ export default function Services() {
                     <Link 
                         to="/categories" 
                         key={index} 
-                        className="block bg-[#1e103f]/40 rounded-xl shadow-lg p-4 text-center hover:shadow-[0_0_20px_rgba(217,70,239,0.2)] hover:-translate-y-1 cursor-pointer transition border border-white/5 hover:border-fuchsia-500/30 group"
+                        className="block bg-white rounded-xl shadow-lg p-4 text-center hover:shadow-[0_0_20px_rgba(217,70,239,0.2)] hover:-translate-y-1 cursor-pointer transition border border-white/5 hover:border-fuchsia-500/30 group"
                     >
                         {/* Image */}
                         <img
                             src={item.gameimage}
                             alt={item.name}
-                            className="w-16 h-16 mx-auto mb-3 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300"
+                            className="w-16 h-16 mx-auto mb-3 object-contain rounded-[50%] drop-shadow-md group-hover:scale-110 bg-contain transition-transform duration-300"
                         />
 
                         {/* Name */}
-                        <h3 className="text-[10px] sm:text-sm font-bold text-gray-300 group-hover:text-fuchsia-300 transition-colors">
+                        <h3 className="text-[12px] text-nowrap sm:text-sm font-bold text-black group-hover:text-fuchsia-300 transition-colors">
                             {item.name}
                         </h3>
                     </Link>
@@ -53,7 +53,7 @@ export default function Services() {
 
             <div className="flex items-center justify-center w-full py-4">
                 <Link to="/categories">
-                    <button className="px-6 py-1.5 text-xs font-bold rounded-full cursor-pointer bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white hover:from-fuchsia-500 hover:to-purple-500 transform hover:scale-105 transition-all shadow-[0_0_15px_rgba(217,70,239,0.4)] border border-fuchsia-400/30 uppercase tracking-wide">
+                    <button className="px-6 py-1.5 text-xs font-bold rounded-full cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 transform hover:scale-105 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-400/30 uppercase tracking-wide">
                         See More
                     </button>
                 </Link>
