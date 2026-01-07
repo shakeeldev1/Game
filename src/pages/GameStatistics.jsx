@@ -49,7 +49,7 @@ const GameStatistics = () => {
 
           {/* Total Win */}
           <div className="pb-4 border-b border-gray-100">
-            <p className="text-sm text-gray-500 mb-1">Total win</p>
+            <p className="text-sm text-gray-500 mb-1">Total Win</p>
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">₹</span>
