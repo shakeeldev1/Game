@@ -120,7 +120,7 @@ const Account = () => {
                 <h4 className="text-slate-900 font-black text-base tracking-tight">Safe Vault</h4>
                 <div className="flex items-center mt-0.5 space-x-2">
                   <Zap size={12} className="text-amber-500 fill-amber-500" />
-                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Daily Interest 0.1%</p>
+                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Daily interest 0.1%</p>
                 </div>
               </div>
             </div>
