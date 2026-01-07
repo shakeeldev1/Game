@@ -15,6 +15,8 @@ import Setting from "./pages/Setting";
 import Feedback from "./pages/Feedback";
 import Guide from "./pages/Guide";
 import About from "./pages/About";
+import CategoriesListing from "./components/home/CategoriesListing";
+import MoreGames from "./components/home/MoreGames";
 
 const MainFunction = () => {
   return (
@@ -47,6 +49,8 @@ const router = createBrowserRouter([
       { path: "/learn-more", element: <Notification /> },
       { path: "/promotions", element: <Promotions /> },
       { path: "/wallet", element: <WalletPage /> },
+      { path: "/categories", element: <CategoriesListing  /> },
+      { path: "/more-games", element: <MoreGames  /> },
 
     ],
   },

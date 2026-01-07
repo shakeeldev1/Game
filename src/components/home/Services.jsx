@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Services() {
     const services = [
@@ -49,9 +50,11 @@ export default function Services() {
 
             </div>
             <div className=" flex items-center justify-center w-full py-3">
+                <Link to="/categories">
                 <button className="px-3 py-1 text-xs font-medium rounded-full text-[10px] sm:text-sm cursor-pointer bg-gradient-to-tr from-yellow-400 to-orange-500 text-white hover:opacity-90">
                     See More
                 </button>
+                </Link>
             </div>
         </div>
     );
