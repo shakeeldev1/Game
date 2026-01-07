@@ -9,7 +9,7 @@ const Feedback = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
@@ -20,23 +20,27 @@ const Feedback = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-gradient-to-b from-gray-50 to-white min-h-screen p-4">
-      <div className="bg-white rounded-2xl shadow-md p-6">
+    <div className="w-full max-w-md mx-auto min-h-screen p-4 pb-24">
+      <div className="bg-[#1a1033]/80 backdrop-blur-xl rounded-2xl shadow-lg border border-white/5 p-6 relative overflow-hidden">
+
+        {/* Glow */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-[80px]"></div>
+
         {/* Header */}
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-gray-800 mb-2">Feedback</h3>
-          <p className="text-gray-600">We value your input to improve our service</p>
+        <div className="text-center mb-8 relative z-10">
+          <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-md">Feedback</h3>
+          <p className="text-gray-400 text-sm">We value your input to improve our service</p>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="relative z-10">
           {/* Email Input */}
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="email">
+          <div className="mb-5">
+            <label className="block text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 ml-1" htmlFor="email">
               Your Email
             </label>
-            <div className="relative">
+            <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiMail className="h-5 w-5 text-gray-400" />
+                <FiMail className="h-5 w-5 text-gray-500 group-focus-within:text-cyan-400 transition-colors" />
               </div>
               <input
                 type="email"
@@ -45,51 +49,51 @@ const Feedback = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your.email@example.com"
                 required
-                className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                className="w-full pl-10 pr-3 py-3.5 bg-[#0f0720]/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-300"
               />
             </div>
           </div>
 
           {/* Feedback Textarea */}
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="feedback">
+            <label className="block text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 ml-1" htmlFor="feedback">
               Your Feedback
             </label>
-            <div className="relative">
-              <div className="absolute top-3 left-3 pointer-events-none">
-                <FiMessageSquare className="h-5 w-5 text-gray-400" />
+            <div className="relative group">
+              <div className="absolute top-3.5 left-3 pointer-events-none">
+                <FiMessageSquare className="h-5 w-5 text-gray-500 group-focus-within:text-fuchsia-400 transition-colors" />
               </div>
               <textarea
                 id="feedback"
                 value={feedback}
                 onChange={(e) => setFeedback(e.target.value)}
                 rows="6"
-                placeholder="Welcome to feedback! Please describe the problem in detail when providing feedback. For the best assistance, please attach a screenshot of the issue you encountered. We will process your feedback immediately!"
+                placeholder="Describe your issue or suggestion..."
                 required
-                className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent resize-none transition-all duration-200"
+                className="w-full pl-10 pr-3 py-3 bg-[#0f0720]/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-fuchsia-500/50 focus:border-fuchsia-500/50 resize-none transition-all duration-300"
               />
             </div>
           </div>
 
           {/* Rewards Info */}
-          <div className="mb-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4">
-            <div className="flex items-center space-x-3 mb-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-lg flex items-center justify-center">
-                <FiGift className="h-5 w-5 text-white" />
+          <div className="mb-6 bg-gradient-to-r from-cyan-900/40 to-blue-900/40 border border-cyan-500/20 rounded-xl p-4">
+            <div className="flex items-center space-x-4 mb-3">
+              <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg border border-white/10">
+                <FiGift className="h-6 w-6 text-white" />
               </div>
               <div>
-                <p className="font-medium text-gray-800">Send helpful feedback</p>
-                <p className="text-sm text-gray-600">Chance to win Mystery Rewards!</p>
+                <p className="font-bold text-cyan-400">Send helpful feedback</p>
+                <p className="text-xs text-gray-400 mt-0.5">Chance to win Mystery Rewards!</p>
               </div>
             </div>
-            
+
             {/* Visual Reward Icon */}
             <div className="flex justify-center my-4">
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center animate-pulse">
-                  <span className="text-white text-2xl">🎁</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-fuchsia-500 to-purple-600 rounded-2xl flex items-center justify-center animate-pulse shadow-[0_0_20px_rgba(217,70,239,0.3)]">
+                  <span className="text-white text-3xl">🎁</span>
                 </div>
-                <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-bounce">
+                <div className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full animate-bounce shadow-md">
                   New!
                 </div>
               </div>
@@ -97,10 +101,10 @@ const Feedback = () => {
           </div>
 
           {/* Upload Hint */}
-          <div className="mb-6 bg-gray-50 rounded-lg p-3">
-            <div className="flex items-start space-x-2">
-              <span className="text-blue-500 font-bold">💡</span>
-              <p className="text-sm text-gray-600">
+          <div className="mb-6 bg-white/5 border border-white/5 rounded-xl p-4">
+            <div className="flex items-start space-x-3">
+              <span className="text-yellow-400 font-bold text-lg">💡</span>
+              <p className="text-xs text-gray-400 leading-relaxed">
                 For better assistance, you can attach screenshots by dragging and dropping images or pasting from clipboard
               </p>
             </div>
@@ -110,7 +114,7 @@ const Feedback = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-3 rounded-xl font-semibold hover:from-yellow-500 hover:to-yellow-700 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+            className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3.5 rounded-xl font-bold tracking-wide hover:from-cyan-500 hover:to-blue-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] border border-cyan-400/20"
           >
             {isSubmitting ? (
               <>
@@ -126,29 +130,29 @@ const Feedback = () => {
           </button>
 
           {/* Privacy Note */}
-          <p className="text-xs text-gray-500 text-center mt-4">
+          <p className="text-[10px] text-gray-600 text-center mt-4">
             Your feedback is confidential and will only be used to improve our services.
           </p>
         </form>
 
         {/* Quick Tips */}
-        <div className="mt-8 pt-6 border-t border-gray-200">
-          <h4 className="font-medium text-gray-700 mb-3">📝 Helpful Feedback Tips:</h4>
-          <ul className="space-y-2 text-sm text-gray-600">
-            <li className="flex items-start space-x-2">
-              <span className="text-green-500">✓</span>
+        <div className="mt-8 pt-6 border-t border-white/5 relative z-10">
+          <h4 className="font-bold text-gray-300 mb-4 text-sm uppercase tracking-wide">📝 Helpful Feedback Tips:</h4>
+          <ul className="space-y-3 text-sm text-gray-500">
+            <li className="flex items-start space-x-3">
+              <span className="text-green-400 font-bold">✓</span>
               <span>Be specific about the issue you encountered</span>
             </li>
-            <li className="flex items-start space-x-2">
-              <span className="text-green-500">✓</span>
+            <li className="flex items-start space-x-3">
+              <span className="text-green-400 font-bold">✓</span>
               <span>Include steps to reproduce the problem</span>
             </li>
-            <li className="flex items-start space-x-2">
-              <span className="text-green-500">✓</span>
+            <li className="flex items-start space-x-3">
+              <span className="text-green-400 font-bold">✓</span>
               <span>Mention what you expected to happen</span>
             </li>
-            <li className="flex items-start space-x-2">
-              <span className="text-green-500">✓</span>
+            <li className="flex items-start space-x-3">
+              <span className="text-green-400 font-bold">✓</span>
               <span>Attach screenshots when possible</span>
             </li>
           </ul>
