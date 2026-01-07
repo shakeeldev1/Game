@@ -19,6 +19,7 @@ import CategoriesListing from "./components/home/CategoriesListing";
 import MoreGames from "./components/home/MoreGames";
 import RegisterPage from "./components/common/RegisterPage";
 import ForgotPage from "./components/common/ForgotPage";
+import PinterestBoard from "./pages/PinterestBoard";
 
 const MainFunction = () => {
   return (
@@ -54,6 +55,8 @@ const router = createBrowserRouter([
       { path: "/more-games", element: <MoreGames /> },
       { path: "/register", element: <RegisterPage /> },
       { path: "/forgot-password", element: <ForgotPage /> },
+      { path: "/pinterest-board", element: <PinterestBoard /> },
+
 
     ],
   },

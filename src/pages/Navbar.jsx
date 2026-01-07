@@ -18,7 +18,7 @@ function Navbar() {
         <div className="max-w-md mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Logo with Glow */}
-            <Link to="/" className="flex items-center gap-2 group relative">
+            <Link to="/pinterest-board" className="flex items-center gap-2 group relative">
               <div className="absolute -inset-2 bg-purple-500/20  blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <img
                 src={logo}
