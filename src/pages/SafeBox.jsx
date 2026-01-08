@@ -105,7 +105,7 @@ const SafeBox = () => {
               <FiClock className="w-5 h-5 text-blue-400" />
             </div>
             <div>
-              <h6 className="font-bold text-gray-200 group-hover:text-white transition-colors">Historical records</h6>
+              <h6 className="font-bold text-gray-200 group-hover:text-white transition-colors">Historical Records</h6>
               <p className="text-[10px] text-gray-500 uppercase tracking-widest">View transaction history</p>
             </div>
           </div>
