@@ -42,9 +42,9 @@ const Account = () => {
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-700">Home</span>
           </button>
           
-          <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+          {/* <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
             Profile <span className="text-slate-300 mx-1">/</span> <span className="text-cyan-600">Settings</span>
-          </div>
+          </div> */}
         </div>
 
         {/* 1. Enhanced Profile Section */}
@@ -75,7 +75,7 @@ const Account = () => {
         </div>
 
         {/* 2. Premium Balance Card */}
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 p-8 shadow-2xl shadow-blue-900/20 mb-6">
+        <div className="relative overflow-hidden rounded-lg bg-slate-900 p-8 shadow-2xl shadow-blue-900/20 mb-6">
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/20 rounded-full blur-[50px]" />
           <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-600/20 rounded-full blur-[50px]" />
           
@@ -134,7 +134,7 @@ const Account = () => {
         {/* 4. Settings & Menu Sections */}
         <section className="space-y-6">
           <MenuSection title="Account Activity">
-            <MenuItem icon={<Bell />} label="Notification" count={15} color="text-blue-500" bg="bg-blue-50" />
+            <MenuItem icon={<Bell />} to="/learn-more" label="Notification" count={15} color="text-blue-500" bg="bg-blue-50" />
             <MenuItem icon={<BarChart2 />} label="Game Statistics" to="/game-statistics" color="text-purple-500" bg="bg-purple-50" />
             <MenuItem icon={<Globe />} label="Language" value="English" color="text-emerald-500" bg="bg-emerald-50" />
           </MenuSection>

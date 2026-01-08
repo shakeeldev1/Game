@@ -82,7 +82,7 @@ export default function HomeHeroSlider() {
               </p>
 
               <Link to={'/more-games'}>
-                <button className="mt-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all text-white text-xs sm:text-sm px-4 py-2 rounded-md font-semibold shadow-[0_0_25px_rgba(6,182,212,0.5)] hover:scale-105">
+                <button className="mt-3 cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all text-white text-xs sm:text-sm px-4 py-2 rounded-md font-semibold shadow-[0_0_25px_rgba(6,182,212,0.5)] hover:scale-105">
                   Enter Game
                 </button>
               </Link>

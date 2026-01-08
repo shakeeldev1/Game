@@ -330,7 +330,7 @@ const PinterestBoard = () => {
                   
                   {/* Pin Title */}
                   <div className="p-3">
-                    <p className="text-sm text-gray-700 line-clamp-2">{pin.title}</p>
+                    {/* <p className="text-sm text-gray-700 line-clamp-2">{pin.title}</p> */}
                   </div>
                 </div>
               </div>

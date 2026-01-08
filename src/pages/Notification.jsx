@@ -79,7 +79,7 @@ export default function Notification() {
 
   return (
     <div className="min-h-screen p-4 pb-24">
-      <h1 className="text-2xl font-bold text-white mb-6 pl-2 border-l-4 border-cyan-500">Notifications</h1>
+      <h1 className="text-2xl font-bold text-black mb-6 pl-2 border-l-4 border-cyan-500">Notifications</h1>
 
       <div className="space-y-4">
         {notifications.map((item) => (
