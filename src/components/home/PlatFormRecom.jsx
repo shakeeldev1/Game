@@ -49,8 +49,8 @@ export default function PlatFormRecom() {
         <div className="px-3 py-4 relative">
             {/* Header */}
             <div className="flex justify-between items-center mb-3">
-                <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 text-lg font-bold flex items-center gap-2">
-                    <span className="w-1 h-4 bg-cyan-500 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.8)]"></span>
+                <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] text-lg font-bold flex items-center gap-2 animate-pulse">
+                    <span className="w-1 h-4 bg-[var(--color-neon-primary)] rounded-full shadow-[0_0_10px_rgba(240,165,0,0.8)]"></span>
                     Recommendation
                 </h1>
 
@@ -60,13 +60,13 @@ export default function PlatFormRecom() {
                         className="group"
                     >
                         <PiCaretCircleLeftFill onClick={slideLeft}
-                            className="w-7 h-7 rounded-full bg-[#1e103f] text-cyan-500 hover:text-white hover:bg-cyan-600 transition-all shadow-[0_0_10px_rgba(6,182,212,0.3)]" />
+                            className="w-7 h-7 rounded-full bg-[var(--color-neon-bg)]/80 text-[var(--color-neon-primary)] hover:text-[var(--color-neon-bg)] hover:bg-[var(--color-neon-primary)] transition-all shadow-[0_0_10px_rgba(240,165,0,0.3)] border border-[var(--color-neon-accent)]/30" />
                     </button>
                     <button
                         className="group"
                     >
                         <PiCaretCircleRightFill onClick={slideRight}
-                            className="w-7 h-7 flex items-center justify-center rounded-full bg-[#1e103f] text-cyan-500 hover:text-white hover:bg-cyan-600 transition-all shadow-[0_0_10px_rgba(6,182,212,0.3)]" />
+                            className="w-7 h-7 flex items-center justify-center rounded-full bg-[var(--color-neon-bg)]/80 text-[var(--color-neon-primary)] hover:text-[var(--color-neon-bg)] hover:bg-[var(--color-neon-primary)] transition-all shadow-[0_0_10px_rgba(240,165,0,0.3)] border border-[var(--color-neon-accent)]/30" />
                     </button>
                 </div>
             </div>
@@ -81,12 +81,12 @@ export default function PlatFormRecom() {
                 {popular.map((img, index) => (
                     <div
                         key={index}
-                        className="min-w-[120px] overflow-hidden rounded-xl p-[1px] bg-gradient-to-br from-cyan-500 to-purple-600 hover:scale-105 transition shadow-lg shadow-black/30 group"
+                        className="min-w-[120px] overflow-hidden rounded-xl p-[2px] bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] hover:scale-110 hover:rotate-1 transition-all duration-300 shadow-[0_0_20px_rgba(240,165,0,0.2)] group"
                     >
                         <img
                             src={img}
                             alt="game"
-                            className="rounded-[10px] w-full h-[100px] object-cover bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity"
+                            className="rounded-[9px] w-full h-[100px] object-cover bg-[var(--color-neon-bg)] opacity-90 group-hover:opacity-100 transition-all duration-300"
                         />
                     </div>
                 ))}

@@ -1,112 +1,221 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight, FaPlay, FaStar, FaFire } from "react-icons/fa";
 
 export default function HomeHeroSlider() {
   const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const slides = [
     {
       bg: "https://pakgame.net/pak_game/upload/banners/66604513a361d_fly.png",
       game: encodeURI("https://pakgame.net/pak_game/upload/games/66d1b3516bb2f_Mysterious Bonus.png"),
       title: "Plinko",
+      subtitle: "Most Popular",
       desc: "Play Plinko and win big! Spin the wheel and collect as many coins as possible to claim your prize!",
-      btn: "Play Now"
+      btn: "Play Now",
+      badge: "HOT"
     },
     {
       bg: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1600&auto=format&fit=crop",
       game: encodeURI("https://img.freepik.com/premium-vector/dragon-esport-logo-template_1300-896.jpg?ga=GA1.1.1029239798.1754464986&semt=ais_hybrid&w=740&q=80"),
       title: "Dragon's Fortune",
+      subtitle: "Legendary",
       desc: "Battle mythical dragons for legendary treasures. Collect fire gems for massive bonus multipliers!",
-      btn: "Enter Game"
+      btn: "Enter Game",
+      badge: "NEW"
     },
     {
       bg: "https://images.unsplash.com/photo-1515992854631-13de43ba2341?w=1600&auto=format&fit=crop",
       game: encodeURI("https://img.freepik.com/free-vector/realistic-casino-gambling-dark-banner-play-win-jackpot_1017-52242.jpg?ga=GA1.1.1029239798.1754464986&semt=ais_hybrid&w=740&q=80"),
       title: "Royal Poker Club",
+      subtitle: "VIP Tables",
       desc: "Join exclusive VIP tables with high rollers. Royal flush bonuses and progressive jackpots available!",
-      btn: "Join VIP"
+      btn: "Join VIP",
+      badge: "VIP"
     },
     {
       bg: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=1600&auto=format&fit=crop",
       game: encodeURI("https://img.freepik.com/premium-photo/closeup-woman-with-headphones-helmet_1287196-1450.jpg?ga=GA1.1.1029239798.1754464986&semt=ais_hybrid&w=740&q=80"),
       title: "Join Aviator",
+      subtitle: "Sky High Wins",
       desc: "Join the Aviator game and experience the thrill of the sky. Spin the wheel and win big!",
-      btn: "Join Now"
+      btn: "Join Now",
+      badge: "TRENDING"
     },
-
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    if (!isPaused) {
+      const timer = setInterval(() => {
+        handleSlideChange((index + 1) % slides.length);
+      }, 5000);
 
-    return () => clearInterval(timer);
-  }, [slides.length]);
+      return () => clearInterval(timer);
+    }
+  }, [slides.length, isPaused, index]);
+
+  const handleSlideChange = (newIndex) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setIndex(newIndex);
+      setIsTransitioning(false);
+    }, 300);
+  };
 
   const slide = slides[index];
 
+  const nextSlide = () => handleSlideChange((index + 1) % slides.length);
+  const prevSlide = () => handleSlideChange((index - 1 + slides.length) % slides.length);
+  const goToSlide = (i) => handleSlideChange(i);
+
+  const getBadgeColor = (badge) => {
+    switch (badge) {
+      case 'HOT': return 'from-[#ff4757] to-[#ff6b81]';
+      case 'NEW': return 'from-[#00d4ff] to-[#00ff88]';
+      case 'VIP': return 'from-[#ffd700] to-[#ff8c00]';
+      case 'TRENDING': return 'from-[#a855f7] to-[#ec4899]';
+      default: return 'from-[#ffd700] to-[#ff8c00]';
+    }
+  };
+
   return (
     <div
-      className="relative w-full h-[200px] sm:h-[240px] md:h-[300px] bg-cover bg-center transition-all duration-700"
-      style={{
-        backgroundImage: `url(${slide.game})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative w-full h-[220px] sm:h-[240px] overflow-hidden rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
-      {/* dark overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* Slider Container */}
+      <div
+        className="flex h-full transition-transform duration-700 ease-out"
+        style={{ transform: `translateX(-${index * 100}%)` }}
+      >
+        {slides.map((slideItem, i) => (
+          <div
+            key={i}
+            className="min-w-full h-full bg-cover bg-center relative"
+            style={{
+              backgroundImage: `url(${slideItem.game})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f13]/95 via-[#0f0f13]/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f13]/80 via-transparent to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto h-full px-4 sm:px-6 flex items-center">
-        <div className="gap-6 items-center w-full">
+            <div className="relative z-10 max-w-7xl mx-auto h-full px-4 sm:px-6 flex items-center">
+              <div className="flex gap-4 items-center w-full">
 
-          {/* LEFT – PREMIUM CONTENT CARD */}
-          <div className="relative flex justify-center md:justify-start">
+                {/* LEFT – PREMIUM CONTENT CARD */}
+                <div className={`relative flex-1 flex justify-start transition-all duration-500 ${isTransitioning ? 'opacity-0 translate-x-[-20px]' : 'opacity-100 translate-x-0'}`}>
 
-            {/* glow */}
-            <div className="absolute -inset-4 bg-cyan-500/20 blur-2xl rounded-xl" />
+                  {/* Glow effect */}
+                  <div className="absolute -inset-4 bg-[#ffd700]/10 blur-3xl rounded-xl animate-pulse" />
 
-            {/* glass card */}
-            <div className="relative flex items-center gap-3 flex-col  backdrop-blur bg-gradient-to-r from-cyan-500/10 to-blue-600/10  border border-blue-400/20 rounded-xl px-4 py-3 sm:px-6 sm:py-5 max-w-sm w-full shadow-2xl">
+                  {/* Glass card */}
+                  <div className="relative flex flex-col backdrop-blur-xl bg-gradient-to-br from-[#1a1a24]/90 to-[#0f0f13]/80 border border-[#ffd700]/20 rounded-2xl px-5 py-4 max-w-[280px] w-full shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                    
+                    {/* Badge */}
+                    <div className={`absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r ${getBadgeColor(slideItem.badge)} text-[#0f0f13] text-[10px] font-black rounded-full shadow-lg flex items-center gap-1`}>
+                      <FaFire className="text-[8px]" />
+                      {slideItem.badge}
+                    </div>
 
-              {/* accent line */}
-              {/* <span className="block w-10 h-[3px] bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mb-2" /> */}
+                    {/* Subtitle */}
+                    <span className="text-[10px] font-bold text-[#ffd700] uppercase tracking-widest mb-1 flex items-center gap-1">
+                      <FaStar className="text-[8px]" />
+                      {slideItem.subtitle}
+                    </span>
 
-              <h1 className="text-[18px] sm:text-lg md:text-xl font-bold tracking-wide text-white">
-                {slide.title}
-              </h1>
+                    {/* Title */}
+                    <h1 className="text-xl font-black tracking-wide gradient-text mb-2">
+                      {slideItem.title}
+                    </h1>
 
-              <p className="text-gray-200 text-center text-[12px] sm:text-sm mt-1 leading-relaxed">
-                {slide.desc}
-              </p>
+                    {/* Description */}
+                    <p className="text-[#f8f8f8]/70 text-xs leading-relaxed mb-4 line-clamp-2">
+                      {slideItem.desc}
+                    </p>
 
-              <Link to={'/more-games'}>
-                <button className="mt-3 cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all text-white text-xs sm:text-sm px-4 py-2 rounded-md font-semibold shadow-[0_0_25px_rgba(6,182,212,0.5)] hover:scale-105">
-                  Enter Game
-                </button>
-              </Link>
+                    {/* CTA Button */}
+                    <Link to={'/more-games'}>
+                      <button className="btn-premium cursor-pointer text-[#0f0f13] text-xs font-black px-5 py-2.5 rounded-xl flex items-center gap-2 w-fit uppercase tracking-wider">
+                       
+                        {slideItem.btn}
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* RIGHT – GAME IMAGE */}
+                <div className={`flex-1 flex justify-end transition-all duration-500 delay-100 ${isTransitioning ? 'opacity-0 translate-x-[20px]' : 'opacity-100 translate-x-0'}`}>
+                  <div className="relative">
+                    {/* Glow behind image */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#ffd700]/30 to-[#ff8c00]/30 rounded-2xl blur-2xl scale-110"></div>
+                    
+                    <img
+                      src={slideItem.game}
+                      alt={slideItem.title}
+                      className="relative w-[130px] sm:w-[160px] md:w-[180px] rounded-2xl border-2 border-[#ffd700]/30 shadow-[0_0_30px_rgba(255,215,0,0.3)] animate-[float_3s_ease-in-out_infinite]"
+                    />
+                    
+                    
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
-
-          {/* RIGHT – GAME IMAGE */}
-          {/* <div className="flex justify-center md:justify-end">
-            <img
-              src={slide.game}
-              alt={slide.title}
-              className="w-[160px] sm:w-[220px] md:w-[280px] drop-shadow-2xl animate-[float_3s_ease-in-out_infinite]"
-            />
-          </div> */}
-
-        </div>
+        ))}
       </div>
 
-      {/* floating animation */}
+      {/* Left Arrow */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-[#1a1a24]/90 backdrop-blur-md border border-[#ffd700]/30 rounded-xl flex items-center justify-center text-[#ffd700] hover:bg-gradient-to-br hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer group"
+      >
+        <FaChevronLeft size={12} className="group-hover:-translate-x-0.5 transition-transform" />
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={nextSlide}
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-[#1a1a24]/90 backdrop-blur-md border border-[#ffd700]/30 rounded-xl flex items-center justify-center text-[#ffd700] hover:bg-gradient-to-br hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer group"
+      >
+        <FaChevronRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+      </button>
+
+      {/* Dots Indicator */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2 bg-[#0f0f13]/60 backdrop-blur-md px-3 py-2 rounded-full">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goToSlide(i)}
+            className={`cursor-pointer rounded-full transition-all duration-300 ${
+              i === index
+                ? 'w-6 h-2 bg-gradient-to-r from-[#ffd700] to-[#ff8c00] shadow-[0_0_10px_rgba(255,215,0,0.8)]'
+                : 'w-2 h-2 bg-[#f8f8f8]/30 hover:bg-[#ffd700]/50'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Progress Bar */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0f0f13]/50 z-20">
+        <div
+          className="h-full bg-gradient-to-r from-[#ffd700] to-[#ff8c00] transition-all duration-300 ease-linear shadow-[0_0_10px_rgba(255,215,0,0.5)]"
+          style={{ width: `${((index + 1) / slides.length) * 100}%` }}
+        ></div>
+      </div>
+
+      {/* Floating animation keyframes */}
       <style>
         {`
           @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
           }
         `}
       </style>

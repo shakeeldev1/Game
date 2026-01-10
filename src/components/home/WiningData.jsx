@@ -30,15 +30,15 @@ export default function WiningData() {
 
   return (
     <div className="px-3 py-4">
-      <h2 className="text-lg font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400 flex items-center justify-center gap-2">
-        <span className="w-8 h-[2px] bg-gradient-to-r from-transparent to-cyan-500"></span>
+      <h2 className="text-lg font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] flex items-center justify-center gap-2 animate-pulse">
+        <span className="w-8 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-neon-primary)] to-transparent rounded-full"></span>
         Recent Winnings
-        <span className="w-8 h-[2px] bg-gradient-to-l from-transparent to-fuchsia-500"></span>
+        <span className="w-8 h-[2px] bg-gradient-to-l from-transparent via-[var(--color-neon-accent)] to-transparent rounded-full"></span>
       </h2>
 
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse rounded-xl overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.3)]">
-          <thead className="bg-[#1e103f] text-cyan-400 text-sm uppercase tracking-wider border-b border-fuchsia-500/30">
+        <table className="w-full border-collapse rounded-xl overflow-hidden shadow-[0_0_20px_rgba(240,165,0,0.2)] border border-[var(--color-neon-accent)]/30">
+          <thead className="bg-[var(--color-neon-bg)] text-[var(--color-neon-primary)] text-sm uppercase tracking-wider border-b border-[var(--color-neon-accent)]/50">
             <tr>
               <th className="py-3 px-3 text-left">User</th>
               <th className="py-3 px-3 text-left">Game</th>
@@ -46,16 +46,16 @@ export default function WiningData() {
             </tr>
           </thead>
 
-          <tbody className="bg-[#1a1033]/50 text-sm backdrop-blur-sm divide-y divide-purple-500/10">
+          <tbody className="bg-[var(--color-neon-bg)]/50 text-sm backdrop-blur-sm divide-y divide-[var(--color-neon-accent)]/20">
             {winnings.map((item, index) => (
               <tr
                 key={index}
-                className="hover:bg-fuchsia-500/10 transition-colors group"
+                className="hover:bg-[var(--color-neon-primary)]/10 transition-colors group"
               >
                 {/* User */}
                 <td className="py-3 px-3">
-                  <div className="font-semibold text-gray-200 group-hover:text-white">{item.name}</div>
-                  <div className="text-xs text-purple-400 group-hover:text-purple-300">{item.id}***</div>
+                  <div className="font-semibold text-[var(--color-neon-text)] group-hover:text-[var(--color-neon-primary)]">{item.name}</div>
+                  <div className="text-xs text-[var(--color-neon-accent)] group-hover:text-[var(--color-neon-primary)]">{item.id}***</div>
                 </td>
 
                 {/* Game Image */}
@@ -63,12 +63,12 @@ export default function WiningData() {
                   <img
                     src={item.gameimage}
                     alt="game"
-                    className="w-14 h-8 object-cover rounded border border-purple-500/30 shadow-sm"
+                    className="w-14 h-8 object-cover rounded border border-[var(--color-neon-accent)]/50 shadow-sm"
                   />
                 </td>
 
                 {/* Amount */}
-                <td className="py-3 px-3 text-right font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200 drop-shadow-sm">
+                <td className="py-3 px-3 text-right font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] drop-shadow-sm">
                   {item.amount}
                 </td>
               </tr>

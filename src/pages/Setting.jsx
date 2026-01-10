@@ -1,136 +1,125 @@
 import React from "react";
 import {
-  FiUser,
-  FiLock,
-  FiMail,
-  FiSettings,
-  FiCheckCircle,
-  FiArrowRight
+  FiUser, FiLock, FiMail, FiSettings, FiCheckCircle, FiArrowRight,
+  FiCamera, FiEdit2, FiShield, FiSmartphone
 } from "react-icons/fi";
+import { FaGem, FaCrown, FaUserCog } from "react-icons/fa";
 
 const Setting = () => {
   return (
-    <div className="min-h-screen items-start py-10 px-4">
-      <div className="w-full max-w-md mx-auto bg-[#1a1033]/80 backdrop-blur-xl border border-white/5 rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.5)] p-6 relative overflow-hidden">
+    <div className="min-h-screen py-10 px-4 particles-bg">
+      <div className="w-full max-w-md mx-auto">
 
-        {/* Background Glow */}
-        <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-[60px]"></div>
-
-        {/* User Top Section */}
-        <div className="flex items-center mb-8 relative z-10">
-          <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkI8KFHCpG5Sn2hffa6Bteb33YYrKLodkIlSdtueqKOw&s"
-              alt="Avatar"
-              className="w-full h-full object-cover"
-            />
+        {/* Header */}
+        <div className="text-center mb-8 animate-on-scroll">
+          <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] rotate-3">
+            <FaUserCog className="text-2xl text-[var(--color-neon-bg)]" />
           </div>
-          <div className="ml-4 flex flex-col">
-            <a
-              href="/"
-              className="flex items-center text-white font-bold text-lg hover:text-cyan-400 transition-colors group"
-            >
-              Change Avatar
-              <div className="ml-2 w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                <FiArrowRight className="text-gray-400 group-hover:text-cyan-400 text-xs" />
+          <h1 className="text-2xl font-black gradient-text">Settings</h1>
+          <p className="text-[var(--color-neon-text)]/50 text-sm mt-1">Manage your account</p>
+        </div>
+
+        {/* Profile Card */}
+        <div className="glass-card rounded-3xl p-6 mb-6 relative overflow-hidden animate-on-scroll">
+          {/* Background Glow */}
+          <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--color-neon-primary)]/10 rounded-full blur-[60px]"></div>
+
+          {/* User Section */}
+          <div className="flex items-center mb-6 relative z-10">
+            <div className="relative group">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-3 border-[var(--color-neon-primary)]/50 shadow-[0_0_20px_rgba(240,165,0,0.3)] group-hover:shadow-[0_0_30px_rgba(240,165,0,0.5)] transition-all">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkI8KFHCpG5Sn2hffa6Bteb33YYrKLodkIlSdtueqKOw&s"
+                  alt="Avatar"
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </a>
+              <button className="absolute -bottom-1 -right-1 w-8 h-8 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-full flex items-center justify-center shadow-lg neon-glow">
+                <FiCamera className="text-[var(--color-neon-bg)] text-sm" />
+              </button>
+            </div>
+            <div className="ml-4 flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <h2 className="text-xl font-black text-[var(--color-neon-text)]">rMUSol</h2>
+                <FaCrown className="text-[var(--color-neon-primary)]" />
+              </div>
+              <a
+                href="/"
+                className="text-sm font-bold text-[var(--color-neon-primary)] hover:text-[var(--color-neon-accent)] transition-colors flex items-center gap-1"
+              >
+                Change Avatar <FiEdit2 className="text-xs" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Info Cards */}
+          <div className="grid grid-cols-2 gap-3 relative z-10">
+            <div className="glass-card rounded-xl p-4 card-hover-lift group">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 bg-[var(--color-neon-primary)]/20 rounded-lg flex items-center justify-center">
+                  <FiUser className="text-[var(--color-neon-primary)]" />
+                </div>
+              </div>
+              <p className="font-bold text-[var(--color-neon-text)] text-sm">rMUSol</p>
+              <p className="text-[10px] text-[var(--color-neon-text)]/50 uppercase tracking-wider">Username</p>
+            </div>
+
+            <div className="glass-card rounded-xl p-4 card-hover-lift group">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 bg-[var(--color-neon-accent)]/20 rounded-lg flex items-center justify-center">
+                  <FiSettings className="text-[var(--color-neon-accent)]" />
+                </div>
+              </div>
+              <p className="font-bold text-[var(--color-neon-text)] text-sm">HQUNXG</p>
+              <p className="text-[10px] text-[var(--color-neon-text)]/50 uppercase tracking-wider">User ID</p>
+            </div>
           </div>
         </div>
 
-        {/* Nickname & ID Cards */}
-        <div className="space-y-3 mb-8 relative z-10">
-          <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-cyan-500/30 transition-colors group cursor-pointer">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-purple-500/10 rounded-lg text-purple-400">
-                <FiUser className="w-5 h-5" />
-              </div>
-              <span className="font-bold text-gray-200 group-hover:text-white transition-colors">rMUSol</span>
-            </div>
-            <FiArrowRight className="text-gray-600 group-hover:text-cyan-400 transition-colors" />
-          </div>
+        {/* Security Section */}
+        <div className="animate-on-scroll">
+          <h2 className="text-xs font-black mb-4 text-[var(--color-neon-text)]/40 uppercase tracking-[0.2em] pl-4 flex items-center gap-2">
+            <FiShield className="text-[var(--color-neon-primary)]" /> Security Settings
+          </h2>
 
-          <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-cyan-500/30 transition-colors group cursor-pointer">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-cyan-500/10 rounded-lg text-cyan-400">
-                <FiSettings className="w-5 h-5" />
+          <div className="glass-card rounded-2xl overflow-hidden stagger-children">
+            {[
+              { icon: FiLock, label: "Login Password", action: "Edit", href: "/ChangePassword", color: "text-[var(--color-neon-primary)]", bg: "bg-[var(--color-neon-primary)]/10" },
+              { icon: FiMail, label: "Bind Email", action: "Bind", color: "text-[var(--color-neon-accent)]", bg: "bg-[var(--color-neon-accent)]/10" },
+              { icon: FiUser, label: "Update Profile", action: "Edit", href: "/UpdateDetails", color: "text-[var(--color-neon-primary)]", bg: "bg-[var(--color-neon-primary)]/10" },
+              { icon: FiCheckCircle, label: "Google 2FA", action: "Setup", disabled: true, color: "text-[var(--color-neon-text)]/30", bg: "bg-[var(--color-neon-text)]/5" },
+              { icon: FiSmartphone, label: "App Version", value: "1.0.9", color: "text-[var(--color-neon-primary)]", bg: "bg-[var(--color-neon-primary)]/10" },
+            ].map((item, i) => (
+              <div key={i} className="flex justify-between items-center p-4 hover:bg-[var(--color-neon-primary)]/5 transition-colors group cursor-pointer border-b border-[var(--color-neon-accent)]/10 last:border-0">
+                <div className="flex items-center gap-4">
+                  <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                    <item.icon className={`${item.color}`} size={18} />
+                  </div>
+                  <span className="text-[var(--color-neon-text)]/80 font-medium group-hover:text-[var(--color-neon-text)] transition-colors">{item.label}</span>
+                </div>
+                {item.value ? (
+                  <span className="text-sm font-bold text-[var(--color-neon-primary)] flex items-center gap-1">
+                    <FaGem className="text-xs" /> {item.value}
+                  </span>
+                ) : item.href ? (
+                  <a href={item.href} className="text-sm font-bold text-[var(--color-neon-primary)] hover:text-[var(--color-neon-accent)] transition-colors flex items-center gap-1">
+                    {item.action} <FiArrowRight />
+                  </a>
+                ) : (
+                  <button disabled={item.disabled} className={`text-sm font-bold flex items-center gap-1 ${item.disabled ? 'text-[var(--color-neon-text)]/30 cursor-not-allowed' : 'text-[var(--color-neon-primary)] hover:text-[var(--color-neon-accent)]'} transition-colors`}>
+                    {item.action} <FiArrowRight />
+                  </button>
+                )}
               </div>
-              <span className="font-bold text-gray-200 group-hover:text-white transition-colors">HQUNXG</span>
-            </div>
-            <FiArrowRight className="text-gray-600 group-hover:text-cyan-400 transition-colors" />
+            ))}
           </div>
         </div>
 
-        {/* Security Information Section */}
-        <div className="relative z-10">
-          <h2 className="text-sm font-bold mb-4 text-gray-500 uppercase tracking-widest pl-1">Security Information</h2>
-
-          <div className="space-y-3">
-            {/* Login Password */}
-            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-yellow-500/10 rounded-lg text-yellow-400">
-                  <FiLock className="w-5 h-5" />
-                </div>
-                <span className="text-gray-300 font-medium">Login Password</span>
-              </div>
-              <a href="/ChangePassword" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center">
-                Edit <FiArrowRight className="ml-1" />
-              </a>
-            </div>
-
-            {/* Bind Mailbox */}
-            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-500/10 rounded-lg text-red-400">
-                  <FiMail className="w-5 h-5" />
-                </div>
-                <span className="text-gray-300 font-medium">Bind Mailbox</span>
-              </div>
-              <button className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center">
-                Bind <FiArrowRight className="ml-1" />
-              </button>
-            </div>
-
-            {/* Update Profile */}
-            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-500/10 rounded-lg text-green-400">
-                  <FiUser className="w-5 h-5" />
-                </div>
-                <span className="text-gray-300 font-medium">Update Profile</span>
-              </div>
-              <a href="/UpdateDetails" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center">
-                Edit <FiArrowRight className="ml-1" />
-              </a>
-            </div>
-
-            {/* Google Verification */}
-            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
-                  <FiCheckCircle className="w-5 h-5" />
-                </div>
-                <span className="text-gray-300 font-medium">Google Verification</span>
-              </div>
-              <button className="text-sm font-medium text-gray-500 flex items-center cursor-not-allowed">
-                Unopened <FiArrowRight className="ml-1" />
-              </button>
-            </div>
-
-            {/* Updated Version */}
-            <div className="flex justify-between items-center bg-[#0f0720]/50 border border-white/5 rounded-xl p-4 hover:border-white/10 transition-colors">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gray-500/10 rounded-lg text-gray-400">
-                  <FiSettings className="w-5 h-5" />
-                </div>
-                <span className="text-gray-300 font-medium">Version</span>
-              </div>
-              <span className="text-sm font-bold text-fuchsia-400 flex items-center">
-                1.0.9
-              </span>
-            </div>
-          </div>
+        {/* Danger Zone */}
+        <div className="mt-8 animate-on-scroll">
+          <button className="w-full glass-card text-red-400/70 py-4 rounded-xl font-bold text-sm tracking-wide hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/30 transition-all flex items-center justify-center gap-2">
+            <FiLock /> Delete Account
+          </button>
         </div>
       </div>
     </div>

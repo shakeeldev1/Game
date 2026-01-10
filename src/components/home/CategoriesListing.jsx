@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BackButton from "../common/BackButton";
 
 const categories = [
   { name: "Popular", img: "https://pakgame.net/pak_game/upload/games/675179ad30d25_66d7bfc72cdb0_gamecategory_20240205190631mwlx.png" },
@@ -24,15 +25,10 @@ export default function CategoriesListing() {
     <div className="max-w-7xl mx-auto px-4 py-10">
       {/* Back Button */}
       <div className="mb-6">
-        <Link
-          to="/"
-          className="inline-block bg-gradient-to-tr from-yellow-400 to-orange-500 text-white font-semibold px-4 py-1 rounded-full shadow-lg hover:scale-105 transition-transform"
-        >
-          ← Back
-        </Link>
+        <BackButton />
       </div>
 
-      <h4 className="text-2xl font-bold mb-8 text-gray-800">Categories Listing</h4>
+      <h4 className="text-2xl font-bold mb-8 text-white">Categories Listing</h4>
 
       <div className="grid grid-cols-3 gap-6">
         {categories.map((category, index) => (

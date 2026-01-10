@@ -1,56 +1,85 @@
 import React from "react";
-import { IoBarChartOutline, IoTrendingUpOutline, IoPeopleOutline, IoWalletOutline } from "react-icons/io5";
+import { FaChartLine, FaUsers, FaWallet, FaTrophy, FaFire } from "react-icons/fa";
+import { FiTrendingUp, FiDollarSign, FiUsers, FiBarChart2 } from "react-icons/fi";
 
 function PromotionData() {
   const stats = [
-    { value: "0.00", label: "This week", icon: <IoTrendingUpOutline />, color: "text-cyan-600", bg: "bg-cyan-50" },
-    { value: "0.00", label: "Total commission", icon: <IoWalletOutline />, color: "text-fuchsia-600", bg: "bg-fuchsia-50" },
-    { value: "0", label: "Direct sub", icon: <IoPeopleOutline />, color: "text-blue-600", bg: "bg-blue-50" },
-    { value: "0", label: "Total sub", icon: <IoBarChartOutline />, color: "text-slate-900", bg: "bg-slate-100" },
+    { value: "Rs 0.00", label: "This week", icon: FiTrendingUp, accent: true },
+    { value: "Rs 0.00", label: "Total commission", icon: FiDollarSign, accent: true },
+    { value: "0", label: "Direct subordinates", icon: FiUsers },
+    { value: "0", label: "Total subordinates", icon: FiBarChart2 },
   ];
 
   return (
-    <div className="px-4 my-6">
-      <div className="bg-white rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-slate-100 p-5 relative overflow-hidden">
-        
-        {/* Header - Compact for mobile */}
+    <div className="px-4 my-6 max-w-2xl mx-auto">
+      <div className="glass-card rounded-2xl p-5 relative overflow-hidden animate-on-scroll">
+
+        {/* Decorative */}
+        <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--color-neon-primary)]/10 rounded-bl-full"></div>
+
+        {/* Header */}
         <div className="flex items-center justify-between mb-6 relative z-10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 text-slate-700 border border-slate-100">
-              <IoBarChartOutline size={20} />
+            <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-xl flex items-center justify-center text-[var(--color-neon-bg)] shadow-lg neon-glow">
+              <FaChartLine size={20} />
             </div>
-            <h2 className="text-slate-900 font-bold text-lg tracking-tight">
-              Promotion Data
-            </h2>
+            <div>
+              <h2 className="text-[var(--color-neon-text)] font-black text-lg">
+                Promotion Data
+              </h2>
+              <p className="text-[10px] text-[var(--color-neon-text)]/40 uppercase tracking-wider">Real-time stats</p>
+            </div>
           </div>
-          <div className="hidden xs:block px-2 py-1 bg-green-50 rounded-md border border-green-100">
-            <span className="text-[9px] font-bold text-green-600 uppercase tracking-tight">Live</span>
+          <div className="px-3 py-1 bg-green-500/20 rounded-lg border border-green-500/30 flex items-center gap-1">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-[10px] font-bold text-green-400 uppercase">Live</span>
           </div>
         </div>
 
-        {/* Stats Grid - Responsive logic to prevent wrapping */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 relative z-10">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 gap-3 relative z-10 stagger-children">
           {stats.map((item, index) => (
             <div
               key={index}
-              className="p-4 bg-slate-50/50 rounded-2xl border border-slate-100 flex flex-col justify-between hover:bg-white hover:shadow-lg transition-all duration-300 group"
+              className="glass-card p-4 rounded-xl card-hover-lift group relative overflow-hidden"
             >
+              {item.accent && (
+                <div className="absolute top-0 right-0 w-12 h-12 bg-[var(--color-neon-primary)]/5 rounded-bl-full"></div>
+              )}
+
               <div className="flex items-center justify-between mb-3">
-                <div className={`w-8 h-8 ${item.bg} ${item.color} rounded-lg flex items-center justify-center text-lg`}>
-                  {item.icon}
+                <div className={`w-9 h-9 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform ${item.accent
+                    ? 'bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] text-[var(--color-neon-bg)]'
+                    : 'bg-[var(--color-neon-primary)]/10 text-[var(--color-neon-primary)]'
+                  }`}>
+                  <item.icon className="text-lg" />
                 </div>
+                {item.accent && <FaFire className="text-[var(--color-neon-primary)] text-xs animate-pulse" />}
               </div>
-              
+
               <div>
-                <p className={`text-xl xs:text-2xl font-black ${item.color} tracking-tight truncate`}>
+                <p className={`text-xl font-black tracking-tight truncate ${item.accent ? 'gradient-text' : 'text-[var(--color-neon-text)]'}`}>
                   {item.value}
                 </p>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wide truncate mt-0.5">
+                <p className="text-[10px] text-[var(--color-neon-text)]/40 font-bold uppercase tracking-wide truncate mt-0.5">
                   {item.label}
                 </p>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Quick Actions */}
+        <div className="mt-5 pt-5 border-t border-[var(--color-neon-accent)]/10 grid grid-cols-2 gap-3">
+          <button className="btn-premium py-3 rounded-xl text-[var(--color-neon-bg)] text-xs font-bold flex items-center justify-center gap-2">
+            <FaTrophy /> Claim Rewards
+          </button>
+          <button className="glass-card py-3 rounded-xl text-[var(--color-neon-text)]/60 text-xs font-bold flex items-center justify-center gap-2 hover:text-[var(--color-neon-primary)] hover:border-[var(--color-neon-primary)]/30 transition-all">
+            <FaUsers /> View Team
+          </button>
         </div>
       </div>
     </div>

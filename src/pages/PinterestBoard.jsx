@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BackButton from '../components/common/BackButton';
 
 const PinterestBoard = () => {
   const [selectedPin, setSelectedPin] = useState(null);
@@ -231,13 +232,14 @@ const PinterestBoard = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Main Container */}
       <div className="max-w-full mx-auto px-4">
-        
+        <BackButton />
+
         {/* Header */}
         <div className="max-w-[750px] mx-auto pt-6">
-          <div className="flex justify-between items-start">
+          <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
             <div className="flex-1">
               {/* Board Title */}
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">Wellcome To Pak Game</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Welcome To Pak Game</h1>
               
               {/* Board Stats */}
               <div className="flex items-center gap-2 text-gray-600 mb-4">
@@ -284,9 +286,9 @@ const PinterestBoard = () => {
           </div>
         </div>
 
-        {/* Updated Grid: 2 Cards in a Row */}
+        {/* Responsive Grid */}
         <div className="py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {pins.map((pin) => (
               <div 
                 key={pin.id} 
@@ -341,11 +343,11 @@ const PinterestBoard = () => {
         {/* Modal for Pin Details */}
         {selectedPin && (
           <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-white rounded-2xl max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="p-6">
                 {/* Modal Header */}
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900">More about this Pin</h2>
+                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">More about this Pin</h2>
                   <button 
                     onClick={() => setSelectedPin(null)}
                     className="p-2 hover:bg-gray-100 rounded-full transition-colors"

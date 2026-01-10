@@ -31,10 +31,10 @@ export default function GamesSection() {
 
     return (
         <div>
-            <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 text-lg font-bold text-center mb-4 flex items-center justify-center gap-2'>
-                <span className="w-8 h-[2px] bg-gradient-to-r from-transparent to-cyan-500"></span>
+            <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] text-lg font-bold text-center mb-4 flex items-center justify-center gap-2 animate-pulse'>
+                <span className="w-8 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-neon-primary)] to-transparent rounded-full"></span>
                 Popular Games
-                <span className="w-8 h-[2px] bg-gradient-to-l from-transparent to-purple-500"></span>
+                <span className="w-8 h-[2px] bg-gradient-to-l from-transparent via-[var(--color-neon-accent)] to-transparent rounded-full"></span>
             </h1>
 
             <div className="grid grid-cols-3 gap-3 px-2">
@@ -43,7 +43,7 @@ export default function GamesSection() {
                     <Link
                         to="/more-games"
                         key={index}
-                        className="block bg-purple-900/20 rounded-xl shadow-lg border border-white/5 text-center hover:shadow-[0_0_20px_rgba(217,70,239,0.3)] hover:-translate-y-1 cursor-pointer transition-all duration-300 group hover:border-fuchsia-500/40"
+                        className="block bg-[var(--color-neon-bg)]/80 rounded-xl shadow-lg border border-[var(--color-neon-accent)]/20 text-center hover:shadow-[0_0_20px_rgba(240,165,0,0.3)] hover:-translate-y-1 cursor-pointer transition-all duration-300 group hover:border-[var(--color-neon-primary)]/50"
                     >
                         {/* Image Container */}
                         <div className="relative overflow-hidden rounded-xl aspect-square">
@@ -53,7 +53,7 @@ export default function GamesSection() {
                                 className="w-full h-full mx-auto object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                             {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-fuchsia-500/10 transition-colors duration-300"></div>
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--color-neon-primary)]/10 transition-colors duration-300"></div>
                         </div>
                     </Link>
                 ))}
@@ -61,7 +61,7 @@ export default function GamesSection() {
 
             <div className="flex items-center justify-center w-full py-4">
                 <Link to="/more-games">
-                    <button className="px-6 py-1.5 text-xs font-bold rounded-full cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 transform hover:scale-105 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-400/30 uppercase tracking-wide">
+                    <button className="px-6 py-1.5 text-xs font-bold rounded-full cursor-pointer bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] text-[var(--color-neon-bg)] hover:from-[var(--color-neon-accent)] hover:to-[var(--color-neon-primary)] transform hover:scale-105 transition-all shadow-[0_0_20px_rgba(240,165,0,0.4)] border border-[var(--color-neon-primary)]/30 uppercase tracking-wide">
                         See More
                     </button>
                 </Link>

@@ -1,6 +1,6 @@
 import "./App.css";
 import Footer from "./components/common/Footer";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Navbar from "./pages/Navbar";
@@ -19,14 +19,13 @@ import CategoriesListing from "./components/home/CategoriesListing";
 import MoreGames from "./components/home/MoreGames";
 import RegisterPage from "./components/common/RegisterPage";
 import ForgotPage from "./components/common/ForgotPage";
-import PinterestBoard from "./pages/PinterestBoard";
 
 const MainFunction = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center font-sans bg-gray-100">
-      <div className="relative bg-[#f8fafc] h-[100vh] sm:max-h-[850px] w-full sm:w-[400px] md:w-[420px] sm:rounded-[10px] shadow-2xl overflow-hidden flex flex-col border border-white ring-1 ring-gray-200">
+    <div className="min-h-screen flex items-center justify-center font-sans bg-[var(--color-neon-bg)]">
+      <div className="relative bg-[var(--color-neon-bg)] h-[100vh] sm:max-h-[850px] w-full sm:w-[400px] md:w-[420px] sm:rounded-[10px] shadow-2xl overflow-hidden flex flex-col border border-[var(--color-neon-accent)] ring-1 ring-[var(--color-neon-accent)]">
         <Navbar />
-        <div className="grow overflow-y-auto no-scrollbar scroll-smooth bg-slate-50">
+        <div className="grow overflow-y-auto no-scrollbar scroll-smooth bg-[var(--color-neon-bg)]">
           <Outlet />
         </div>
         <Footer />
@@ -55,7 +54,6 @@ const router = createBrowserRouter([
       { path: "/more-games", element: <MoreGames /> },
       { path: "/register", element: <RegisterPage /> },
       { path: "/forgot-password", element: <ForgotPage /> },
-      { path: "/pinterest-board", element: <PinterestBoard /> },
 
 
     ],

@@ -1,112 +1,114 @@
 import React, { useState } from 'react';
-import { FiMail, FiMessageSquare, FiSend, FiGift } from 'react-icons/fi';
+import { FiMail, FiMessageSquare, FiSend, FiGift, FiStar, FiHeart } from 'react-icons/fi';
+import { FaRocket, FaGem } from 'react-icons/fa';
 
 const Feedback = () => {
   const [email, setEmail] = useState('');
   const [feedback, setFeedback] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [rating, setRating] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       alert('Thank you for your feedback!');
       setEmail('');
       setFeedback('');
+      setRating(0);
     }, 1000);
   };
 
   return (
-    <div className="w-full max-w-md mx-auto min-h-screen p-4 pb-24">
-      <div className="bg-[#1a1033]/80 backdrop-blur-xl rounded-2xl shadow-lg border border-white/5 p-6 relative overflow-hidden">
+    <div className="w-full max-w-md mx-auto min-h-screen p-4 pb-24 particles-bg">
+      <div className="glass-card rounded-3xl shadow-2xl p-6 relative overflow-hidden animate-on-scroll">
 
-        {/* Glow */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-[80px]"></div>
+        {/* Animated Background Elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-[var(--color-neon-primary)]/10 rounded-full blur-[100px] animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-48 h-48 bg-[var(--color-neon-accent)]/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-        {/* Header */}
+        {/* Header with Icon */}
         <div className="text-center mb-8 relative z-10">
-          <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-md">Feedback</h3>
-          <p className="text-gray-400 text-sm">We value your input to improve our service</p>
+          <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] rotate-3 hover:rotate-0 transition-transform duration-500">
+            <FiMessageSquare className="text-3xl text-[var(--color-neon-bg)]" />
+          </div>
+          <h3 className="text-3xl font-black gradient-text mb-2">Share Feedback</h3>
+          <p className="text-[var(--color-neon-text)]/60 text-sm">Help us improve your experience</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="relative z-10">
+        {/* Rating Stars */}
+        <div className="mb-6 relative z-10">
+          <p className="text-[var(--color-neon-text)]/60 text-xs font-bold uppercase tracking-wider mb-3 text-center">Rate Your Experience</p>
+          <div className="flex justify-center gap-2">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <button
+                key={star}
+                type="button"
+                onClick={() => setRating(star)}
+                className={`text-3xl transition-all duration-300 hover:scale-125 ${rating >= star
+                    ? 'text-[var(--color-neon-primary)] drop-shadow-[0_0_10px_rgba(240,165,0,0.5)]'
+                    : 'text-[var(--color-neon-text)]/20 hover:text-[var(--color-neon-primary)]/50'
+                  }`}
+              >
+                <FiStar className={rating >= star ? 'fill-current' : ''} />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="relative z-10 stagger-children">
           {/* Email Input */}
           <div className="mb-5">
-            <label className="block text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 ml-1" htmlFor="email">
+            <label className="block text-[var(--color-neon-text)]/60 text-xs font-bold uppercase tracking-wider mb-2 ml-1">
               Your Email
             </label>
             <div className="relative group">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiMail className="h-5 w-5 text-gray-500 group-focus-within:text-cyan-400 transition-colors" />
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <FiMail className="h-5 w-5 text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" />
               </div>
               <input
                 type="email"
-                id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your.email@example.com"
                 required
-                className="w-full pl-10 pr-3 py-3.5 bg-[#0f0720]/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-300"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--color-neon-bg)]/50 border-2 border-[var(--color-neon-accent)]/20 rounded-xl text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 focus:outline-none focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all duration-300"
               />
             </div>
           </div>
 
           {/* Feedback Textarea */}
           <div className="mb-6">
-            <label className="block text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 ml-1" htmlFor="feedback">
+            <label className="block text-[var(--color-neon-text)]/60 text-xs font-bold uppercase tracking-wider mb-2 ml-1">
               Your Feedback
             </label>
             <div className="relative group">
-              <div className="absolute top-3.5 left-3 pointer-events-none">
-                <FiMessageSquare className="h-5 w-5 text-gray-500 group-focus-within:text-fuchsia-400 transition-colors" />
-              </div>
               <textarea
-                id="feedback"
                 value={feedback}
                 onChange={(e) => setFeedback(e.target.value)}
-                rows="6"
-                placeholder="Describe your issue or suggestion..."
+                rows="5"
+                placeholder="Tell us what you think..."
                 required
-                className="w-full pl-10 pr-3 py-3 bg-[#0f0720]/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-fuchsia-500/50 focus:border-fuchsia-500/50 resize-none transition-all duration-300"
+                className="w-full px-4 py-4 bg-[var(--color-neon-bg)]/50 border-2 border-[var(--color-neon-accent)]/20 rounded-xl text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 focus:outline-none focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] resize-none transition-all duration-300"
               />
             </div>
           </div>
 
-          {/* Rewards Info */}
-          <div className="mb-6 bg-gradient-to-r from-cyan-900/40 to-blue-900/40 border border-cyan-500/20 rounded-xl p-4">
-            <div className="flex items-center space-x-4 mb-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg border border-white/10">
-                <FiGift className="h-6 w-6 text-white" />
+          {/* Rewards Card */}
+          <div className="mb-6 gradient-border rounded-2xl p-4 card-hover-lift">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-xl flex items-center justify-center shadow-lg animate-pulse">
+                <FaGem className="text-2xl text-[var(--color-neon-bg)]" />
               </div>
-              <div>
-                <p className="font-bold text-cyan-400">Send helpful feedback</p>
-                <p className="text-xs text-gray-400 mt-0.5">Chance to win Mystery Rewards!</p>
+              <div className="flex-1">
+                <p className="font-bold text-[var(--color-neon-primary)] flex items-center gap-2">
+                  <FaRocket /> Earn Rewards!
+                </p>
+                <p className="text-xs text-[var(--color-neon-text)]/60">Get bonus coins for helpful feedback</p>
               </div>
-            </div>
-
-            {/* Visual Reward Icon */}
-            <div className="flex justify-center my-4">
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-fuchsia-500 to-purple-600 rounded-2xl flex items-center justify-center animate-pulse shadow-[0_0_20px_rgba(217,70,239,0.3)]">
-                  <span className="text-white text-3xl">🎁</span>
-                </div>
-                <div className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full animate-bounce shadow-md">
-                  New!
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Upload Hint */}
-          <div className="mb-6 bg-white/5 border border-white/5 rounded-xl p-4">
-            <div className="flex items-start space-x-3">
-              <span className="text-yellow-400 font-bold text-lg">💡</span>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                For better assistance, you can attach screenshots by dragging and dropping images or pasting from clipboard
-              </p>
+              <div className="text-3xl animate-bounce">🎁</div>
             </div>
           </div>
 
@@ -114,12 +116,12 @@ const Feedback = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3.5 rounded-xl font-bold tracking-wide hover:from-cyan-500 hover:to-blue-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] border border-cyan-400/20"
+            className="w-full btn-premium text-[var(--color-neon-bg)] py-4 rounded-xl font-bold tracking-wide cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 neon-glow"
           >
             {isSubmitting ? (
               <>
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                <span>Processing...</span>
+                <div className="w-5 h-5 border-2 border-[var(--color-neon-bg)] border-t-transparent rounded-full animate-spin"></div>
+                <span>Sending...</span>
               </>
             ) : (
               <>
@@ -128,34 +130,21 @@ const Feedback = () => {
               </>
             )}
           </button>
-
-          {/* Privacy Note */}
-          <p className="text-[10px] text-gray-600 text-center mt-4">
-            Your feedback is confidential and will only be used to improve our services.
-          </p>
         </form>
 
         {/* Quick Tips */}
-        <div className="mt-8 pt-6 border-t border-white/5 relative z-10">
-          <h4 className="font-bold text-gray-300 mb-4 text-sm uppercase tracking-wide">📝 Helpful Feedback Tips:</h4>
-          <ul className="space-y-3 text-sm text-gray-500">
-            <li className="flex items-start space-x-3">
-              <span className="text-green-400 font-bold">✓</span>
-              <span>Be specific about the issue you encountered</span>
-            </li>
-            <li className="flex items-start space-x-3">
-              <span className="text-green-400 font-bold">✓</span>
-              <span>Include steps to reproduce the problem</span>
-            </li>
-            <li className="flex items-start space-x-3">
-              <span className="text-green-400 font-bold">✓</span>
-              <span>Mention what you expected to happen</span>
-            </li>
-            <li className="flex items-start space-x-3">
-              <span className="text-green-400 font-bold">✓</span>
-              <span>Attach screenshots when possible</span>
-            </li>
-          </ul>
+        <div className="mt-8 pt-6 border-t border-[var(--color-neon-accent)]/20 relative z-10">
+          <h4 className="font-bold text-[var(--color-neon-text)]/80 mb-4 text-sm uppercase tracking-wide flex items-center gap-2">
+            <FiHeart className="text-[var(--color-neon-primary)]" />
+            Pro Tips
+          </h4>
+          <div className="grid grid-cols-2 gap-3">
+            {['Be specific', 'Add details', 'Share ideas', 'Report bugs'].map((tip, i) => (
+              <div key={i} className="glass-card rounded-lg p-3 text-center text-xs text-[var(--color-neon-text)]/70 card-hover-lift">
+                ✓ {tip}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

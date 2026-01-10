@@ -1,108 +1,141 @@
 import React from "react"
-import { FaBell, FaShieldAlt, FaInfoCircle, FaExclamationTriangle } from "react-icons/fa";
+import { FaBell, FaShieldAlt, FaInfoCircle, FaExclamationTriangle, FaClock, FaCheckCircle } from "react-icons/fa";
+import { FiAlertTriangle, FiShield, FiInfo, FiBell } from "react-icons/fi";
 
 const notifications = [
   {
     id: 1,
     title: "Withdrawal Reminder",
-    description:
-      "Before requesting a withdrawal, please confirm that your wallet verification is complete. Ensure the ID card and account number provided are correct and valid. Incorrect details may cause withdrawal failure.",
-    date: "2024-05-01 17:10:25",
-    icon: <FaExclamationTriangle />,
-    type: "warning"
+    description: "Before requesting a withdrawal, please confirm that your wallet verification is complete. Ensure the ID card and account number provided are correct and valid.",
+    date: "2024-05-01",
+    icon: FiAlertTriangle,
+    type: "warning",
+    isNew: true
   },
   {
     id: 2,
     title: "Official Website Notice",
-    description:
-      "Always access our platform using the official link: https://pakgame.net. Never share personal information or perform transactions with third parties claiming to represent PAKGame. We do not conduct private chats or calls. Please inform other members to stay safe from scams.",
-    date: "2023-08-28 12:10:46",
-    icon: <FaShieldAlt />,
+    description: "Always access our platform using the official link: https://pakgame.net. Never share personal information with third parties.",
+    date: "2023-08-28",
+    icon: FiShield,
     type: "security"
   },
   {
     id: 3,
     title: "Safe Recharge Guidelines",
-    description:
-      "All official recharge methods are available only through the Recharge section on the PAKGame website. Avoid trusting payment requests from external or unofficial sources.",
-    date: "2023-05-05 11:15:25",
-    icon: <FaInfoCircle />,
+    description: "All official recharge methods are available only through the Recharge section on the PAKGame website.",
+    date: "2023-05-05",
+    icon: FiInfo,
     type: "info"
   },
   {
     id: 4,
     title: "Authorized Customer Support",
-    description:
-      "Important notice to all members: PAKGame customer support is available only via LiveChat, Discord, and our official app or website. Any other platform claiming to represent us is unauthorized. Never share personal or banking details outside official channels.",
-    date: "2023-05-05 11:15:25",
-    icon: <FaShieldAlt />,
+    description: "PAKGame customer support is available only via LiveChat, Discord, and our official app or website.",
+    date: "2023-05-05",
+    icon: FiShield,
     type: "security"
   },
   {
     id: 5,
     title: "Website Security Information",
-    description:
-      "PAKGame uses advanced security standards including encryption and authentication. You can confirm a secure connection by checking the padlock icon in your browser’s address bar, ensuring your data is protected.",
-    date: "2023-05-05 11:15:25",
-    icon: <FaShieldAlt />,
+    description: "PAKGame uses advanced security standards including encryption and authentication.",
+    date: "2023-05-05",
+    icon: FiShield,
     type: "security"
   },
   {
     id: 6,
     title: "Account Protection Tips",
-    description:
-      "Keep your account safe by using a strong password, verifying the official website URL, avoiding suspicious links, enabling two-factor authentication (2FA), and keeping your device software updated at all times.",
-    date: "2023-05-05 11:15:25",
-    icon: <FaShieldAlt />,
+    description: "Keep your account safe by using a strong password and enabling two-factor authentication (2FA).",
+    date: "2023-05-05",
+    icon: FiShield,
     type: "security"
   },
 ];
 
 export default function Notification() {
-  const getIconColor = (type) => {
-    switch (type) {
-      case 'warning': return 'text-yellow-400';
-      case 'security': return 'text-green-400';
-      case 'info': return 'text-cyan-400';
-      default: return 'text-fuchsia-400';
-    }
-  };
-
-  const getGradient = (type) => {
-    switch (type) {
-      case 'warning': return 'from-yellow-400/20 to-orange-500/20 border-yellow-500/30';
-      case 'security': return 'from-green-400/20 to-emerald-500/20 border-green-500/30';
-      case 'info': return 'from-cyan-400/20 to-blue-500/20 border-cyan-500/30';
-      default: return 'from-fuchsia-400/20 to-purple-500/20 border-fuchsia-500/30';
-    }
-  };
-
   return (
-    <div className="min-h-screen p-4 pb-24">
-      <h1 className="text-2xl font-bold text-black mb-6 pl-2 border-l-4 border-cyan-500">Notifications</h1>
+    <div className="min-h-screen p-4 pb-24 particles-bg">
+      {/* Header */}
+      <div className="text-center mb-8 animate-on-scroll">
+        <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] rotate-3">
+          <FiBell className="text-2xl text-[var(--color-neon-bg)]" />
+        </div>
+        <h1 className="text-2xl font-black gradient-text">Notifications</h1>
+        <p className="text-[var(--color-neon-text)]/50 text-sm mt-1">{notifications.length} updates</p>
+      </div>
 
-      <div className="space-y-4">
+      {/* Filter Tabs */}
+      <div className="flex gap-2 mb-6 overflow-x-auto no-scrollbar animate-on-scroll">
+        {['All', 'Security', 'Info', 'Warnings'].map((tab, i) => (
+          <button
+            key={i}
+            className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all ${i === 0 ? 'btn-premium text-[var(--color-neon-bg)]' : 'glass-card text-[var(--color-neon-text)]/60 hover:text-[var(--color-neon-text)]'}`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      {/* Notifications List */}
+      <div className="space-y-4 stagger-children">
         {notifications.map((item) => (
           <div
             key={item.id}
-            className={`bg-[#1a1033]/80 backdrop-blur-xl shadow-lg text-gray-200 p-5 rounded-2xl flex gap-4 border ${getGradient(item.type)} hover:scale-[1.01] transition-transform duration-300 relative overflow-hidden`}
+            className="glass-card rounded-2xl p-5 card-hover-lift relative overflow-hidden group"
           >
-            {/* Background Glow */}
-            <div className={`absolute top-0 left-0 w-24 h-24 ${getIconColor(item.type).replace('text', 'bg')}/10 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2`}></div>
-
-            <div className={`text-2xl h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-[#0f0720]/50 border border-white/10 ${getIconColor(item.type)}`}>
-              {item.icon}
-            </div>
-
-            <div className="relative z-10 w-full">
-              <div className="flex justify-between items-start mb-1">
-                <h3 className="font-bold text-base md:text-lg text-white">{item.title}</h3>
-                <span className="text-[10px] text-gray-500 whitespace-nowrap bg-black/20 px-2 py-1 rounded-full">{item.date.split(" ")[0]}</span>
+            {/* New Badge */}
+            {item.isNew && (
+              <div className="absolute top-3 right-3 px-2 py-0.5 bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] text-[var(--color-neon-bg)] text-[10px] font-black rounded-full animate-pulse">
+                NEW
               </div>
-              <p className="text-sm text-gray-400 leading-relaxed font-light">{item.description}</p>
+            )}
+
+            <div className="flex gap-4">
+              {/* Icon */}
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${item.type === 'warning' ? 'bg-[var(--color-neon-primary)]/20' :
+                  item.type === 'security' ? 'bg-[var(--color-neon-accent)]/20' :
+                    'bg-[var(--color-neon-primary)]/20'
+                } group-hover:scale-110 transition-transform`}>
+                <item.icon className={`text-xl ${item.type === 'warning' ? 'text-[var(--color-neon-primary)]' :
+                    item.type === 'security' ? 'text-[var(--color-neon-accent)]' :
+                      'text-[var(--color-neon-primary)]'
+                  }`} />
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 className="font-bold text-[var(--color-neon-text)] group-hover:text-[var(--color-neon-primary)] transition-colors">{item.title}</h3>
+                </div>
+                <p className="text-sm text-[var(--color-neon-text)]/60 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                  {item.description}
+                </p>
+                <div className="flex items-center gap-2 mt-3">
+                  <FaClock className="text-[var(--color-neon-accent)] text-xs" />
+                  <span className="text-[10px] text-[var(--color-neon-text)]/40 font-bold">{item.date}</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${item.type === 'warning' ? 'bg-[var(--color-neon-primary)]/10 text-[var(--color-neon-primary)]' :
+                      item.type === 'security' ? 'bg-[var(--color-neon-accent)]/10 text-[var(--color-neon-accent)]' :
+                        'bg-[var(--color-neon-primary)]/10 text-[var(--color-neon-primary)]'
+                    }`}>
+                    {item.type}
+                  </span>
+                </div>
+              </div>
             </div>
+
+            {/* Read indicator line */}
+            <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] group-hover:w-full transition-all duration-500"></div>
           </div>
         ))}
+      </div>
+
+      {/* Mark All Read Button */}
+      <div className="mt-8 text-center animate-on-scroll">
+        <button className="glass-card text-[var(--color-neon-text)]/60 px-6 py-3 rounded-xl font-bold text-sm hover:text-[var(--color-neon-primary)] hover:border-[var(--color-neon-primary)]/30 transition-all flex items-center gap-2 mx-auto">
+          <FaCheckCircle /> Mark All as Read
+        </button>
       </div>
     </div>
   );
