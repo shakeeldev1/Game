@@ -6,36 +6,36 @@ export default function EarningChart() {
             position: 2,
             name: 'Player 2',
             earnings: 'Rs-45,000',
-            height: 'h-32'
+            height: 'md:h-28 h-25'
         },
         {
             position: 1,
             name: 'Player 1',
             earnings: 'Rs-75,000',
-            height: 'h-42'
+            height: 'md:h-34 h-32'
         },
         {
             position: 3,
             name: 'Player 3',
             earnings: 'Rs-30,000',
-            height: 'h-32'
+            height: 'md:h-30 h-28'
         }
     ]
 
     return (
         <div className='bg-[var(--color-neon-bg)]/80 backdrop-blur-xl rounded-2xl shadow-[0_0_30px_rgba(240,165,0,0.2)] p-6 hover:shadow-[0_0_40px_rgba(240,165,0,0.4)] transition-shadow duration-300 border border-[var(--color-neon-accent)]/30 ring-1 ring-[var(--color-neon-primary)]/20'>
             {/* Header */}
-            <div className='mb-6 text-center'>
-                <h2 className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] flex items-center justify-center gap-2 animate-pulse'>
+            <div className='mb-3 md:mb-6 text-center'>
+                <h2 className='text-[12px] md:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r text-white from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] flex items-center justify-center gap-2 '>
                     <span className="w-8 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-neon-primary)] to-transparent rounded-full"></span>
                     Top Earners
                     <span className="w-8 h-[2px] bg-gradient-to-l from-transparent via-[var(--color-neon-accent)] to-transparent rounded-full"></span>
                 </h2>
-                <p className='text-[10px] font-bold text-[var(--color-neon-text)]/70 mt-1 uppercase tracking-[0.2em]'>Today's Leaderboard</p>
+                <p className='text-[7px] md:text-xs font-bold text-[#F0A500] mt-1 uppercase tracking-[0.2em]'>Today's Leaderboard</p>
             </div>
 
             {/* Podium Chart */}
-            <div className='flex items-end justify-center gap-4 mb-8'>
+            <div className='flex items-end justify-center gap-3 mb-2 md:mb-4'>
                 {winners.map((winner) => (
                     <div
                         key={winner.position}
@@ -47,10 +47,10 @@ export default function EarningChart() {
                         </div>
 
                         {/* Winner Card */}
-                        <div className={`
+                        <div className={` flex flex-col gap-2
                             ${winner.position === 1 ? 'bg-gradient-to-b from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] shadow-[0_0_30px_rgba(240,165,0,0.5)]' : ''}
-                            ${winner.position === 2 ? 'bg-gradient-to-b from-[#C0C0C0] to-[#808080] shadow-[0_0_20px_rgba(192,192,192,0.3)]' : ''}
-                            ${winner.position === 3 ? 'bg-gradient-to-b from-[#CD7F32] to-[#8B4513] shadow-[0_0_20px_rgba(205,127,50,0.3)]' : ''}
+                            ${winner.position === 2 ? 'bg-gradient-to-br from-[#232529] to-[#1A1C20] text-white shadow-[0_0_20px_rgba(192,192,192,0.3)]' : ''}
+                            ${winner.position === 3 ? 'bg-gradient-to-br from-[#232529] to-[#1A1C20] text-white shadow-[0_0_20px_rgba(205,127,50,0.3)]' : ''}
                             ${winner.height} w-24 sm:w-28 rounded-t-xl
                             flex flex-col justify-between items-center p-3 text-[var(--color-neon-bg)] transform
                             group-hover:scale-110 transition-all duration-300 border-t border-[var(--color-neon-bg)]/30 relative overflow-hidden
@@ -59,11 +59,11 @@ export default function EarningChart() {
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-700"></div>
 
                             <div className='text-center z-10 w-full'>
-                                <div className='font-bold text-sm drop-shadow-md truncate w-full'>{winner.name}</div>
-                                <div className='text-[10px] font-bold mt-1 bg-black/30 px-2 py-0.5 rounded-full backdrop-blur-sm inline-block'>{winner.earnings}</div>
+                                <div className='font-bold text-[10px] md:text-sm drop-shadow-md truncate w-full'>{winner.name}</div>
+                                <div className='text-[8px] md:text-[10px] font-bold mt-1 bg-black/30 px-2 py-0.5 rounded-full backdrop-blur-sm inline-block'>{winner.earnings}</div>
                             </div>
 
-                            <div className='bg-white/20 backdrop-blur-md rounded-full w-10 h-10 flex items-center 
+                            <div className='bg-white/20  backdrop-blur-md rounded-full w-10 h-10 flex items-center 
                                 justify-center border border-white/40 shadow-inner z-10 mb-2'>
                                 <img src="https://pakgame.net/pak_game/upload/avtar/man.png" alt="" className="drop-shadow-sm w-8 h-8 rounded-full" />
                             </div>
@@ -80,7 +80,7 @@ export default function EarningChart() {
                 </div>
                 <div className='group hover:bg-[var(--color-neon-primary)]/10 p-2 rounded-lg transition-colors duration-300'>
                     <p className='text-[10px] text-[var(--color-neon-accent)] group-hover:text-[var(--color-neon-primary)] transition-colors uppercase font-bold tracking-wider mb-1'>Total</p>
-                    <p className='font-bold text-[var(--color-neon-primary)] text-sm drop-shadow-[0_0_5px_rgba(240,165,0,0.5)]'>Rs-150,000</p>
+                    <p className='font-bold text-white text-sm drop-shadow-[0_0_5px_rgba(240,165,0,0.5)]'>Rs-150,000</p>
                 </div>
                 <div className='group hover:bg-[var(--color-neon-primary)]/10 p-2 rounded-lg transition-colors duration-300'>
                     <p className='text-[10px] text-[var(--color-neon-accent)] group-hover:text-[var(--color-neon-primary)] transition-colors uppercase font-bold tracking-wider mb-1'>Users</p>

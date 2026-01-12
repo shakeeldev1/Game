@@ -32,12 +32,12 @@ export default function Services() {
             {/* Section Header */}
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#F0A500] to-[#CF7500] rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(240,165,0,0.3)]">
-                        <FaGamepad className="text-[#1A1C20] text-lg" />
+                    <div className="h-8 w-8 md:w-10 md:h-10  rounded-md border border-[#CF7500] flex items-center justify-center shadow-[0_0_15px_rgba(240,165,0,0.3)]">
+                        <FaGamepad className="text-[#f4f4f4] text-xs md:text-lg" />
                     </div>
                     <div>
-                        <h1 className="text-lg font-black text-[#F0A500]">Game Categories</h1>
-                        <p className="text-[10px] text-[#F4F4F4]/50 uppercase tracking-wider">Choose Your Game</p>
+                        <h1 className="text-[12px] md:text-lg font-black text-[#f4f4f4]">Game Categories</h1>
+                        <p className="text-[10px] text-[#F0A500]/50 uppercase tracking-wider">Choose Your Game</p>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default function Services() {
                         key={index}
                         className="block group"
                     >
-                        <div className="relative bg-gradient-to-br from-[#1A1C20] to-[#151719] backdrop-blur-md rounded-2xl overflow-hidden border border-[#CF7500]/20 hover:border-[#F0A500]/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(240,165,0,0.15)]">
+                        <div className="relative bg-gradient-to-br from-[#1A1C20] to-[#151719] backdrop-blur-md rounded-md overflow-hidden border border-[#CF7500]/20 hover:border-[#F0A500]/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(240,165,0,0.15)]">
                             
                             {/* Image Container */}
                             <div className="relative h-20 overflow-hidden">
@@ -63,15 +63,10 @@ export default function Services() {
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                 />
                                 
-                                {/* Play button overlay */}
-                                <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <div className="w-10 h-10 bg-gradient-to-br from-[#F0A500] to-[#CF7500] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(240,165,0,0.5)] scale-0 group-hover:scale-100 transition-transform duration-300">
-                                        <FaPlay className="text-[#1A1C20] text-sm ml-0.5" />
-                                    </div>
-                                </div>
+                                
                                 
                                 {/* Rating badge */}
-                                <div className="absolute top-2 right-2 z-20 flex items-center gap-1 px-2 py-0.5 bg-[#1A1C20]/80 backdrop-blur-sm rounded-full border border-[#CF7500]/30">
+                                <div className="absolute top-2 right-2 z-20 flex items-center gap-1 px-2 py-0.5 bg-[#1A1C20]/80 backdrop-blur-sm rounded-md border border-[#CF7500]/30">
                                     <FaStar className="text-[#F0A500] text-[8px]" />
                                     <span className="text-[10px] font-bold text-[#F4F4F4]">{item.rating}</span>
                                 </div>
@@ -80,7 +75,7 @@ export default function Services() {
                             {/* Content */}
                             <div className="p-3 text-center">
                                 {/* Name */}
-                                <h3 className="text-[11px] font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors uppercase tracking-wide mb-1">
+                                <h3 className="text-[9px] md:text-[10px]  font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors uppercase tracking-wide mb-1">
                                     {item.name}
                                 </h3>
                                 
@@ -101,12 +96,12 @@ export default function Services() {
             {/* See More Button */}
             <div className="flex items-center justify-center w-full py-4">
                 <Link to="/categories">
-                    <button className="group relative overflow-hidden px-8 py-3 rounded-xl bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-[#1A1C20] text-xs font-black uppercase tracking-wider shadow-[0_4px_20px_rgba(240,165,0,0.4)] hover:shadow-[0_6px_30px_rgba(240,165,0,0.6)] hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                    <button className="group relative overflow-hidden px-2 flex gap-2 items-center py-3 rounded-md bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300">
                         {/* Shine effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                        <div className="absolute inset-0  from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                         
-                        <span className="relative z-10">See All Categories</span>
-                        <FaArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                        <span className="relative text-[10px] md:text-xs z-10">See All Categories</span>
+                        <FaArrowRight className="relative z-10 text-[10px] md:text-xs  group-hover:translate-x-1 transition-transform" />
                     </button>
                 </Link>
             </div>

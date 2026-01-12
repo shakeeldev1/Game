@@ -46,11 +46,11 @@ export default function PlatFormRecom() {
     };
 
     return (
-        <div className="px-3 py-4 relative">
+        <div className="px-3  relative">
             {/* Header */}
             <div className="flex justify-between items-center mb-3">
-                <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] text-lg font-bold flex items-center gap-2 animate-pulse">
-                    <span className="w-1 h-4 bg-[var(--color-neon-primary)] rounded-full shadow-[0_0_10px_rgba(240,165,0,0.8)]"></span>
+                <h1 className="text-[#f4f4f4] text-[12px] md:text-lg font-bold flex items-center gap-2">
+                    <span className="w-1 h-4 bg-[var(--color-neon-primary)] rounded-md shadow-[0_0_10px_rgba(240,165,0,0.8)]"></span>
                     Recommendation
                 </h1>
 
@@ -60,13 +60,13 @@ export default function PlatFormRecom() {
                         className="group"
                     >
                         <PiCaretCircleLeftFill onClick={slideLeft}
-                            className="w-7 h-7 rounded-full bg-[var(--color-neon-bg)]/80 text-[var(--color-neon-primary)] hover:text-[var(--color-neon-bg)] hover:bg-[var(--color-neon-primary)] transition-all shadow-[0_0_10px_rgba(240,165,0,0.3)] border border-[var(--color-neon-accent)]/30" />
+                            className="h-5 w-5 md:w-7 md:h-7 rounded-full bg-[var(--color-neon-bg)]/80 text-[#f4f4f4] hover:text-[var(--color-neon-bg)] hover:bg-[var(--color-neon-primary)] transition-all shadow-[0_0_10px_rgba(240,165,0,0.3)] border border-[var(--color-neon-accent)]/30" />
                     </button>
                     <button
                         className="group"
                     >
                         <PiCaretCircleRightFill onClick={slideRight}
-                            className="w-7 h-7 flex items-center justify-center rounded-full bg-[var(--color-neon-bg)]/80 text-[var(--color-neon-primary)] hover:text-[var(--color-neon-bg)] hover:bg-[var(--color-neon-primary)] transition-all shadow-[0_0_10px_rgba(240,165,0,0.3)] border border-[var(--color-neon-accent)]/30" />
+                            className="h-5 w-5 md:w-7 md:h-7 rounded-full bg-[var(--color-neon-bg)]/80 text-[#f4f4f4] hover:text-[var(--color-neon-bg)] hover:bg-[var(--color-neon-primary)] transition-all shadow-[0_0_10px_rgba(240,165,0,0.3)] border border-[var(--color-neon-accent)]/30" />
                     </button>
                 </div>
             </div>
@@ -76,17 +76,17 @@ export default function PlatFormRecom() {
                 ref={sliderRef}
                 onMouseEnter={() => setPause(true)}
                 onMouseLeave={() => setPause(false)}
-                className="flex gap-3 overflow-y-hidden overflow-x-scroll scrollbar-hide py-2"
+                className="flex gap-3  overflow-x-scroll  py-2"
             >
                 {popular.map((img, index) => (
                     <div
                         key={index}
-                        className="min-w-[120px] overflow-hidden rounded-xl p-[2px] bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] hover:scale-110 hover:rotate-1 transition-all duration-300 shadow-[0_0_20px_rgba(240,165,0,0.2)] group"
+                        className="min-w-[120px] overflow-hidden rounded-xl p-[2px] bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(240,165,0,0.2)] group"
                     >
                         <img
                             src={img}
                             alt="game"
-                            className="rounded-[9px] w-full h-[100px] object-cover bg-[var(--color-neon-bg)] opacity-90 group-hover:opacity-100 transition-all duration-300"
+                            className="rounded-[9px] w-full md:h-[100px] object-cover bg-[var(--color-neon-bg)] opacity-90 group-hover:opacity-100 transition-all duration-300"
                         />
                     </div>
                 ))}

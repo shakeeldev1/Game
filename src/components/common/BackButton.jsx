@@ -12,9 +12,9 @@ const BackButton = () => {
   return (
     <button
       onClick={handleBack}
-      className="flex items-center gap-2 px-3 py-2 bg-[var(--color-neon-primary)] text-[var(--color-neon-bg)] rounded-lg hover:bg-[var(--color-neon-accent)] transition-colors"
+      className="flex items-center gap-2  px-3 py-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] ml-3 hover:text-[#0f0f13] transition-all duration-300  mb-2"
     >
-      <FaArrowLeft size={16} />
+      <FaArrowLeft className='text-[10px] md:text-xs' />
       Back
     </button>
   );

@@ -28,22 +28,22 @@ export default function CategoriesListing() {
         <BackButton />
       </div>
 
-      <h4 className="text-2xl font-bold mb-8 text-white">Categories Listing</h4>
+      <h4 className="text-[14px] underline md:text-lg font-bold mb-4 md:mb-8 text-white">Categories Listing</h4>
 
       <div className="grid grid-cols-3 gap-6">
         {categories.map((category, index) => (
           <div
             key={index}
-            className="flex flex-col items-center bg-white/50 backdrop-blur-md rounded-2xl px-6 shadow-lg hover:scale-105 hover:shadow-2xl transition-transform cursor-pointer"
+            className="flex flex-col items-center bg-gradient-to-br from-[#232529] to-[#1A1C20] backdrop-blur-md rounded-md  px-6 shadow-[0_0_10px_rgba(255,215,0,0.4)] hover:scale-105 hover:shadow-2xl transition-transform cursor-pointer"
           >
-            <div className="w-24 h-24 rounded-xl overflow-hidden mb-3">
+            <div className="h-12 w-12 md:w-24 md:h-24 rounded-md overflow-hidden mb-3">
               <img
                 src={category.img}
                 alt={category.name}
                 className="w-full h-full object-contain"
               />
             </div>
-            <h6 className="text-center text-gray-800 font-semibold">{category.name}</h6>
+            <h6 className="text-center text-xs  text-white">{category.name}</h6>
           </div>
         ))}
       </div>

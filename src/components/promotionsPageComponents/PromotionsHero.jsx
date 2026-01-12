@@ -20,16 +20,16 @@ function Hero() {
 
         {/* Header Section */}
         <div className="text-center space-y-5 mb-10 animate-on-scroll">
-          <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(240,165,0,0.4)] rotate-3">
-            <FaCrown className="text-3xl text-[var(--color-neon-bg)]" />
+          <div className="h-10 w-10 md:w-12 md:h-12 mx-auto mb-4  bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center shadow-[0_0_40px_rgba(240,165,0,0.4)] ">
+            <FaCrown className="text-[12px] md:text-lg text-[#f4f4f4]" />
           </div>
 
-          <h1 className="text-5xl font-black tracking-tight text-[var(--color-neon-text)]">
+          <h1 className="text-[14px] md:text-lg font-black text-[#f4f4f4]">
             Agency{" "}
             <span className="gradient-text">Hub</span>
           </h1>
 
-          <div className="inline-flex items-center px-5 py-2 rounded-full glass-card">
+          <div className="inline-flex items-center px-5 py-2 rounded-md glass-card">
             <span className="relative flex h-2 w-2 mr-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-neon-primary)] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-neon-primary)]"></span>
@@ -39,14 +39,14 @@ function Hero() {
             </p>
           </div>
 
-          <p className="text-[var(--color-neon-text)]/60 text-lg max-w-lg mx-auto leading-relaxed font-medium">
+          <p className="text-[#f4f4f4] text-[10px] md:text-xs max-w-lg mx-auto leading-relaxed font-medium">
             Manage your team and monitor your <span className="text-[var(--color-neon-primary)] font-bold">performance</span> in real-time.
           </p>
         </div>
 
         {/* Data Card */}
         <div className="w-full max-w-3xl mx-auto animate-on-scroll">
-          <div className="glass-card rounded-[2rem] p-6 relative">
+          <div className="glass-card rounded-md p-6 relative">
 
             {/* Tab Switcher */}
             <div className="glass-card p-1.5 rounded-xl mb-6 flex gap-1">
@@ -54,9 +54,9 @@ function Hero() {
                 <button
                   key={i}
                   onClick={() => setActiveTab(i)}
-                  className={`flex-1 py-3 text-sm font-bold rounded-lg transition-all ${activeTab === i
-                      ? 'btn-premium text-[var(--color-neon-bg)]'
-                      : 'text-[var(--color-neon-text)]/50 hover:text-[var(--color-neon-text)]'
+                  className={`flex-1 py-3 text-sm font-bold text-[10px] rounded-md transition-all ${activeTab === i
+                      ? 'btn-premium text-[var(--color-neon-bg)] '
+                      : 'text-white hover:text-[var(--color-neon-text)]'
                     }`}
                 >
                   {tab}
@@ -81,19 +81,19 @@ function Hero() {
 
 function StatBox({ icon: Icon, label, value, accent }) {
   return (
-    <div className="glass-card p-5 rounded-2xl card-hover-lift group relative overflow-hidden">
+    <div className="glass-card p-5 rounded-md card-hover-lift group relative overflow-hidden">
       {accent && <div className="absolute top-0 right-0 w-16 h-16 bg-[var(--color-neon-primary)]/10 rounded-bl-full"></div>}
 
       <div className="flex items-center gap-3 mb-3">
-        <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${accent ? 'bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] text-[var(--color-neon-bg)]' : 'bg-[var(--color-neon-primary)]/10 text-[var(--color-neon-primary)]'} group-hover:scale-110 transition-transform`}>
+        <div className={`w-10 h-10 rounded-md flex items-center justify-center  bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] text-[#f4f4f4]'} group-hover:scale-110 transition-transform`}>
           <Icon className="text-lg" />
         </div>
       </div>
 
-      <h3 className={`text-2xl font-black tracking-tight mb-1 ${accent ? 'gradient-text' : 'text-[var(--color-neon-text)]'}`}>
+      <h3 className={`text-[10px] md:text-xs font-black tracking-tight mb-1  text-[var(--color-neon-text)]'}`}>
         {value}
       </h3>
-      <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-neon-text)]/40 group-hover:text-[var(--color-neon-text)]/60">
+      <p className="text-[8px] font-bold uppercase tracking-wider text-[#F0A500]/40">
         {label}
       </p>
     </div>

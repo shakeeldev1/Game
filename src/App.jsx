@@ -19,13 +19,18 @@ import CategoriesListing from "./components/home/CategoriesListing";
 import MoreGames from "./components/home/MoreGames";
 import RegisterPage from "./components/common/RegisterPage";
 import ForgotPage from "./components/common/ForgotPage";
+import ScrollToTop from "./pages/ScrollToTop";
+
 
 const MainFunction = () => {
+  
+
   return (
     <div className="min-h-screen flex items-center justify-center font-sans bg-[var(--color-neon-bg)]">
       <div className="relative bg-[var(--color-neon-bg)] h-[100vh] sm:max-h-[850px] w-full sm:w-[400px] md:w-[420px] sm:rounded-[10px] shadow-2xl overflow-hidden flex flex-col border border-[var(--color-neon-accent)] ring-1 ring-[var(--color-neon-accent)]">
         <Navbar />
-        <div className="grow overflow-y-auto no-scrollbar scroll-smooth bg-[var(--color-neon-bg)]">
+         <ScrollToTop  />
+        <div className="grow overflow-y-auto no-scrollbar scroll-smooth bg-[#1A1C20]">
           <Outlet />
         </div>
         <Footer />

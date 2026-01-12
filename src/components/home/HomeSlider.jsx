@@ -72,17 +72,17 @@ export default function HomeHeroSlider() {
 
   const getBadgeColor = (badge) => {
     switch (badge) {
-      case 'HOT': return 'from-[#ff4757] to-[#ff6b81]';
-      case 'NEW': return 'from-[#00d4ff] to-[#00ff88]';
+      case 'HOT': return 'from-[#ffd700] to-[#ff8c00]';
+      case 'NEW': return 'from-[#ffd700] to-[#ff8c00]';
       case 'VIP': return 'from-[#ffd700] to-[#ff8c00]';
-      case 'TRENDING': return 'from-[#a855f7] to-[#ec4899]';
+      case 'TRENDING': return 'from-[#ffd700] to-[#ff8c00]';
       default: return 'from-[#ffd700] to-[#ff8c00]';
     }
   };
 
   return (
     <div
-      className="relative w-full h-[220px] sm:h-[240px] overflow-hidden rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]"
+      className="relative w-full h-[220px] sm:h-[240px] overflow-hidden rounded-md shadow-[0_0_30px_rgba(0,0,0,0.5)]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -118,31 +118,26 @@ export default function HomeHeroSlider() {
                   <div className="relative flex flex-col backdrop-blur-xl bg-gradient-to-br from-[#1a1a24]/90 to-[#0f0f13]/80 border border-[#ffd700]/20 rounded-2xl px-5 py-4 max-w-[280px] w-full shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
                     
                     {/* Badge */}
-                    <div className={`absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r ${getBadgeColor(slideItem.badge)} text-[#0f0f13] text-[10px] font-black rounded-full shadow-lg flex items-center gap-1`}>
+                    <div className={`absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r ${getBadgeColor(slideItem.badge)} text-[#0f0f13] text-[10px] font-black rounded-3xl shadow-lg flex items-center gap-1`}>
                       <FaFire className="text-[8px]" />
                       {slideItem.badge}
                     </div>
 
-                    {/* Subtitle */}
-                    <span className="text-[10px] font-bold text-[#ffd700] uppercase tracking-widest mb-1 flex items-center gap-1">
-                      <FaStar className="text-[8px]" />
-                      {slideItem.subtitle}
-                    </span>
+                   
 
                     {/* Title */}
-                    <h1 className="text-xl font-black tracking-wide gradient-text mb-2">
+                    <h1 className="text-[14px]  text-nowrap mt-2 w-full  md:text-xl font-black tracking-wide text-[#F4F4F4] mb-2">
                       {slideItem.title}
                     </h1>
 
                     {/* Description */}
-                    <p className="text-[#f8f8f8]/70 text-xs leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-[#F4F4F4] text-[10px] md:text-xs leading-relaxed mb-4 line-clamp-2">
                       {slideItem.desc}
                     </p>
 
                     {/* CTA Button */}
                     <Link to={'/more-games'}>
-                      <button className="btn-premium cursor-pointer text-[#0f0f13] text-xs font-black px-5 py-2.5 rounded-xl flex items-center gap-2 w-fit uppercase tracking-wider">
-                       
+                      <button className=" cursor-pointer bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300  text-[10px] md:text-xs px-2 py-2 rounded-md flex items-center gap-2 w-fit">
                         {slideItem.btn}
                       </button>
                     </Link>
@@ -174,7 +169,7 @@ export default function HomeHeroSlider() {
       {/* Left Arrow */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-[#1a1a24]/90 backdrop-blur-md border border-[#ffd700]/30 rounded-xl flex items-center justify-center text-[#ffd700] hover:bg-gradient-to-br hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer group"
+        className="absolute left-3  hidden top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-[#1a1a24]/90 backdrop-blur-md border border-[#ffd700]/30 rounded-xl flex items-center justify-center text-[#ffd700] hover:bg-gradient-to-br hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer group"
       >
         <FaChevronLeft size={12} className="group-hover:-translate-x-0.5 transition-transform" />
       </button>
@@ -182,33 +177,27 @@ export default function HomeHeroSlider() {
       {/* Right Arrow */}
       <button
         onClick={nextSlide}
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-[#1a1a24]/90 backdrop-blur-md border border-[#ffd700]/30 rounded-xl flex items-center justify-center text-[#ffd700] hover:bg-gradient-to-br hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer group"
+        className="absolute right-3  hidden top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-[#1a1a24]/90 backdrop-blur-md border border-[#ffd700]/30 rounded-xl flex items-center justify-center text-[#ffd700] hover:bg-gradient-to-br hover:from-[#ffd700] hover:to-[#ff8c00]  hover:text-[#0f0f13] transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer group"
       >
         <FaChevronRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
       </button>
 
       {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2 bg-[#0f0f13]/60 backdrop-blur-md px-3 py-2 rounded-full">
+      <div className="absolute bottom-2  left-1/2 -translate-x-1/2 z-20 flex gap-2 bg-[#0f0f13]/60 backdrop-blur-md px-3 py-2 rounded-full">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goToSlide(i)}
             className={`cursor-pointer rounded-full transition-all duration-300 ${
               i === index
-                ? 'w-6 h-2 bg-gradient-to-r from-[#ffd700] to-[#ff8c00] shadow-[0_0_10px_rgba(255,215,0,0.8)]'
+                ? 'w-2 h-2 bg-gradient-to-r from-[#ffd700] to-[#ff8c00] shadow-[0_0_10px_rgba(255,215,0,0.8)]'
                 : 'w-2 h-2 bg-[#f8f8f8]/30 hover:bg-[#ffd700]/50'
             }`}
           />
         ))}
       </div>
 
-      {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0f0f13]/50 z-20">
-        <div
-          className="h-full bg-gradient-to-r from-[#ffd700] to-[#ff8c00] transition-all duration-300 ease-linear shadow-[0_0_10px_rgba(255,215,0,0.5)]"
-          style={{ width: `${((index + 1) / slides.length) * 100}%` }}
-        ></div>
-      </div>
+      
 
       {/* Floating animation keyframes */}
       <style>

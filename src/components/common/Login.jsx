@@ -29,36 +29,36 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden particles-bg">
+    <div className="relative min-h-screen py-5 flex items-center justify-center px-4 overflow-hidden particles-bg">
 
       {/* Animated Background Effects */}
       <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-[var(--color-neon-primary)]/10 rounded-full blur-[100px] animate-pulse"></div>
       <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-[var(--color-neon-accent)]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-
+      <button
+        onClick={() => navigate('/')}
+        className="absolute left-5 top-6 p-2.5 z-100 rounded-md  bg-gradient-to-br from-[#232529] to-[#1A1C20] shadow-[0_0_10px_rgba(255,215,0,0.4)] hover:text-[var(--color-neon-primary)] transition-all active:scale-90"
+      >
+        <FaArrowLeft size={14} />
+      </button>
       {/* Form container */}
       <div className="relative w-full max-w-sm animate-on-scroll">
-        <div className="glass-card rounded-[2.5rem] p-8 relative overflow-hidden">
+        <div className="glass-card rounded-md p-8 relative overflow-hidden">
 
           {/* Decorative corner glow */}
           <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[var(--color-neon-primary)]/20 to-transparent rounded-bl-full"></div>
 
           {/* Header */}
           <div className="relative mb-8">
-            <button
-              onClick={() => navigate(-1)}
-              className="absolute left-0 top-0 p-2.5 rounded-xl glass-card text-[var(--color-neon-text)]/60 hover:text-[var(--color-neon-primary)] transition-all active:scale-90"
-            >
-              <FaArrowLeft size={14} />
-            </button>
+
 
             <div className="text-center pt-6">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] rotate-3">
-                <FaGamepad className="text-2xl text-[var(--color-neon-bg)]" />
+              <div className="h-10 w-10 md:w-12 md:h-12 mx-auto mb-4  bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] ">
+                <FaGamepad className="text-[12px] md:text-lg text-[#f4f4f4]" />
               </div>
-              <h2 className="text-3xl font-black text-[var(--color-neon-text)]">
+              <h2 className="text-[14px] md:text-lg font-black text-[var(--color-neon-text)]">
                 Welcome <span className="gradient-text">Back</span>
               </h2>
-              <p className="mt-2 text-sm font-medium text-[var(--color-neon-text)]/50">
+              <p className=" text-xs md:text-sm font-medium text-[#F0A500]/40">
                 Sign in to continue playing
               </p>
             </div>
@@ -69,7 +69,7 @@ const LoginPage = () => {
 
             {/* Phone */}
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-[var(--color-neon-text)]/50 uppercase tracking-widest ml-1">
+              <label className="text-[10px] font-bold text-[#f4f4f] uppercase tracking-widest ml-1">
                 Phone Number
               </label>
               <div className="relative group">
@@ -83,14 +83,14 @@ const LoginPage = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Enter phone number"
-                  className="w-full pl-11 pr-4 py-4 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-xl border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
+                  className="w-full text-xs  pl-11 pr-4 py-2 md:py-3 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-md border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
                 />
               </div>
             </div>
 
             {/* Password */}
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-[var(--color-neon-text)]/50 uppercase tracking-widest ml-1">
+              <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">
                 Password
               </label>
               <div className="relative group">
@@ -104,7 +104,7 @@ const LoginPage = () => {
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="Enter password"
-                  className="w-full pl-11 pr-12 py-4 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-xl border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
+                  className="w-full text-xs  pl-11 pr-4 py-2 md:py-3 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-md border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
                 />
                 <button
                   type="button"
@@ -124,12 +124,12 @@ const LoginPage = () => {
                   name="rememberMe"
                   checked={formData.rememberMe}
                   onChange={handleChange}
-                  className="h-4 w-4 cursor-pointer rounded border-[var(--color-neon-accent)]/30 accent-[var(--color-neon-primary)]"
+                  className="h-3 w-3 md:h-4 md:w-4 cursor-pointer rounded border-[var(--color-neon-accent)]/30 accent-[var(--color-neon-primary)]"
                 />
-                <span>Remember me</span>
+                <span className='text-white text-xs'>Remember me</span>
               </label>
 
-              <Link to="/forgot-password" className="text-xs font-bold text-[var(--color-neon-primary)] hover:text-[var(--color-neon-accent)] transition-colors">
+              <Link to="/forgot-password" className="text-xs md:text-md font-bold text-[var(--color-neon-primary)] hover:text-[var(--color-neon-accent)] transition-colors">
                 Forgot Password?
               </Link>
             </div>
@@ -138,12 +138,12 @@ const LoginPage = () => {
             <button
               type="submit"
               disabled={!formData.phone || !formData.password}
-              className="w-full py-4 mt-2 btn-premium text-[var(--color-neon-bg)] font-black text-xs uppercase tracking-[0.2em] rounded-xl cursor-pointer neon-glow disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full py-4 mt-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
             >
               <FiZap /> Sign In
             </button>
 
-            <div className="relative py-4">
+            <div className="relative ">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-[var(--color-neon-accent)]/20"></div>
               </div>
@@ -155,7 +155,7 @@ const LoginPage = () => {
             <Link to="/register" className="block">
               <button
                 type="button"
-                className="w-full py-4 rounded-xl glass-card text-[var(--color-neon-text)] font-black text-xs uppercase tracking-[0.2em] hover:bg-[var(--color-neon-primary)]/10 hover:border-[var(--color-neon-primary)]/30 transition-all active:scale-95 flex items-center justify-center gap-2"
+                className="w-full py-4 rounded-md glass-card text-[var(--color-neon-text)]  text-xs uppercase tracking-[0.2em] hover:bg-[var(--color-neon-primary)]/10 hover:border-[var(--color-neon-primary)]/30 transition-all active:scale-95  flex items-center justify-center gap-2"
               >
                 <FaCrown className="text-[var(--color-neon-primary)]" /> Create Account
               </button>

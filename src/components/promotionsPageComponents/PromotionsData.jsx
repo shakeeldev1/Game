@@ -20,23 +20,17 @@ function PromotionData() {
         {/* Header */}
         <div className="flex items-center justify-between mb-6 relative z-10">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] rounded-xl flex items-center justify-center text-[var(--color-neon-bg)] shadow-lg neon-glow">
-              <FaChartLine size={20} />
+            <div className="md:w-10 md:h-10  h-8 w-8 bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex text-[12px] md:text-xs items-center justify-center text-[#f4f4f4] border border-[#CF7500] shadow-lg neon-glow">
+              <FaChartLine />
             </div>
             <div>
-              <h2 className="text-[var(--color-neon-text)] font-black text-lg">
+              <h2 className="text-[var(--color-neon-text)] font-black text-[12px] md:text-lg">
                 Promotion Data
               </h2>
-              <p className="text-[10px] text-[var(--color-neon-text)]/40 uppercase tracking-wider">Real-time stats</p>
+              <p className="text-[8px] md:text-[10px] text-[var(--color-neon-text)]/40 uppercase tracking-wider">Real-time stats</p>
             </div>
           </div>
-          <div className="px-3 py-1 bg-green-500/20 rounded-lg border border-green-500/30 flex items-center gap-1">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            <span className="text-[10px] font-bold text-green-400 uppercase">Live</span>
-          </div>
+         
         </div>
 
         {/* Stats Grid */}
@@ -51,20 +45,18 @@ function PromotionData() {
               )}
 
               <div className="flex items-center justify-between mb-3">
-                <div className={`w-9 h-9 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform ${item.accent
-                    ? 'bg-gradient-to-br from-[var(--color-neon-primary)] to-[var(--color-neon-accent)] text-[var(--color-neon-bg)]'
-                    : 'bg-[var(--color-neon-primary)]/10 text-[var(--color-neon-primary)]'
-                  }`}>
-                  <item.icon className="text-lg" />
+                <div className='w-7 h-7 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform 
+                    md:w-10 md:h-10  h-8 w-8 bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex text-[12px] md:text-xs items-center justify-center text-[#f4f4f4] border border-[#CF7500] shadow-lg neon-glow'>
+                  <item.icon className="text-[10px] md:text-xs" />
                 </div>
-                {item.accent && <FaFire className="text-[var(--color-neon-primary)] text-xs animate-pulse" />}
+                {item.accent && <FaFire className="text-[var(--color-neon-primary)] md:text-xs animate-pulse" />}
               </div>
 
               <div>
-                <p className={`text-xl font-black tracking-tight truncate ${item.accent ? 'gradient-text' : 'text-[var(--color-neon-text)]'}`}>
+                <p className='text-xs font-black tracking-tight truncate text-[var(--color-neon-text)]'>
                   {item.value}
                 </p>
-                <p className="text-[10px] text-[var(--color-neon-text)]/40 font-bold uppercase tracking-wide truncate mt-0.5">
+                <p className="text-[8px] md:text-xs text-[var(--color-neon-text)]/40 font-bold uppercase tracking-wide truncate mt-0.5">
                   {item.label}
                 </p>
               </div>

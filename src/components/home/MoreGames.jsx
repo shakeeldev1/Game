@@ -1870,18 +1870,18 @@ const GameListing = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <BackButton />
-      <div className="mb-8 flex gap-5">
-        <h5 className="text-2xl font-bold text-gray-50 ">Game Listing</h5>
+      <div className="mb-2 flex gap-5">
+        <h5 className="text-[16px] underline md:text-lg font-bold text-gray-50 ">Game Listing</h5>
       </div>
 
       {/* Games Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {games.slice(0, visibleGames).map((game) => (
           <div
             key={game.id}
-            className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800"
+            className="group relative overflow-hidden rounded-md shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800"
           >
-            <div className="aspect-[3/4] relative overflow-hidden">
+            <div className="h-12 md:h-16 relative overflow-hidden">
               <img
                 src={game.imageUrl}
                 alt={game.name}
@@ -1896,10 +1896,10 @@ const GameListing = () => {
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-white font-semibold text-sm line-clamp-2">
+                  <h3 className="text-white font-semibold text-[10px] line-clamp-2">
                     {game.name}
                   </h3>
-                  <span className="text-xs text-gray-300 mt-1 block">
+                  <span className="text-[10px] text-gray-300 mt-1 block">
                     {game.provider}
                   </span>
                 </div>
@@ -1908,7 +1908,7 @@ const GameListing = () => {
 
             {/* Play Button Overlay */}
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <button className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-600 hover:to-yellow-400 text-white px-3 cursor-pointer py-1 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg">
+              <button className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-600 hover:to-yellow-400 text-white px-3 cursor-pointer py-1 rounded-full text-[10px] md:text-xs transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg">
                 Play Now
               </button>
             </div>
@@ -1918,14 +1918,14 @@ const GameListing = () => {
 
       {/* See More Button */}
       {visibleGames < games.length && (
-        <div className="mt-12 text-center">
+        <div className="md:mt-5 mt-6 text-center">
           <button
             onClick={loadMoreGames}
-            className="inline-flex rounded-full items-center px-3 py-1 border border-transparent text-base font-medium text-[#F4F4F4] bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-white hover:from-[#F0A500] hover:to-[#CF7500] cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex rounded-md items-center px-2 md:px-3 md:py-1 py-1 text-base text-[12px] border border-[#CF7500] md:text-xs text-[#F4F4F4]  bg-gradient-to-br from-[#232529] to-[#1A1C20] text-white hover:from-[#F0A500] hover:to-[#CF7500] hover:text-black cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             See More
             <svg
-              className="ml-2 w-5 h-5"
+              className="ml-2 h-3 md:h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -1939,7 +1939,7 @@ const GameListing = () => {
               />
             </svg>
           </button>
-          <p className="mt-2 text-sm text-[#F4F4F4] dark:text-[#F4F4F4]">
+          <p className="mt-2 md:text-sm text-xs text-[#F4F4F4] dark:text-[#F4F4F4]">
             Showing {visibleGames} of {games.length} games
           </p>
         </div>
@@ -1947,22 +1947,22 @@ const GameListing = () => {
 
       {/* Stats Section */}
       <div className="mt-8 pt-6 border-t border-[#CF7500] dark:border-[#CF7500]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           <div className="text-center">
-            <p className="text-2xl font-bold text-[#F0A500]">{games.length}</p>
-            <p className="text-sm text-[#F4F4F4] dark:text-[#F4F4F4]">
+            <p className="text-lg font-bold text-[#F0A500]">{games.length}</p>
+            <p className="text-xs text-[#F4F4F4] dark:text-[#F4F4F4]">
               Total Games
             </p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-[#F0A500]">24+</p>
-            <p className="text-sm text-[#F4F4F4] dark:text-[#F4F4F4]">
+            <p className="text-lg font-bold text-[#F0A500]">24+</p>
+            <p className="text-xs text-[#F4F4F4] dark:text-[#F4F4F4]">
               Providers
             </p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-[#F0A500]">New</p>
-            <p className="text-sm text-[#F4F4F4] dark:text-[#F4F4F4]">
+            <p className="text-lg  font-bold text-[#F0A500]">New</p>
+            <p className="text-xs text-[#F4F4F4] dark:text-[#F4F4F4]">
               Daily Additions
             </p>
           </div>

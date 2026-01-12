@@ -17,11 +17,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="sticky bottom-0 z-50 w-full px-4 pb-4 pt-0 pointer-events-none">
-      <div className="max-w-md mx-auto pointer-events-auto">
+    <footer className="sticky bottom-0 z-50 w-full  px-4  pt-0 pointer-events-none">
+      <div className="max-w-md mx-auto  pointer-events-auto">
         {/* Glass Footer Container */}
-        <div className="relative flex items-center justify-around px-3 py-3 rounded-2xl
-                          bg-gradient-to-b from-[#232529]/95 to-[#1A1C20]/98 backdrop-blur-2xl
+        <div className="relative flex items-center  justify-around px-3 py-3 rounded-2xl
+                          bg-gradient-to-br from-[#232529] to-[#1A1C20] backdrop-blur-2xl
                           shadow-[0_-10px_40px_rgba(0,0,0,0.5),0_0_30px_rgba(240,165,0,0.1)]
                           border border-[#CF7500]/20
                           before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-r before:from-[#F0A500]/5 before:via-transparent before:to-[#CF7500]/5 before:pointer-events-none">
@@ -41,10 +41,10 @@ const Footer = () => {
                   className="relative -mt-8 group"
                 >
                   {/* Outer glow ring */}
-                  <div className="absolute -inset-2 bg-gradient-to-r from-[#F0A500] via-[#CF7500] to-[#F0A500] rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500 animate-pulse"></div>
+                  <div className="absolute -inset-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500 animate-pulse"></div>
                   
                   {/* Main button */}
-                  <div className="relative w-16 h-16 rounded-full flex items-center justify-center
+                  <div className="relative md:w-12 md:h-12 h-10 w-10 rounded-full flex items-center justify-center
                                      bg-gradient-to-br from-[#F0A500] via-[#CF7500] to-[#F0A500]
                                      shadow-[0_0_30px_rgba(240,165,0,0.5),inset_0_2px_10px_rgba(255,255,255,0.3)]
                                      ring-4 ring-[#1A1C20]
@@ -57,11 +57,11 @@ const Footer = () => {
                     {/* Sparkle effects */}
                     <Sparkles className="absolute top-1 right-1 w-3 h-3 text-white/60 animate-pulse" />
                     
-                    <Icon size={26} className="text-[#1A1C20] drop-shadow-md relative z-10" strokeWidth={2.5} />
+                    <Icon  className="text-[10px] text-[#f4f4f4] drop-shadow-md relative z-10" strokeWidth={2.5} />
                   </div>
                   
                   {/* Label */}
-                  <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-black text-[#F0A500] bg-[#1A1C20]/90 px-3 py-1 rounded-full backdrop-blur-md border border-[#CF7500]/20 shadow-lg whitespace-nowrap uppercase tracking-wider">
+                  <span className="absolute text-[10px] md:text-xs -bottom-9 left-1/2 -translate-x-1/2   text-white bg-[#1A1C20]/90 px-2 py-1 rounded-sm backdrop-blur-md border border-[#CF7500]/20 shadow-lg">
                     {item.label}
                   </span>
                 </Link>
@@ -74,7 +74,7 @@ const Footer = () => {
                 to={item.path}
                 className={`relative flex flex-col items-center justify-center w-16 py-2 transition-all duration-300 group
                     ${isActive
-                    ? "text-[#F0A500]"
+                    ? "text-[#f4f4f4]"
                     : "text-[#F4F4F4]/60 hover:text-[#F0A500]"
                   }`}
               >
@@ -84,7 +84,7 @@ const Footer = () => {
                 )}
                 
                 {/* Icon container */}
-                <div className={`relative p-2 rounded-xl transition-all duration-300 ${isActive ? 'bg-[#F0A500]/10' : 'group-hover:bg-[#F0A500]/5'}`}>
+                <div className={`relative p-2 rounded-md transition-all duration-300 ${isActive ? 'bg-gradient-to-br from-[#232529] to-[#1A1C20]' : 'group-hover:bg-[#F0A500]/5'}`}>
                   <Icon
                     size={22}
                     strokeWidth={isActive ? 2.5 : 2}
@@ -100,7 +100,7 @@ const Footer = () => {
                 {/* Label */}
                 <span className={`text-[10px] mt-1 font-bold uppercase tracking-wider transition-all duration-300 ${
                   isActive
-                    ? 'opacity-100 text-[#CF7500]'
+                    ? 'opacity-100 text-[#f4f4f4]'
                     : 'opacity-0 translate-y-2 group-hover:opacity-70 group-hover:translate-y-0'
                 }`}>
                   {item.label}
