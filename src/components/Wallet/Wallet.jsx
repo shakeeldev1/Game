@@ -6,34 +6,61 @@ import {
   FaArrowDown,
   FaHistory,
   FaExchangeAlt,
+  FaDice,
+  FaChess,
+  FaGamepad,
+  FaCoins,
+  FaFootballBall,
+  FaVideo,
+  FaTrophy,
+  FaCreditCard,
+  FaTable
 } from "react-icons/fa";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
+import BackButton from "../common/BackButton";
 
 function Wallet() {
   useEffect(() => {
     AOS.init({ duration: 700, once: true });
   }, []);
 
-  return (
-    <div className="min-h-screen p-4 md:p-8 pb-24">
+  const walletGames = [
+    { id: 1, name: "Lottery", balance: "0.00", icon: FaDice, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 2, name: "TB_Chess", balance: "0.00", icon: FaChess, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 3, name: "Wicket9", balance: "0.00", icon: FaFootballBall, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 4, name: "MG", balance: "0.00", icon: FaGamepad, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 5, name: "JDB", balance: "0.00", icon: FaCoins, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 6, name: "SaBa", balance: "0.00", icon: FaFootballBall, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 7, name: "TB", balance: "0.00", icon: FaTable, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 8, name: "EVO_Video", balance: "0.00", icon: FaVideo, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 9, name: "JILI", balance: "0.00", icon: FaTrophy, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 10, name: "Card365", balance: "0.00", icon: FaCreditCard, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 11, name: "PP", balance: "0.00", icon: FaGamepad, color: "from-[#F0A500] to-[#CF7500]" },
+    { id: 12, name: "PG", balance: "0.00", icon: FaCoins, color: "from-[#F0A500] to-[#CF7500]" }
+  ];
 
+  return (
+    <div className="min-h-screen p-4 md:p-6 pb-24 bg-[#0f0f13]">
+
+      <BackButton/>
       {/* Header */}
       <div
-        className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-6 md:p-8 flex items-center justify-between mb-8 relative overflow-hidden shadow-[0_0_30px_rgba(6,182,212,0.4)] border border-cyan-400/30"
+        className="w-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] rounded-xl p-5 md:p-6 flex items-center justify-between mb-6 relative overflow-hidden shadow-[0_0_30px_rgba(240,165,0,0.3)] border border-[#F0A500]/20"
         data-aos="fade-down"
       >
         {/* Background Effects */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+        <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#CF7500]/20 rounded-full blur-2xl"></div>
 
         {/* Text */}
         <div className="z-10 relative">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-md">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-[#0f0f13] tracking-tight drop-shadow-md">
             My Wallet
           </h1>
-          <p className="text-cyan-100 mt-2 max-w-md font-medium">
+          <p className="text-[#0f0f13]/80 mt-1 max-w-md font-medium text-sm">
             Manage your balance, deposits, and withdrawals securely.
           </p>
         </div>
@@ -41,90 +68,116 @@ function Wallet() {
 
 
       {/* Wallet Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
-        <div className="bg-[#1a1033]/80 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.3)] rounded-2xl p-6 flex flex-col items-center hover:scale-[1.03] transition-transform duration-300 group hover:border-cyan-500/30">
-          <div className="p-4 rounded-full bg-cyan-500/10 mb-4 group-hover:bg-cyan-500/20 transition-colors">
-            <FaWallet size={30} className="text-cyan-400" />
+      <div className="grid grid-cols-3  gap-2 mb-6">
+        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-5 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
+          <div className="p-3 rounded-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] mb-3 group-hover:scale-110 transition-transform">
+            <FaWallet size={12} className="text-[#0f0f13]" />
           </div>
-          <p className="font-bold text-gray-400 text-center uppercase text-xs tracking-wider">Total Balance</p>
-          <h2 className="font-black text-2xl md:text-3xl mt-2 text-white tracking-tight drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">Rs 0.00</h2>
+          <p className=" text-[#F4F4F4]text-center text-[10px]">Total Balance</p>
+          <h2 className=" text-[10px] md:text-[12px] mt-2 text-[#F0A500] tracking-tight">Rs 0.00</h2>
         </div>
 
-        <div className="bg-[#1a1033]/80 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.3)] rounded-2xl p-6 flex flex-col items-center hover:scale-[1.03] transition-transform duration-300 group hover:border-blue-500/30">
-          <div className="p-4 rounded-full bg-blue-500/10 mb-4 group-hover:bg-blue-500/20 transition-colors">
-            <FaMoneyBillWave size={30} className="text-blue-400" />
+        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-5 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
+          <div className="p-3 rounded-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] mb-3 group-hover:scale-110 transition-transform">
+            <FaMoneyBillWave size={12} className="text-[#0f0f13]" />
           </div>
-          <p className="font-bold text-gray-400 text-center uppercase text-xs tracking-wider">Main Wallet</p>
-          <h2 className="font-black text-2xl md:text-3xl mt-2 text-white tracking-tight">Rs 0.00</h2>
+          <p className=" text-[#F4F4F4] text-center uppercase text-[10px] tracking-wider">Main Wallet</p>
+          <h2 className=" text-[10px] md:text-[12px] mt-2 text-[#F0A500] tracking-tight">Rs 0.00</h2>
         </div>
 
-        <div className="bg-[#1a1033]/80 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.3)] rounded-2xl p-6 flex flex-col items-center hover:scale-[1.03] transition-transform duration-300 group hover:border-fuchsia-500/30">
-          <div className="p-4 rounded-full bg-fuchsia-500/10 mb-4 group-hover:bg-fuchsia-500/20 transition-colors">
-            <FaMoneyBillWave size={30} className="text-fuchsia-400" />
+        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-5 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
+          <div className="p-3 rounded-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] mb-3 group-hover:scale-110 transition-transform">
+            <FaMoneyBillWave size={12} className="text-[#0f0f13]" />
           </div>
-          <p className="font-bold text-gray-400 text-center uppercase text-xs tracking-wider">3rd Party Wallet</p>
-          <h2 className="font-black text-2xl md:text-3xl mt-2 text-white tracking-tight">Rs 0.00</h2>
+          <p className=" text-[#F4F4F4] text-center uppercase text-[10px] tracking-wider">3rd Party Wallet</p>
+          <h2 className=" text-[10px] md:text-[12px] mt-2 text-[#F0A500] tracking-tight">Rs 0.00</h2>
         </div>
       </div>
 
       {/* Main Wallet Transfer */}
-      <div className="flex justify-center mb-8">
-        <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-8 py-3 rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105 transition-all flex items-center gap-3 border border-blue-400/30 uppercase tracking-wide text-sm">
+      <div className="flex justify-center mb-6">
+        <button className="bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-[#0f0f13] font-bold px-6 py-2.5 rounded-lg shadow-lg hover:shadow-[0_0_20px_rgba(240,165,0,0.4)] hover:scale-105 transition-all flex items-center gap-2 border border-[#F0A500]/30 uppercase tracking-wide text-xs md:text-sm">
           <FaExchangeAlt /> Transfer to Main Wallet
         </button>
       </div>
 
       {/* Actions */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
-        <div className="bg-[#1e103f]/60 backdrop-blur-sm border border-white/5 rounded-2xl p-5 flex flex-col items-center hover:bg-[#1e103f] transition-colors cursor-pointer group">
-          <FaArrowDown size={24} className="text-green-400 mb-2 group-hover:translate-y-1 transition-transform" />
-          <p className="font-bold text-gray-200 group-hover:text-white transition-colors">Deposit</p>
-          <p className="text-gray-500 text-xs text-center mt-1">
-            Add money instantly
-          </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <Link to="/deposit">
+          <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-4 flex flex-col items-center hover:bg-[#1A1C20]/80 hover:border-[#F0A500]/50 transition-all cursor-pointer group">
+            <FaArrowDown size={20} className="text-[#F0A500] mb-2 group-hover:translate-y-1 transition-transform" />
+            <p className="font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors text-sm">Deposit</p>
+            <p className="text-[#F4F4F4]/60 text-[10px] text-center mt-1">
+              Add money instantly
+            </p>
+          </div>
+        </Link>
+        <Link to="/withdraw">
+          <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-4 flex flex-col items-center hover:bg-[#1A1C20]/80 hover:border-[#F0A500]/50 transition-all cursor-pointer group">
+            <FaArrowUp size={20} className="text-[#F0A500] mb-2 group-hover:-translate-y-1 transition-transform" />
+            <p className="font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors text-sm">Withdraw</p>
+            <p className="text-[#F4F4F4]/60 text-[10px] text-center mt-1">Cash out earnings</p>
+          </div>
+        </Link>
+        <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-4 flex flex-col items-center hover:bg-[#1A1C20]/80 hover:border-[#F0A500]/50 transition-all cursor-pointer group">
+          <FaHistory size={20} className="text-[#F0A500] mb-2 group-hover:rotate-12 transition-transform" />
+          <p className="font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors text-sm">History</p>
+          <p className="text-[#F4F4F4]/60 text-[10px] text-center mt-1">View transactions</p>
         </div>
-        <div className="bg-[#1e103f]/60 backdrop-blur-sm border border-white/5 rounded-2xl p-5 flex flex-col items-center hover:bg-[#1e103f] transition-colors cursor-pointer group">
-          <FaArrowUp size={24} className="text-red-400 mb-2 group-hover:-translate-y-1 transition-transform" />
-          <p className="font-bold text-gray-200 group-hover:text-white transition-colors">Withdraw</p>
-          <p className="text-gray-500 text-xs text-center mt-1">Cash out earnings</p>
-        </div>
-        <div className="bg-[#1e103f]/60 backdrop-blur-sm border border-white/5 rounded-2xl p-5 flex flex-col items-center hover:bg-[#1e103f] transition-colors cursor-pointer group">
-          <FaHistory size={24} className="text-orange-400 mb-2 group-hover:rotate-12 transition-transform" />
-          <p className="font-bold text-gray-200 group-hover:text-white transition-colors">History</p>
-          <p className="text-gray-500 text-xs text-center mt-1">View transactions</p>
+      </div>
+
+      {/* Game Wallets Section */}
+      <div className="w-full mx-auto mt-6 mb-6">
+        <h2 className="text-[#F4F4F4] text-base md:text-lg font-bold mb-4">Game Wallets</h2>
+
+        <div className="grid grid-cols-3 gap-2.5">
+          {walletGames.map((game) => (
+            <div
+              key={game.id}
+              className="bg-[#1A1C20] border border-[#CF7500]/50 rounded-lg p-2.5 flex flex-col items-center gap-2 hover:border-[#F0A500] hover:bg-[#1A1C20]/80 transition-all duration-300 cursor-pointer group"
+            >
+              <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-r ${game.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                <game.icon className="text-[#0f0f13] text-base md:text-xl" />
+              </div>
+              <div className="text-center w-full">
+                <h5 className="text-[#F4F4F4] font-bold text-[11px] md:text-xs mb-0.5">{game.balance}</h5>
+                <p className="text-[#F4F4F4]/70 text-[9px] md:text-[10px]">{game.name}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Deposit & Withdraw History */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
 
         {/* Deposit History */}
-        <div className="bg-[#1a1033]/80 backdrop-blur-xl border border-white/5 rounded-2xl p-6 shadow-lg hover:border-green-500/20 transition-colors">
-          <h3 className="font-bold text-lg mb-4 text-white border-b border-white/10 pb-3 flex items-center gap-2">
-            <span className="w-2 h-8 bg-green-500 rounded-full"></span>
+        <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-5 shadow-lg hover:border-[#F0A500]/50 transition-colors">
+          <h3 className="font-bold text-[12px] mb-4 text-[#F4F4F4] border-b border-[#CF7500]/30 pb-3 flex items-center gap-2">
+            <span className="w-1.5 h-6 bg-gradient-to-b from-[#F0A500] to-[#CF7500] rounded-full"></span>
             Deposit History
           </h3>
-          <ul className="space-y-3 text-sm">
+          <ul className="space-y-2.5 text-sm">
             {[1, 2, 3].map((item) => (
-              <li key={item} className="flex justify-between items-center p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-                <span className="text-gray-400">Deposit #{item}</span>
-                <span className="font-bold text-green-400">Rs 0.00</span>
+              <li key={item} className="flex justify-between items-center p-2.5 rounded-lg bg-[#0f0f13]/30 border border-[#CF7500]/20 hover:border-[#F0A500]/40 transition-colors">
+                <span className="text-[#F4F4F4]/70 text-[10px]">Deposit #{item}</span>
+                <span className="font-bold text-[#F0A500] text-[10px]">Rs 0.00</span>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Withdraw History */}
-        <div className="bg-[#1a1033]/80 backdrop-blur-xl border border-white/5 rounded-2xl p-6 shadow-lg hover:border-red-500/20 transition-colors">
-          <h3 className="font-bold text-lg mb-4 text-white border-b border-white/10 pb-3 flex items-center gap-2">
-            <span className="w-2 h-8 bg-red-500 rounded-full"></span>
+        <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-5 shadow-lg hover:border-[#F0A500]/50 transition-colors">
+          <h3 className="font-bold text-[12px] mb-4 text-[#F4F4F4] border-b border-[#CF7500]/30 pb-3 flex items-center gap-2">
+            <span className="w-1.5 h-6 bg-gradient-to-b from-[#F0A500] to-[#CF7500] rounded-full"></span>
             Withdraw History
           </h3>
-          <ul className="space-y-3 text-sm">
+          <ul className="space-y-2.5 text-sm">
             {[1, 2, 3].map((item) => (
-              <li key={item} className="flex justify-between items-center p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-                <span className="text-gray-400">Withdraw #{item}</span>
-                <span className="font-bold text-red-400">Rs 0.00</span>
+              <li key={item} className="flex justify-between items-center p-2.5 rounded-lg bg-[#0f0f13]/30 border border-[#CF7500]/20 hover:border-[#F0A500]/40 transition-colors">
+                <span className="text-[#F4F4F4]/70 text-[10px]">Withdraw #{item}</span>
+                <span className="font-bold text-[#F0A500] text-[10px]">Rs 0.00</span>
               </li>
             ))}
           </ul>

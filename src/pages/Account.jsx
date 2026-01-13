@@ -79,7 +79,7 @@ const Account = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-4">
-              <ActionButton to="/safeBox" icon={<Wallet className='text-[7px] md:text-xs'/>} label="Wallet" />
+              <ActionButton to="/wallet" icon={<Wallet className='text-[7px] md:text-xs'/>} label="Wallet" />
               <ActionButton to="/deposit" icon={<DollarSign size={20} />} label="Deposit" primary />
               <ActionButton to="/withdraw" icon={<CreditCard size={20} />} label="Withdraw" />
             </div>

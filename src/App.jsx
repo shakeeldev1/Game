@@ -20,6 +20,8 @@ import MoreGames from "./components/home/MoreGames";
 import RegisterPage from "./components/common/RegisterPage";
 import ForgotPage from "./components/common/ForgotPage";
 import ScrollToTop from "./pages/ScrollToTop";
+import WithDraw from "./pages/WithDraw";
+import Deposit from "./pages/Deposit";
 
 
 const MainFunction = () => {
@@ -59,6 +61,8 @@ const router = createBrowserRouter([
       { path: "/more-games", element: <MoreGames /> },
       { path: "/register", element: <RegisterPage /> },
       { path: "/forgot-password", element: <ForgotPage /> },
+      { path: "/withdraw", element: <WithDraw /> },
+      { path: "/deposit", element: <Deposit /> },
 
 
     ],
