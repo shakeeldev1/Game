@@ -29,30 +29,28 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen py-5 flex items-center justify-center px-4 overflow-hidden particles-bg">
+    <div className="relative  py-5 flex items-center justify-center px-4 overflow-hidden particles-bg">
 
       {/* Animated Background Effects */}
       <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-[var(--color-neon-primary)]/10 rounded-full blur-[100px] animate-pulse"></div>
       <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-[var(--color-neon-accent)]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
       <button
         onClick={() => navigate('/')}
-        className="absolute left-5 top-6 p-2.5 z-100 rounded-md  bg-gradient-to-br from-[#232529] to-[#1A1C20] shadow-[0_0_10px_rgba(255,215,0,0.4)] hover:text-[var(--color-neon-primary)] transition-all active:scale-90"
+        className="absolute left-5 top-6 p-2.5 z-100 rounded-md  bg-gradient-to-br from-[#232529] to-[#1A1C20] shadow-[0_0_10px_rgba(255,215,0,0.4)] hover:text-[var(--color-neon-primary)] text-white transition-all active:scale-90"
       >
         <FaArrowLeft size={14} />
       </button>
       {/* Form container */}
       <div className="relative w-full max-w-sm animate-on-scroll">
-        <div className="glass-card rounded-md p-8 relative overflow-hidden">
+        <div className="glass-card rounded-md p-2 relative overflow-hidden">
 
           {/* Decorative corner glow */}
           <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[var(--color-neon-primary)]/20 to-transparent rounded-bl-full"></div>
 
           {/* Header */}
-          <div className="relative mb-8">
-
-
-            <div className="text-center pt-6">
-              <div className="h-10 w-10 md:w-12 md:h-12 mx-auto mb-4  bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] ">
+          <div className="relative mb-2">
+            <div className="text-center pt-2">
+              <div className="h-10 w-10 md:w-12 md:h-12 mx-auto mb-2  bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] ">
                 <FaGamepad className="text-[12px] md:text-lg text-[#f4f4f4]" />
               </div>
               <h2 className="text-[14px] md:text-lg font-black text-[var(--color-neon-text)]">
@@ -65,11 +63,11 @@ const LoginPage = () => {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-[4px]">
 
             {/* Phone */}
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-[#f4f4f] uppercase tracking-widest ml-1">
+              <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">
                 Phone Number
               </label>
               <div className="relative group">
@@ -129,7 +127,7 @@ const LoginPage = () => {
                 <span className='text-white text-xs'>Remember me</span>
               </label>
 
-              <Link to="/forgot-password" className="text-xs md:text-md font-bold text-[var(--color-neon-primary)] hover:text-[var(--color-neon-accent)] transition-colors">
+              <Link to="/forgot-password" className="text-xs  text-[#F0A500] hover:text-[var(--color-neon-accent)] transition-colors">
                 Forgot Password?
               </Link>
             </div>
@@ -138,7 +136,7 @@ const LoginPage = () => {
             <button
               type="submit"
               disabled={!formData.phone || !formData.password}
-              className="w-full py-4 mt-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
+              className="w-full py-[10px] mt-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
             >
               <FiZap /> Sign In
             </button>
@@ -155,7 +153,7 @@ const LoginPage = () => {
             <Link to="/register" className="block">
               <button
                 type="button"
-                className="w-full py-4 rounded-md glass-card text-[var(--color-neon-text)]  text-xs uppercase tracking-[0.2em] hover:bg-[var(--color-neon-primary)]/10 hover:border-[var(--color-neon-primary)]/30 transition-all active:scale-95  flex items-center justify-center gap-2"
+                className="w-full py-[10px] rounded-md glass-card text-[var(--color-neon-text)]  text-xs uppercase tracking-[0.2em] hover:bg-[var(--color-neon-primary)]/10 hover:border-[var(--color-neon-primary)]/30 transition-all active:scale-95  flex items-center justify-center gap-2"
               >
                 <FaCrown className="text-[var(--color-neon-primary)]" /> Create Account
               </button>
@@ -163,17 +161,17 @@ const LoginPage = () => {
           </form>
 
           {/* Footer */}
-          <div className="text-center pt-6">
+          <div className="text-center pt-2">
             <Link
               to="/customer-service"
-              className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-neon-text)]/40 hover:text-[var(--color-neon-primary)] transition-colors"
+              className="inline-flex items-center gap-2 text-[10px] font-bold text-[var(--color-neon-text)]/40 hover:text-[var(--color-neon-primary)] transition-colors"
             >
               <FaHeadset /> 24/7 Support
             </Link>
           </div>
 
           {/* Trust Badges */}
-          <div className="mt-6 flex justify-center gap-4">
+          <div className="mt-2 flex justify-center gap-4">
             {[
               { icon: FiShield, label: 'Secure' },
               { icon: FaGem, label: 'Premium' },

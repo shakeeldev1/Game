@@ -22,6 +22,7 @@ import ForgotPage from "./components/common/ForgotPage";
 import ScrollToTop from "./pages/ScrollToTop";
 import WithDraw from "./pages/WithDraw";
 import Deposit from "./pages/Deposit";
+import DepositHistory from "./pages/DepositHistory";
 
 
 const MainFunction = () => {
@@ -63,6 +64,7 @@ const router = createBrowserRouter([
       { path: "/forgot-password", element: <ForgotPage /> },
       { path: "/withdraw", element: <WithDraw /> },
       { path: "/deposit", element: <Deposit /> },
+      { path: "/deposithistory", element: <DepositHistory /> },
 
 
     ],

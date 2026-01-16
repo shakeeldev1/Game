@@ -1867,21 +1867,21 @@ const GameListing = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4  py-2">
       {/* Header */}
       <BackButton />
       <div className="mb-2 flex gap-5">
-        <h5 className="text-[16px] underline md:text-lg font-bold text-gray-50 ">Game Listing</h5>
+        <h5 className="text-[13px] underline  font-bold text-gray-50 ">Game Listing</h5>
       </div>
 
       {/* Games Grid */}
-      <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {games.slice(0, visibleGames).map((game) => (
           <div
             key={game.id}
             className="group relative overflow-hidden rounded-md shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800"
           >
-            <div className="h-12 md:h-16 relative overflow-hidden">
+            <div className="h-20 md:h-16 relative overflow-hidden">
               <img
                 src={game.imageUrl}
                 alt={game.name}
@@ -1939,30 +1939,30 @@ const GameListing = () => {
               />
             </svg>
           </button>
-          <p className="mt-2 md:text-sm text-xs text-[#F4F4F4] dark:text-[#F4F4F4]">
+          <p className="mt-2 text-[10px] text-[#F4F4F4] dark:text-[#F4F4F4]">
             Showing {visibleGames} of {games.length} games
           </p>
         </div>
       )}
 
       {/* Stats Section */}
-      <div className="mt-8 pt-6 border-t border-[#CF7500] dark:border-[#CF7500]">
+      <div className="mt-2 pt-2 border-t border-[#CF7500] dark:border-[#CF7500]">
         <div className="grid grid-cols-3 gap-4">
           <div className="text-center">
-            <p className="text-lg font-bold text-[#F0A500]">{games.length}</p>
-            <p className="text-xs text-[#F4F4F4] dark:text-[#F4F4F4]">
+            <p className="text-[12px] font-bold text-[#F0A500]">{games.length}</p>
+            <p className="text-[10px] text-[#F4F4F4] dark:text-[#F4F4F4]">
               Total Games
             </p>
           </div>
           <div className="text-center">
-            <p className="text-lg font-bold text-[#F0A500]">24+</p>
-            <p className="text-xs text-[#F4F4F4] dark:text-[#F4F4F4]">
+            <p className="text-[12px] font-bold text-[#F0A500]">24+</p>
+            <p className="text-[10px] text-[#F4F4F4] dark:text-[#F4F4F4]">
               Providers
             </p>
           </div>
           <div className="text-center">
-            <p className="text-lg  font-bold text-[#F0A500]">New</p>
-            <p className="text-xs text-[#F4F4F4] dark:text-[#F4F4F4]">
+            <p className="text-[12px]  font-bold text-[#F0A500]">New</p>
+            <p className="text-[10px] text-[#F4F4F4] dark:text-[#F4F4F4]">
               Daily Additions
             </p>
           </div>

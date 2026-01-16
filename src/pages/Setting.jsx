@@ -8,19 +8,19 @@ import { Link } from "react-router-dom";
 
 const Setting = () => {
   return (
-    <div className="min-h-screen py-10 px-4 particles-bg">
+    <div className="min-h-screen py-4 px-4 particles-bg">
       <div className="w-full max-w-md mx-auto">
         <Link to='/account'>
           <button
-            className="flex items-center gap-2  px-2 py-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] ml-3 hover:text-[#0f0f13] transition-all duration-300  mb-2"
+            className="flex items-center gap-2  px-2 py-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px]  uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] ml-3 hover:text-[#0f0f13] transition-all duration-300  mb-2"
           >
-            <FaArrowLeft className='text-[10px] md:text-xs' />
+            <FaArrowLeft className='text-[10px] ' />
             Back
           </button>
         </Link>
         {/* Header */}
-        <div className="text-center mb-8 animate-on-scroll">
-          <div className="w-10 h-10 mx-auto mb-3 bg-gradient-to-br from-[#232529] to-[#1A1C20]] rounded-md flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] ">
+        <div className="text-center mb-2 animate-on-scroll">
+          <div className="w-10 h-10 mx-auto mb-2 bg-gradient-to-br from-[#232529] to-[#1A1C20]] rounded-md flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] ">
             <FaUserCog className="text-[14px] text-[#f4f4f4]" />
           </div>
           <h1 className="text-[16px] font-black gradient-text">Settings</h1>
@@ -28,7 +28,7 @@ const Setting = () => {
         </div>
 
         {/* Profile Card */}
-        <div className="glass-card rounded-3xl p-6 mb-6 relative overflow-hidden animate-on-scroll">
+        <div className="glass-card rounded-md p-2 mb-2 relative overflow-hidden animate-on-scroll">
           {/* Background Glow */}
           <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--color-neon-primary)]/10 rounded-full blur-[60px]"></div>
 
@@ -62,7 +62,7 @@ const Setting = () => {
 
           {/* Quick Info Cards */}
           <div className="grid grid-cols-2 gap-3 relative z-10">
-            <div className="glass-card rounded-xl p-4 card-hover-lift group">
+            <div className="glass-card flex flex-col items-center justify-center rounded-xl p-2 card-hover-lift group">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-[var(--color-neon-primary)]/20 rounded-lg flex items-center justify-center">
                   <FiUser className="text-[var(--color-neon-primary)]" />
@@ -72,7 +72,7 @@ const Setting = () => {
               <p className="text-[10px] text-[var(--color-neon-text)]/50 uppercase tracking-wider">Username</p>
             </div>
 
-            <div className="glass-card rounded-xl p-4 card-hover-lift group">
+            <div className="glass-card  flex flex-col items-center justify-center  rounded-xl p-4 card-hover-lift group">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 bg-[var(--color-neon-accent)]/20 rounded-lg flex items-center justify-center">
                   <FiSettings className="text-[var(--color-neon-accent)]" />
@@ -86,11 +86,11 @@ const Setting = () => {
 
         {/* Security Section */}
         <div className="animate-on-scroll">
-          <h2 className="text-xs font-black mb-4 text-white uppercase tracking-[0.2em] pl-4 flex items-center gap-2">
+          <h2 className="text-xs font-black mb-2 text-white uppercase tracking-[0.2em] pl-4 flex items-center gap-2">
             <FiShield className="text-[var(--color-neon-primary)]" /> Security Settings
           </h2>
 
-          <div className="glass-card rounded-2xl overflow-hidden stagger-children">
+          <div className="glass-card rounded-md overflow-hidden stagger-children">
             {[
               { icon: FiLock, label: "Login Password", action: "Edit", href: "/ChangePassword", color: "text-[var(--color-neon-primary)]", bg: "bg-[var(--color-neon-primary)]/10" },
               { icon: FiMail, label: "Bind Email", action: "Bind", color: "text-[var(--color-neon-accent)]", bg: "bg-[var(--color-neon-accent)]/10" },
@@ -124,8 +124,8 @@ const Setting = () => {
         </div>
 
         {/* Danger Zone */}
-        <div className="mt-8 animate-on-scroll">
-          <button className="w-full glass-card text-white py-4 rounded-xl font-bold text-sm tracking-wide hover:bg-red-500/10 border hover:border-[#CF500] transition-all flex items-center justify-center gap-2">
+        <div className="mt-2 animate-on-scroll">
+          <button className="w-full glass-card text-white py-4 rounded-xl text-sm tracking-wide hover:bg-red-500/10 border hover:border-[#CF500] transition-all flex items-center justify-center gap-2">
             <FiLock /> Delete Account
           </button>
         </div>

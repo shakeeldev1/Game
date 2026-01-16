@@ -64,16 +64,22 @@ export default function Deposit() {
     ];
     return (
         <div>
-            <Link to="/safebox">
+            <Link to="/account">
                 <button
-                    className="flex items-center gap-2  px-3 py-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] ml-3 hover:text-[#0f0f13] transition-all duration-300  mb-2"
+                    className="flex items-center gap-2  px-2 py-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px]  uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] ml-3 hover:text-[#0f0f13] transition-all duration-300  mb-2"
                 >
-                    <FaArrowLeft className='text-[10px] md:text-xs' />
+                    <FaArrowLeft className='text-[10px] ' />
                     Back
                 </button>
             </Link>
-
-            <div className="relative overflow-hidden w-[90%] h-[30vh] mx-auto mt-2 rounded-2xl bg-gradient-to-br from-[var(--color-neon-bg)] to-[#2a2520] p-8 shadow-2xl mb-6 border border-[var(--color-neon-primary)]/20 card-hover-lift animate-on-scroll">
+            
+            {/* deposit history */}
+            <div className=' absolute top-15 z-10 right-4'>
+                <Link to="/deposithistory" className='text-white text-[10px] md:text-sm font-bold underline hover:text-[var(--color-neon-accent)] transition-colors duration-300'>                    
+                    Deposit History                   
+                </Link>
+            </div>
+            <div className="relative overflow-hidden w-[90%] h-[20vh] mx-auto mt-2 rounded-md bg-gradient-to-br from-[var(--color-neon-bg)] to-[#2a2520] p-3 shadow-2xl mb-2 border border-[var(--color-neon-primary)]/20 card-hover-lift animate-on-scroll">
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--color-neon-primary)]/20 rounded-full blur-[50px]" />
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[var(--color-neon-accent)]/20 rounded-full blur-[50px]" />
 
@@ -81,9 +87,9 @@ export default function Deposit() {
                     <div className="flex justify-between items-start">
                         <div>
                             <p className="md:text-[9px] text-[7px] font-black text-[#f4f4f4] uppercase tracking-[0.2em] mb-1">Available Balance</p>
-                            <h2 className="text-[10px] md:text-lg font-black text-[var(--color-neon-text)] tracking-tighter gradient-text">Rs 0.00</h2>
+                            <h2 className="text-[10px] font-black text-[var(--color-neon-text)] tracking-tighter gradient-text">Rs 0.00</h2>
                         </div>
-                        <button className="h-8 w-8 md:w-10 md:h-10 rounded-md glass-card flex items-center justify-center text-[var(--color-neon-text)] hover:text-[var(--color-neon-primary)] hover:rotate-180 transition-all duration-700">
+                        <button className="h-8 w-8  rounded-md glass-card flex items-center justify-center text-[var(--color-neon-text)] hover:text-[var(--color-neon-primary)] hover:rotate-180 transition-all duration-700">
                             <RefreshCw className='text-[4px] md:text-xs' size={12} />
                         </button>
                     </div>
@@ -91,14 +97,14 @@ export default function Deposit() {
 
                 </div>
                 <div className=' flex gap-4 absolute bottom-2 right-4'>
-                    <span>****</span>
-                    <span>****</span>
+                    <span className='text-white'>****</span>
+                    <span className='text-white'>****</span>
                 </div>
             </div>
 
             {/* Banks Section */}
-            <div className="mt-8 w-[90%] mx-auto mb-2">
-                <h3 className="text-[#F4F4F4] text-base md:text-lg font-bold mb-4">Select Payment Method</h3>
+            <div className="mt-2 w-[90%] mx-auto mb-2">
+                <h3 className="text-[#F4F4F4] text-[13px] font-bold mb-2">Select Payment Method</h3>
                 <div className="grid grid-cols-3 md:grid-cols-3 gap-3">
                     {banks.map((bank) => (
                         <button
@@ -110,14 +116,14 @@ export default function Deposit() {
                                 }`}
                         >
                             <div className="flex flex-col items-center gap-2">
-                                <div className="w-8 h-8 flex items-center justify-center bg-white rounded-lg overflow-hidden p-1">
+                                <div className="w-8 h-8 flex items-center justify-center bg-white rounded-md overflow-hidden p-1">
                                     <img
                                         src={bank.image}
                                         alt={bank.name}
                                         className="w-full h-full object-contain"
                                     />
                                 </div>
-                                <span className="text-[#F4F4F4] font-semibold text-xs md:text-sm">
+                                <span className="text-[#F4F4F4] font-semibold text-[12px]">
                                     {bank.name}
                                 </span>
                                 {bank.note && (
@@ -137,16 +143,16 @@ export default function Deposit() {
             </div>
 
 
-            <div className="w-[90%] mx-auto mt-6 mb-6">
-                <h2 className="text-[#F4F4F4] text-lg md:text-xl font-bold mb-4">Deposit</h2>
+            <div className="w-[90%] mx-auto mt-2 mb-2">
+                <h2 className="text-[#F4F4F4] text-[13px] font-bold mb-2">Deposit</h2>
 
                 {/* Amount Boxes */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="grid grid-cols-3 gap-3 mb-2">
                     {amountOptions.map((value) => (
                         <button
                             key={value}
                             onClick={() => handleAmountClick(value)}
-                            className={`h-12 rounded-md border font-bold text-sm md:text-base transition-all duration-300 ${selectedAmount === value
+                            className={`h-8 rounded-md border font-bold text-[12px] transition-all duration-300 ${selectedAmount === value
                                 ? 'bg-[#F0A500] border-[#F0A500] text-[#1A1C20]'
                                 : 'bg-[#1A1C20] border-[#CF7500]/50 text-[#F4F4F4] hover:border-[#CF7500]'
                                 }`}
@@ -158,7 +164,7 @@ export default function Deposit() {
 
                 {/* Custom Amount Entry */}
                 <div className="flex gap-3 mb-2">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-md bg-[#1A1C20] border border-[#CF7500]/50 text-[#F0A500] font-bold text-[12px] md:text-[13px]">
+                    <div className="flex items-center justify-center h-8 w-8 rounded-md bg-[#1A1C20] border border-[#CF7500]/50 text-[#F0A500] font-bold text-[12px] ">
                         Rs
                     </div>
                     <input
@@ -167,13 +173,13 @@ export default function Deposit() {
                         onChange={(e) => {
                             setAmount(e.target.value);
                             setSelectedAmount(null);
-                        }} className='flex-1 h-10 w-10 text-xs rounded-md px-2 bg-[#1A1C20] border border-[#CF7500]/50 text-[#F4F4F4] font-medium placeholder-[#F4F4F4]/40 focus:outline-none focus:border-[#F0A500] transition-colors duration-300 hover:border-[#CF7500]' />
+                        }} className='flex-1 h-8 w-8 text-xs rounded-md px-2 bg-[#1A1C20] border border-[#CF7500]/50 text-[#F4F4F4] font-medium placeholder-[#F4F4F4]/40 focus:outline-none focus:border-[#F0A500] transition-colors duration-300 hover:border-[#CF7500]' />
 
                 </div>
-                <div className='mb-3'>
+                <div className='mb-2'>
                     <button
                         type="submit"
-                        className="w-full py-3 px-4 rounded-lg bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-[#0f0f13] hover:font-bold cursor-pointer uppercase tracking-widest text-sm hover:shadow-[0_0_30px_rgba(240,165,0,0.5)] hover:scale-[1.02] transition-all duration-300 border border-[#F0A500]/50 mt-2"
+                        className="w-full py-2 px-4 rounded-lg bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-[#0f0f13] hover:font-bold cursor-pointer uppercase tracking-widest text-sm hover:shadow-[0_0_30px_rgba(240,165,0,0.5)] hover:scale-[1.02] transition-all duration-300 border border-[#F0A500]/50 mt-2"
                     >
                         Deposit Now
                     </button>
@@ -184,7 +190,7 @@ export default function Deposit() {
                             <Info className="text-[#0f0f13]" size={14} />
                         </div>
                     </h5>
-                    <h5> Recharge instructions</h5>
+                    <h5 className='text-white'> Recharge instructions</h5>
                 </div>
                 <ul className="space-y-3">
                     {rechargeInstructions.map((instruction, index) => (

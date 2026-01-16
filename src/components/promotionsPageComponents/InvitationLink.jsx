@@ -27,14 +27,14 @@ function InvitationLink() {
     <div className="max-w-2xl mx-auto px-4">
 
       {/* Primary Action Button */}
-      <div className="flex items-center justify-center py-8 animate-on-scroll">
-        <button className=" uppercase py-4 px-10 rounded-md glass-card text-[var(--color-neon-text)]  text-xs  tracking-[0.2em] hover:bg-[var(--color-neon-primary)]/10 hover:border-[var(--color-neon-primary)]/30 transition-all active:scale-95  flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center py-2 animate-on-scroll">
+        <button className=" uppercase py-2 px-10 rounded-md glass-card text-[var(--color-neon-text)]  text-xs  tracking-[0.2em] hover:bg-[var(--color-neon-primary)]/10 hover:border-[var(--color-neon-primary)]/30 transition-all active:scale-95  flex items-center justify-center gap-2">
           <FaGift className="text-lg" /> Share & Earn
         </button>
       </div>
 
       {/* Earnings Banner */}
-      <div className="border border-[#CF7500] rounded-md p-4 mb-6 flex items-center justify-between animate-on-scroll">
+      <div className="border border-[#CF7500] rounded-md p-4 mb-2 flex items-center justify-between animate-on-scroll">
         <div className="flex items-center gap-3">
           <div className="h-6 w-6  md:w-8 md:h-8  bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center border border-[#CF7500]">
             <FaGem className="text-xs text-[#f4f4f4]" />

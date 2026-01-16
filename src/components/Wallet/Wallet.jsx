@@ -43,13 +43,13 @@ function Wallet() {
   ];
 
   return (
-    <div className="min-h-screen p-4 md:p-6 pb-24 bg-[#0f0f13]">
+    <div className="min-h-screen p-4 bg-[#0f0f13]">
 
-      <BackButton/>
+      <BackButton />
       {/* Header */}
       <div
-        className="w-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] rounded-xl p-5 md:p-6 flex items-center justify-between mb-6 relative overflow-hidden shadow-[0_0_30px_rgba(240,165,0,0.3)] border border-[#F0A500]/20"
-        data-aos="fade-down"
+        className="w-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] rounded-md p-2 flex items-center justify-between mb-2 relative overflow-hidden shadow-[0_0_30px_rgba(240,165,0,0.3)] border border-[#F0A500]/20"
+
       >
         {/* Background Effects */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
@@ -57,10 +57,10 @@ function Wallet() {
 
         {/* Text */}
         <div className="z-10 relative">
-          <h1 className="text-2xl md:text-3xl font-extrabold text-[#0f0f13] tracking-tight drop-shadow-md">
+          <h1 className="text-[15px] font-extrabold text-[#0f0f13] tracking-tight drop-shadow-md">
             My Wallet
           </h1>
-          <p className="text-[#0f0f13]/80 mt-1 max-w-md font-medium text-sm">
+          <p className="text-[#0f0f13]/80  max-w-md  text-[10px]">
             Manage your balance, deposits, and withdrawals securely.
           </p>
         </div>
@@ -68,16 +68,16 @@ function Wallet() {
 
 
       {/* Wallet Cards */}
-      <div className="grid grid-cols-3  gap-2 mb-6">
-        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-5 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
+      <div className="grid grid-cols-3  gap-2 mb-2">
+        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-2 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
           <div className="p-3 rounded-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] mb-3 group-hover:scale-110 transition-transform">
             <FaWallet size={12} className="text-[#0f0f13]" />
           </div>
-          <p className=" text-[#F4F4F4]text-center text-[10px]">Total Balance</p>
-          <h2 className=" text-[10px] md:text-[12px] mt-2 text-[#F0A500] tracking-tight">Rs 0.00</h2>
+          <p className=" text-[#F4F4F4] text-center text-[10px]">Total Balance</p>
+          <h2 className=" text-[10px] md:text-[12px]  text-[#F0A500] tracking-tight">Rs 0.00</h2>
         </div>
 
-        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-5 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
+        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-2 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
           <div className="p-3 rounded-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] mb-3 group-hover:scale-110 transition-transform">
             <FaMoneyBillWave size={12} className="text-[#0f0f13]" />
           </div>
@@ -85,7 +85,7 @@ function Wallet() {
           <h2 className=" text-[10px] md:text-[12px] mt-2 text-[#F0A500] tracking-tight">Rs 0.00</h2>
         </div>
 
-        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-5 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
+        <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-2 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">
           <div className="p-3 rounded-full bg-gradient-to-r from-[#F0A500] to-[#CF7500] mb-3 group-hover:scale-110 transition-transform">
             <FaMoneyBillWave size={12} className="text-[#0f0f13]" />
           </div>
@@ -95,19 +95,19 @@ function Wallet() {
       </div>
 
       {/* Main Wallet Transfer */}
-      <div className="flex justify-center mb-6">
-        <button className="bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-[#0f0f13] font-bold px-6 py-2.5 rounded-lg shadow-lg hover:shadow-[0_0_20px_rgba(240,165,0,0.4)] hover:scale-105 transition-all flex items-center gap-2 border border-[#F0A500]/30 uppercase tracking-wide text-xs md:text-sm">
+      <div className="flex justify-center mb-2">
+        <button className="bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-[#0f0f13]  px-6 py-2 rounded-lg shadow-lg hover:shadow-[0_0_20px_rgba(240,165,0,0.4)] hover:scale-105 transition-all flex items-center gap-2 border border-[#F0A500]/30 uppercase tracking-wide text-xs md:text-sm">
           <FaExchangeAlt /> Transfer to Main Wallet
         </button>
       </div>
 
       {/* Actions */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-3  gap-2 mb-1">
         <Link to="/deposit">
           <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-4 flex flex-col items-center hover:bg-[#1A1C20]/80 hover:border-[#F0A500]/50 transition-all cursor-pointer group">
             <FaArrowDown size={20} className="text-[#F0A500] mb-2 group-hover:translate-y-1 transition-transform" />
             <p className="font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors text-sm">Deposit</p>
-            <p className="text-[#F4F4F4]/60 text-[10px] text-center mt-1">
+            <p className="text-[#F4F4F4]/60 text-[8px] text-center mt-1">
               Add money instantly
             </p>
           </div>
@@ -116,18 +116,20 @@ function Wallet() {
           <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-4 flex flex-col items-center hover:bg-[#1A1C20]/80 hover:border-[#F0A500]/50 transition-all cursor-pointer group">
             <FaArrowUp size={20} className="text-[#F0A500] mb-2 group-hover:-translate-y-1 transition-transform" />
             <p className="font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors text-sm">Withdraw</p>
-            <p className="text-[#F4F4F4]/60 text-[10px] text-center mt-1">Cash out earnings</p>
+            <p className="text-[#F4F4F4]/60 text-[8px] text-center mt-1">Cash out earnings</p>
           </div>
         </Link>
-        <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-4 flex flex-col items-center hover:bg-[#1A1C20]/80 hover:border-[#F0A500]/50 transition-all cursor-pointer group">
-          <FaHistory size={20} className="text-[#F0A500] mb-2 group-hover:rotate-12 transition-transform" />
-          <p className="font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors text-sm">History</p>
-          <p className="text-[#F4F4F4]/60 text-[10px] text-center mt-1">View transactions</p>
-        </div>
+        <Link to='/history'>
+          <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-4 flex flex-col items-center hover:bg-[#1A1C20]/80 hover:border-[#F0A500]/50 transition-all cursor-pointer group">
+            <FaHistory size={20} className="text-[#F0A500] mb-2 group-hover:rotate-12 transition-transform" />
+            <p className="font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors text-sm">History</p>
+            <p className="text-[#F4F4F4]/60 text-[8px] text-center mt-1">View transactions</p>
+          </div>
+        </Link>
       </div>
 
       {/* Game Wallets Section */}
-      <div className="w-full mx-auto mt-6 mb-6">
+      {/* <div className="w-full mx-auto mt-6 mb-6">
         <h2 className="text-[#F4F4F4] text-base md:text-lg font-bold mb-4">Game Wallets</h2>
 
         <div className="grid grid-cols-3 gap-2.5">
@@ -146,10 +148,10 @@ function Wallet() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Deposit & Withdraw History */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div className="grid grid-cols-2 gap-4 mt-6">
 
         {/* Deposit History */}
         <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-5 shadow-lg hover:border-[#F0A500]/50 transition-colors">

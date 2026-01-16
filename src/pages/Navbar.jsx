@@ -8,7 +8,7 @@ import {
   FaCrown,
 } from 'react-icons/fa';
 import { FiX, FiMenu } from 'react-icons/fi';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.jpeg';
 // import BackButton from '../components/common/BackButton';
 
 function Navbar() {
@@ -45,11 +45,11 @@ function Navbar() {
               
               {/* Logo container */}
               <div className="relative flex items-center gap-2">
-                <div className="relative">
+                <div className="relative rounded border border-[#CF7500]">
                   <img
                     src={logo}
                     alt="Logo"
-                    className="h-10 w-auto object-contain brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] relative z-10 group-hover:scale-110 transition-transform duration-300"
+                    className="h-8 rounded w-auto object-contain relative z-10 group-hover:scale-110 transition-transform duration-300"
                   />
                   
                 </div>

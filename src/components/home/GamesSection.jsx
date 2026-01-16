@@ -31,7 +31,7 @@ export default function GamesSection() {
 
     return (
         <div>
-            <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] text-white to-[var(--color-neon-accent)] text-[12px] md:text-lg font-bold text-center mb-4 flex items-center justify-center gap-2'>
+            <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] text-white to-[var(--color-neon-accent)] text-[12px] font-smibold text-center mb-2 flex items-center justify-center gap-2'>
                 <span className="w-8 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-neon-primary)] to-transparent rounded-full"></span>
                 Popular Games
                 <span className="w-8 h-[2px] bg-gradient-to-l from-transparent via-[var(--color-neon-accent)] to-transparent rounded-full"></span>
@@ -46,7 +46,7 @@ export default function GamesSection() {
                         className="block bg-[var(--color-neon-bg)]/80 rounded-xl shadow-lg border border-[var(--color-neon-accent)]/20 text-center hover:shadow-[0_0_20px_rgba(240,165,0,0.3)] hover:-translate-y-1 cursor-pointer transition-all duration-300 group hover:border-[var(--color-neon-primary)]/50"
                     >
                         {/* Image Container */}
-                        <div className="relative h-20 w-full overflow-hidden rounded-md aspect-square">
+                        <div className="relative h-16 w-full overflow-hidden rounded aspect-square">
                             <img
                                 src={item.gameimage}
                                 alt={item.name}
@@ -59,9 +59,9 @@ export default function GamesSection() {
                 ))}
             </div>
 
-            <div className="flex items-center justify-center w-full py-4">
+            <div className="flex items-center justify-center w-full py-2">
                 <Link to="/more-games">
-                    <button className="px-3 py-1.5 md:px-2 md:py-1.5 text-xs font-bold rounded-md cursor-pointer bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px] md:text-xs uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300">
+                    <button className="px-2 py-1.5 text-xs font-bold  cursor-pointer bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[8px] uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300">
                         See More
                     </button>
                 </Link>
