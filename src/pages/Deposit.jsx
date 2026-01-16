@@ -63,7 +63,7 @@ export default function Deposit() {
         }
     ];
     return (
-        <div>
+        <div className='relative'>
             <Link to="/account">
                 <button
                     className="flex items-center gap-2  px-2 py-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[10px]  uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] ml-3 hover:text-[#0f0f13] transition-all duration-300  mb-2"
@@ -74,7 +74,7 @@ export default function Deposit() {
             </Link>
             
             {/* deposit history */}
-            <div className=' absolute top-15 z-10 right-4'>
+            <div className='absolute top-0 z-10 right-4'>
                 <Link to="/deposithistory" className='text-white text-[10px] md:text-sm font-bold underline hover:text-[var(--color-neon-accent)] transition-colors duration-300'>                    
                     Deposit History                   
                 </Link>
