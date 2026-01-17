@@ -124,7 +124,7 @@ function Wallet() {
             <p className="text-[#F4F4F4]/60 text-[8px] text-center mt-1">Cash out earnings</p>
           </div>
         </Link>
-        <Link to='/history'>
+        <Link to='/withdrawhistory'>
           <div className="bg-[#1A1C20] border border-[#CF7500]/30 rounded-xl p-4 flex flex-col items-center hover:bg-[#1A1C20]/80 hover:border-[#F0A500]/50 transition-all cursor-pointer group">
             <FaHistory size={20} className="text-[#F0A500] mb-2 group-hover:rotate-12 transition-transform" />
             <p className="font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors text-sm">History</p>
