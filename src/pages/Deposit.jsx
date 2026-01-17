@@ -73,7 +73,7 @@ export default function Deposit() {
                 </button>
             </Link>
             
-            {/* deposit history */}
+             {/* deposit history */}
             <div className='absolute top-0 z-10 right-4'>
                 <Link to="/deposithistory" className='text-white text-[10px] md:text-sm font-bold underline hover:text-[var(--color-neon-accent)] transition-colors duration-300'>                    
                     Deposit History                   
@@ -86,7 +86,7 @@ export default function Deposit() {
                 <div className="relative z-10">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="md:text-[9px] text-[7px] font-black text-[#f4f4f4] uppercase tracking-[0.2em] mb-1">Available Balance</p>
+                            <p className=" text-[12px] font-black text-[#f4f4f4] uppercase tracking-[0.2em] mb-1">Available Balance</p>
                             <h2 className="text-[10px] font-black text-[var(--color-neon-text)] tracking-tighter gradient-text">Rs 0.00</h2>
                         </div>
                         <button className="h-8 w-8  rounded-md glass-card flex items-center justify-center text-[var(--color-neon-text)] hover:text-[var(--color-neon-primary)] hover:rotate-180 transition-all duration-700">

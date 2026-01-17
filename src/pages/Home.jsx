@@ -39,11 +39,11 @@ const Home = () => {
 
                 {/* Text Content */}
                 <div className="ml-4 mr-6 grow relative z-10">
-                    <h4 className="text-[10px] font-black text-[#F4F4F4] drop-shadow-lg flex items-center gap-2">
+                    <h4 className="text-[12px] font-black text-[#F4F4F4] drop-shadow-lg flex items-center gap-2">
                     
                         Important Announcement
                     </h4>
-                    <p className=" text-[8px]  text-[#f8f8f8]/80 ">
+                    <p className=" text-[10px]  text-[#f8f8f8]/80 ">
                         Customer service is available <span className="text-[#F4F4F4] font-bold underline decoration-[#ff8c00] decoration-2 underline-offset-2">only via official channels.</span> 
                         Stay safe from scams!
                     </p>

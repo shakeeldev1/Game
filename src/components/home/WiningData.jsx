@@ -40,9 +40,9 @@ export default function WiningData() {
         <table className="w-full border-collapse rounded-md overflow-hidden shadow-[0_0_20px_rgba(240,165,0,0.2)] border border-[var(--color-neon-accent)]/30">
           <thead className="bg-[var(--color-neon-bg)] text-[var(--color-neon-primary)] text-sm uppercase tracking-wider border-b border-[var(--color-neon-accent)]/50">
             <tr>
-              <th className="py-1 px-3 text-[10px] text-left">User</th>
-              <th className="py-1 px-3 text-[10px] text-left">Game</th>
-              <th className="py-1 px-3 text-[10px] text-right">Received</th>
+              <th className="py-1 px-3 text-[12px] text-left">User</th>
+              <th className="py-1 px-3 text-[12px] text-left">Game</th>
+              <th className="py-1 px-3 text-[12px] text-right">Received</th>
             </tr>
           </thead>
 

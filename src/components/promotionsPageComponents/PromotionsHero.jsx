@@ -21,10 +21,10 @@ function Hero() {
         {/* Header Section */}
         <div className="text-center space-y-2 mb-2 animate-on-scroll">
           <div className="h-10 w-10  mx-auto mb-4  bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center shadow-[0_0_40px_rgba(240,165,0,0.4)] ">
-            <FaCrown className="text-[12px]  text-[#f4f4f4]" />
+            <FaCrown className="text-xs  text-[#f4f4f4]" />
           </div>
 
-          <h1 className="text-[14px]  text-[#f4f4f4]">
+          <h1 className="text-[14px] font-bold text-[#f4f4f4]">
             Agency{" "}
             <span className="gradient-text">Hub</span>
           </h1>
@@ -77,14 +77,14 @@ function StatBox({ icon: Icon, label, value, accent }) {
 
       <div className="flex items-center  gap-3 mb-3">
         <div className={`w-8 h-8 rounded-md flex items-center justify-center  bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] text-[#f4f4f4]'} group-hover:scale-110 transition-transform`}>
-          <Icon className="text-[12px] text-white" />
+          <Icon className="text-xs text-white" />
         </div>
       </div>
 
-      <h3 className={`text-[10px] text-center text-white mb-1  text-white'}`}>
+      <h3 className={`text-[12px] text-center text-white mb-1  text-white'}`}>
         {value}
       </h3>
-      <p className="text-[8px] text-center text-white">
+      <p className="text-[10px] text-center text-white">
         {label}
       </p>
     </div>

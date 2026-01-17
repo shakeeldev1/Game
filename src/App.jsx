@@ -22,11 +22,12 @@ import ForgotPage from "./components/common/ForgotPage";
 import ScrollToTop from "./pages/ScrollToTop";
 import WithDraw from "./pages/WithDraw";
 import Deposit from "./pages/Deposit";
+import WithDrawHistory from "./pages/WithDrawHistory";
+import WalletHistory from "./pages/DepositHistory";
 import DepositHistory from "./pages/DepositHistory";
 
 
 const MainFunction = () => {
-  
 
   return (
     <div className="min-h-screen flex items-center justify-center font-sans bg-[var(--color-neon-bg)]">
@@ -64,9 +65,8 @@ const router = createBrowserRouter([
       { path: "/forgot-password", element: <ForgotPage /> },
       { path: "/withdraw", element: <WithDraw /> },
       { path: "/deposit", element: <Deposit /> },
+      { path: "/withdrawhistory", element: <WithDrawHistory /> },
       { path: "/deposithistory", element: <DepositHistory /> },
-
-
     ],
   },
 ]);

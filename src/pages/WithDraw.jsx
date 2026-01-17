@@ -42,7 +42,7 @@ export default function WithDraw() {
     }
 
     return (
-        <div className="min-h-screen p-4  pb-2">
+        <div className="min-h-screen p-4 relative pb-2">
             <Link to='/account'>
                 <button
                     className="flex items-center gap-1 px-2 py-2 bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-[10px] font-bold uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#F0A500] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300 mb-6"
@@ -51,7 +51,12 @@ export default function WithDraw() {
                     Back
                 </button>
             </Link>
-
+            {/* deposit history */}
+            <div className='absolute top-4 z-10 right-4'>
+                <Link to="/withdrawhistory" className='text-white text-[10px] md:text-sm font-bold underline hover:text-[var(--color-neon-accent)] transition-colors duration-300'>
+                    Withdraw History
+                </Link>
+            </div>
             {/* Main Container */}
             <div className="w-full max-w-2xl mx-auto ">
                 {/* Balance Card */}

@@ -10,6 +10,10 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [contactMethod, setContactMethod] = useState('email');
+  const [otp, setOtp] = useState('');
+  const [otpSent, setOtpSent] = useState(false);
+  const [isSendingOtp, setIsSendingOtp] = useState(false);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -17,32 +21,46 @@ const RegisterPage = () => {
     phone: '',
     password: '',
     confirmPassword: '',
+    referralCode: '',
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSendOtp = () => {
+    const contactValue = contactMethod === 'email' ? formData.email : formData.phone;
+    if (!contactValue) return;
+    setIsSendingOtp(true);
+    setTimeout(() => {
+      console.log(`OTP sent to ${contactMethod}:`, contactValue);
+      setOtpSent(true);
+      setIsSendingOtp(false);
+    }, 400);
+  };
+
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log("Registering:", formData);
+    console.log("Registering:", { ...formData, contactMethod, otp });
     navigate('/account');
   };
 
   const passwordStrength = formData.password.length >= 8 ? 'Strong' : formData.password.length >= 4 ? 'Medium' : 'Weak';
   const strengthColor = passwordStrength === 'Strong' ? 'text-green-400' : passwordStrength === 'Medium' ? 'text-[var(--color-neon-primary)]' : 'text-red-400';
+  const isContactProvided = contactMethod === 'email' ? !!formData.email : !!formData.phone;
+  const isSubmitDisabled = !formData.name || !isContactProvided || !formData.password || formData.password !== formData.confirmPassword || !otp;
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-6 overflow-hidden particles-bg">
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-2 overflow-hidden particles-bg">
 
       {/* Animated Background Effects */}
       <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-[var(--color-neon-primary)]/10 rounded-full blur-[100px] animate-pulse"></div>
       <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-[var(--color-neon-accent)]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
       <button
-        onClick={() => navigate('/')}
+        onClick={() => navigate('/login')}
         className="absolute left-5 top-6 p-2.5 z-100 rounded-md  bg-gradient-to-br from-[#232529] to-[#1A1C20] shadow-[0_0_10px_rgba(255,215,0,0.4)] hover:text-[var(--color-neon-primary)] transition-all active:scale-90"
       >
-        <FaArrowLeft size={14} />
+        <FaArrowLeft size={14} className='text-white' />
       </button>
       <div className="relative w-full max-w-md animate-on-scroll">
         <div className="glass-card rounded-md p-8 relative overflow-hidden">
@@ -52,24 +70,22 @@ const RegisterPage = () => {
           <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[var(--color-neon-accent)]/10 to-transparent rounded-tr-full"></div>
 
           {/* Header */}
-          <div className="relative mb-6">
-
-
-            <div className="text-center pt-4">
+          <div className="relative mb-3">
+            <div className="text-center pt-2">
               <div className="h-10 w-10 md:w-12  mx-auto md:h-12 bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] ">
                 <FaCrown className="text-[12px] md:text-lg text-[#f4f4f4]" />
               </div>
-              <h2 className="text-[14px] md:text-lg mt-4 font-black text-[var(--color-neon-text)]">
+              <h2 className="text-[14px] md:text-lg mt-2 font-black text-[var(--color-neon-text)]">
                 Join <span className="gradient-text">Now</span>
               </h2>
-              <p className="text-xs md:text-sm font-medium text-[#F0A500]/40">
+              <p className="text-sm font-medium text-[#F0A500]/40">
                 Create your premium account
               </p>
             </div>
           </div>
 
           {/* Benefits Banner */}
-          <div className="border border-[#CF7500] rounded-md p-3 mb-6  flex items-center justify-around">
+          <div className="border border-[#CF7500] rounded-md p-2 mb-2  flex items-center justify-around">
             {[
               { icon: FaGift, label: 'Bonus' },
               { icon: FiShield, label: 'Secure' },
@@ -83,11 +99,30 @@ const RegisterPage = () => {
           </div>
 
           {/* Form Section */}
-          <form onSubmit={handleRegister} className="space-y-4 stagger-children">
+          <form onSubmit={handleRegister} className="space-y-3 stagger-children">
+
+            {/* Contact Method */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">Verify With</label>
+                <div className="flex gap-2 bg-[var(--color-neon-bg)]/50 border border-[var(--color-neon-accent)]/20 rounded-md p-1">
+                  {['email', 'phone'].map((method) => (
+                    <button
+                      key={method}
+                      type="button"
+                      onClick={() => setContactMethod(method)}
+                      className={`text-[10px] px-3 py-1 rounded-sm uppercase font-bold transition-all ${contactMethod === method ? 'bg-[var(--color-neon-primary)]/20 text-[var(--color-neon-text)] shadow-[0_0_10px_rgba(240,165,0,0.3)]' : 'text-[var(--color-neon-text)]/40 hover:text-[var(--color-neon-text)]'}`}
+                    >
+                      {method === 'email' ? 'Email' : 'Phone'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/* Full Name */}
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-[#f4f4f] uppercase tracking-widest ml-1">Full Name</label>
+            <div className="space-y-2">
+              <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1 ">Full Name</label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <FaUser className="text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" size={13} />
@@ -105,47 +140,83 @@ const RegisterPage = () => {
             </div>
 
             {/* Email Address */}
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-[#f4f4f] uppercase tracking-widest ml-1">Email Address</label>
-              <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <FaEnvelope className="text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" size={13} />
+            {contactMethod === 'email' && (
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">Email Address</label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <FaEnvelope className="text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" size={13} />
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="name@example.com"
+                    className="w-full text-xs  pl-11 pr-4 py-2 md:py-3 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-md border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
+                  />
                 </div>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="name@example.com"
-                  className="w-full text-xs  pl-11 pr-4 py-2 md:py-3 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-md border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
-                />
               </div>
-            </div>
+            )}
 
             {/* Phone Number */}
+            {contactMethod === 'phone' && (
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">Phone Number</label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <FaPhoneAlt className="text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" size={13} />
+                  </div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+92 300 0000000"
+                    className="w-full text-xs  pl-11 pr-4 py-2 md:py-3 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-md border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* OTP */}
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-[#f4f4f] uppercase tracking-widest ml-1">Phone Number</label>
+              <div className="flex items-center justify-between">
+                {/* <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">One-Time Passcode</label> */}
+                <button
+                  type="button"
+                  onClick={handleSendOtp}
+                  disabled={!isContactProvided || isSendingOtp}
+                  className="text-[10px] uppercase font-bold px-3 py-1 rounded-sm text-[var(--color-neon-text)] border border-[var(--color-neon-primary)]/30 hover:bg-[var(--color-neon-primary)] cursor-pointer transition-all disabled:opacity-100"
+                >
+                  {isSendingOtp ? 'Sending…' : otpSent ? 'Resend OTP' : 'Send OTP'}
+                </button>
+              </div>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <FaPhoneAlt className="text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" size={13} />
+                  <FiZap className="text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" size={13} />
                 </div>
                 <input
-                  type="tel"
-                  name="phone"
+                  type="text"
+                  name="otp"
                   required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+92 300 0000000"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                  placeholder="Enter OTP"
                   className="w-full text-xs  pl-11 pr-4 py-2 md:py-3 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-md border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
                 />
               </div>
+              {otpSent && (
+                <p className="text-[10px] text-[var(--color-neon-primary)] ml-1">OTP sent to your {contactMethod}.</p>
+              )}
             </div>
 
             {/* Password */}
             <div className="space-y-1.5">
               <div className="flex justify-between items-center">
-                <label className="text-[10px] font-bold text-[#f4f4f] uppercase tracking-widest ml-1">Password</label>
+                <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">Password</label>
                 {formData.password && (
                   <span className={`text-[10px] font-bold ${strengthColor}`}>{passwordStrength}</span>
                 )}
@@ -171,7 +242,7 @@ const RegisterPage = () => {
 
             {/* Confirm Password */}
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-[#f4f4f] uppercase tracking-widest ml-1">Confirm Password</label>
+              <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">Confirm Password</label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <FaLock className="text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" size={13} />
@@ -194,11 +265,30 @@ const RegisterPage = () => {
               )}
             </div>
 
+            {/* Referral Code */}
+            <div className="space-y-1.5">
+              <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">Referral / Invite Code (Required)</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <FiCheckCircle className="text-[var(--color-neon-accent)] group-focus-within:text-[var(--color-neon-primary)] transition-colors" size={13} />
+                </div>
+                <input
+                  type="text"
+                  name="referralCode"
+                  required
+                  value={formData.referralCode}
+                  onChange={handleChange}
+                  placeholder="ABC123"
+                  className="w-full text-xs  pl-11 pr-4 py-3 bg-[var(--color-neon-bg)]/50 text-[var(--color-neon-text)] placeholder-[var(--color-neon-text)]/30 rounded-md border-2 border-[var(--color-neon-accent)]/20 focus:border-[var(--color-neon-primary)]/50 focus:shadow-[0_0_20px_rgba(240,165,0,0.2)] transition-all outline-none font-medium"
+                />
+              </div>
+            </div>
+
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={!formData.name || !formData.email || !formData.phone || !formData.password || formData.password !== formData.confirmPassword}
-              className="w-full py-4 rounded-md glass-card text-[var(--color-neon-text)]  text-xs uppercase tracking-[0.2em] hover:bg-[var(--color-neon-primary)]/10 hover:border-[var(--color-neon-primary)]/30 transition-all active:scale-95  flex items-center justify-center gap-2"
+              disabled={isSubmitDisabled}
+              className="w-full py-2 rounded-md glass-card text-[var(--color-neon-text)]  text-xs uppercase tracking-[0.2em] hover:bg-[var(--color-neon-primary)]/10 hover:border-[var(--color-neon-primary)]/30 transition-all active:scale-95  flex items-center justify-center gap-2"
             >
               <FaRocket /> Create Account
             </button>

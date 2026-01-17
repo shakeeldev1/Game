@@ -43,7 +43,7 @@ function Wallet() {
   ];
 
   return (
-    <div className="min-h-screen p-4 bg-[#0f0f13]">
+    <div className="min-h-screen p-4 relative bg-[#0f0f13]">
 
       <BackButton />
       {/* Header */}
@@ -66,7 +66,12 @@ function Wallet() {
         </div>
       </div>
 
-
+      {/* deposit history */}
+      <div className='absolute top-4 z-10 right-4'>
+        <Link to="/wallethistory" className='text-white text-[10px] md:text-sm font-bold underline hover:text-[var(--color-neon-accent)] transition-colors duration-300'>
+          Deposit History
+        </Link>
+      </div>
       {/* Wallet Cards */}
       <div className="grid grid-cols-3  gap-2 mb-2">
         <div className="bg-[#1A1C20] border border-[#CF7500]/50 shadow-lg rounded-xl p-2 flex flex-col items-center hover:scale-[1.02] transition-transform duration-300 group hover:border-[#F0A500]">

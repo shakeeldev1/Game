@@ -59,7 +59,7 @@ export default function EarningChart() {
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-700"></div>
 
                             <div className='text-center z-10 w-full'>
-                                <div className='font-bold text-[10px]  drop-shadow-md truncate w-full'>{winner.name}</div>
+                                <div className='font-bold text-[12px]  drop-shadow-md truncate w-full'>{winner.name}</div>
                                 <div className='text-[8px] font-bold mt-1 bg-black/30 px-2 py-0.5 rounded-full backdrop-blur-sm inline-block'>{winner.earnings}</div>
                             </div>
 

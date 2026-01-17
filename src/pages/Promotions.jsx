@@ -6,7 +6,7 @@ import BackButton from "../components/common/BackButton";
 
 function Promotions() {
   return (
-    <div className="particles-bg min-h-screen pb-20">
+    <div className="particles-bg min-h-screen pb-2">
       <BackButton />
       <Hero />
       <InvitationLink />

@@ -61,7 +61,7 @@ export default function GamesSection() {
 
             <div className="flex items-center justify-center w-full py-2">
                 <Link to="/more-games">
-                    <button className="px-2 py-1.5 text-xs font-bold  cursor-pointer bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[8px] uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300">
+                    <button className="px-2 py-1.5 text-[10px] font-bold  cursor-pointer bg-gradient-to-br from-[#232529] to-[#1A1C20] border border-[#CF7500] rounded-md text-[#f4f4f4] text-xs font-bold text-[8px] uppercase tracking-wider hover:bg-gradient-to-r hover:from-[#ffd700] hover:to-[#ff8c00] hover:text-[#0f0f13] transition-all duration-300">
                         See More
                     </button>
                 </Link>

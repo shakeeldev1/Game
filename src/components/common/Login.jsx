@@ -50,8 +50,8 @@ const LoginPage = () => {
           {/* Header */}
           <div className="relative mb-2">
             <div className="text-center pt-2">
-              <div className="h-10 w-10 md:w-12 md:h-12 mx-auto mb-2  bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] ">
-                <FaGamepad className="text-[12px] md:text-lg text-[#f4f4f4]" />
+              <div className="h-10 w-10  mx-auto mb-2  bg-gradient-to-br from-[#232529] to-[#1A1C20] rounded-md flex items-center justify-center shadow-[0_0_30px_rgba(240,165,0,0.4)] ">
+                <FaGamepad size={17} className=" text-[#f4f4f4]" />
               </div>
               <h2 className="text-[14px] md:text-lg font-black text-[var(--color-neon-text)]">
                 Welcome <span className="gradient-text">Back</span>
@@ -63,10 +63,10 @@ const LoginPage = () => {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-[4px]">
+          <form onSubmit={handleSubmit} className="space-y-3">
 
             {/* Phone */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">
                 Phone Number
               </label>
@@ -87,7 +87,7 @@ const LoginPage = () => {
             </div>
 
             {/* Password */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <label className="text-[10px] font-bold text-[#f4f4f4] uppercase tracking-widest ml-1">
                 Password
               </label>

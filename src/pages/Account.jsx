@@ -60,7 +60,7 @@ const Account = () => {
           <div className="relative z-10">
             <div className="flex justify-between items-start">
               <div>
-                <p className=" text-[10px] font-black text-[#f4f4f4] uppercase tracking-[0.2em] mb-1">Available Balance</p>
+                <p className=" text-[12px] font-black text-[#f4f4f4] uppercase tracking-[0.2em] mb-1">Available Balance</p>
                 <h2 className="text-[10px] md:text-lg font-black text-[var(--color-neon-text)] tracking-tighter gradient-text">Rs 0.00</h2>
               </div>
               <button className="h-8 w-8  rounded-md flex items-center justify-center text-[var(--color-neon-text)] hover:text-[var(--color-neon-primary)] hover:rotate-180 transition-all duration-700">
@@ -137,17 +137,17 @@ const Account = () => {
 
 /* Helper Components */
 const ActionButton = ({ to, icon, label, primary }) => (
-  <Link to={to} className="flex flex-col items-center group/btn">
-    <div className={`w-6 h-6 rounded-md ${primary ? 'btn-premium neon-glow' : 'glass-card'} flex items-center justify-center group-hover/btn:scale-110 transition-all duration-300`}>
-      <span className={primary ? 'text-[var(--color-neon-bg)] text-[6px]' : 'text-[var(--color-neon-text)] text-[6px]'}>{icon}</span>
+  <Link to={to} className="flex mt-3 flex-col items-center group/btn">
+    <div className={`w-8 h-8 rounded-md ${primary ? 'btn-premium neon-glow' : 'glass-card'} flex items-center justify-center group-hover/btn:scale-110 transition-all duration-300`}>
+      <span className={primary ? 'text-[var(--color-neon-bg)] text-[10px]' : 'text-[var(--color-neon-text)] text-[10px]'}>{icon}</span>
     </div>
-    <p className="text-[8px] text-[#f4f4f4] mt-2 uppercase tracking-widest">{label}</p>
+    <p className="text-[12px] text-[#f4f4f4] mt-2 uppercase tracking-widest">{label}</p>
   </Link>
 );
 
 const MenuSection = ({ title, children }) => (
   <div>
-    <h3 className="text-[10px] font-black text-[#f4f4f4] uppercase tracking-[0.2em]  mb-1">{title}</h3>
+    <h3 className="text-[12px] font-black text-[#f4f4f4] uppercase tracking-[0.2em]  mb-1">{title}</h3>
     <div className="glass-card rounded-md overflow-hidden">
       <ul className="divide-y divide-[var(--color-neon-accent)]/10">{children}</ul>
     </div>
@@ -158,15 +158,15 @@ const MenuItem = ({ icon, label, to, count, value }) => {
   const Content = (
     <div className="flex  items-center justify-between p-2 hover:bg-[var(--color-neon-primary)]/5 transition-all group cursor-pointer">
       <div className="flex items-center space-x-4">
-        <div className="w-6 h-6  bg-gradient-to-br from-[#232529] to-[#1A1C20] text-[#f4f4f4] border border-[#CF7500] rounded flex items-center justify-center transition-transform group-hover:scale-110">
+        <div className="w-8 h-8  bg-gradient-to-br from-[#232529] to-[#1A1C20] text-[#f4f4f4] border border-[#CF7500] rounded flex items-center justify-center transition-transform group-hover:scale-110">
           {React.cloneElement(icon, {size:12 })}
         </div>
-        <p className="text-[12px] text-[var(--color-neon-text)]/80 group-hover:text-[var(--color-neon-text)]">{label}</p>
+        <p className="text-[14px] text-[var(--color-neon-text)]/80 group-hover:text-[var(--color-neon-text)]">{label}</p>
       </div>
       <div className="flex items-center space-x-3">
         {count && <span className="bg-[var(--color-neon-primary)] text-[var(--color-neon-bg)] text-[10px] font-black px-2 py-0.5 rounded-full">{count}</span>}
         {value && <span className="text-xs font-black text-[var(--color-neon-text)]/40 uppercase tracking-widest">{value}</span>}
-        <ChevronRight size={12} className="text-[var(--color-neon-accent)]/50 group-hover:text-[var(--color-neon-primary)] group-hover:translate-x-1 transition-all" />
+        <ChevronRight size={13} className="text-[var(--color-neon-accent)]/50 group-hover:text-[var(--color-neon-primary)] group-hover:translate-x-1 transition-all" />
       </div>
     </div>
   );

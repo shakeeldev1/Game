@@ -77,7 +77,7 @@ export default function Services() {
                         <FaGamepad className="text-[#f4f4f4] text-xs md:text-lg" />
                     </div>
                     <div>
-                        <h1 className="text-[10px]  font-black text-[#f4f4f4]">Game Categories</h1>
+                        <h1 className="text-[12px]  font-black text-[#f4f4f4]">Game Categories</h1>
                         <p className="text-[8px] text-[#F0A500]/50  tracking-wider">Choose Your Game</p>
                     </div>
                 </div>
@@ -114,10 +114,10 @@ export default function Services() {
                             {/* Content */}
                             <div className=" p-2 flex flex-col justify-center items-center">
                                 {/* Name */}
-                                <h3 className="text-[10px] items-center text-nowrap   font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors uppercase tracking-wide mb-1">
+                                <h3 className="text-[15px] items-center text-nowrap   font-bold text-[#F4F4F4] group-hover:text-[#F0A500] transition-colors uppercase tracking-wide mb-1">
                                     {item.gameimage}
                                 </h3>
-                                <span className="flex items-center justify-center gap-1 text-[8px] text-[#F4F4F4]">{item.name}</span>
+                                <span className="flex items-center justify-center gap-1 text-[12px] text-[#F4F4F4]">{item.name}</span>
 
                             </div>
 
@@ -135,7 +135,7 @@ export default function Services() {
                         {/* Shine effect */}
                         <div className="absolute inset-0  from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 
-                        <span className="relative text-[8px]  z-10">See All Categories</span>
+                        <span className="relative text-[10px]  z-10">See All Categories</span>
                         <FaArrowRight className="relative z-10 text-[8px] group-hover:translate-x-1 transition-transform" />
                     </button>
                 </Link>

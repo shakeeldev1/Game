@@ -11,7 +11,7 @@ function PromotionData() {
   ];
 
   return (
-    <div className="px-4 my-6 max-w-2xl mx-auto">
+    <div className="px-4 max-w-2xl mx-auto">
       <div className="glass-card rounded-2xl p-5 relative overflow-hidden animate-on-scroll">
 
         {/* Decorative */}

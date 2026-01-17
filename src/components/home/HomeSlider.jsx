@@ -22,7 +22,7 @@ export default function HomeHeroSlider() {
       game: encodeURI("https://img.freepik.com/premium-vector/dragon-esport-logo-template_1300-896.jpg?ga=GA1.1.1029239798.1754464986&semt=ais_hybrid&w=740&q=80"),
       title: "Dragon's Fortune",
       subtitle: "Legendary",
-      desc: "Battle mythical dragons for legendary treasures. Collect fire gems for massive bonus multipliers!",
+      desc: "Battle mythical dragons legendary treasures.Collect fire gems for massive bonus multipliers!",
       btn: "Enter Game",
       badge: "NEW"
     },
@@ -31,7 +31,7 @@ export default function HomeHeroSlider() {
       game: encodeURI("https://img.freepik.com/free-vector/realistic-casino-gambling-dark-banner-play-win-jackpot_1017-52242.jpg?ga=GA1.1.1029239798.1754464986&semt=ais_hybrid&w=740&q=80"),
       title: "Royal Poker Club",
       subtitle: "VIP Tables",
-      desc: "Join exclusive VIP tables with high rollers. Royal flush bonuses and progressive jackpots available!",
+      desc: "Join VIP tables with high rollers.Royal flush bonuses and progressive jackpots available!",
       btn: "Join VIP",
       badge: "VIP"
     },
@@ -124,12 +124,12 @@ export default function HomeHeroSlider() {
                    
 
                     {/* Title */}
-                    <h1 className="text-[10px]  text-nowrap mt-2 w-full   font-bold text-[#F4F4F4]">
+                    <h1 className="text-[12px]  text-nowrap mt-2 w-full   font-bold text-[#F4F4F4]">
                       {slideItem.title}
                     </h1>
 
                     {/* Description */}
-                    <p className="text-[#F4F4F4] text-[8px] leading-relaxed mb-1">
+                    <p className="text-[#F4F4F4] text-[9px] leading-relaxed mb-1">
                       {slideItem.desc}
                     </p>
 
