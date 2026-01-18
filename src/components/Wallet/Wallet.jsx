@@ -68,8 +68,8 @@ function Wallet() {
 
       {/* deposit history */}
       <div className='absolute top-4 z-10 right-4'>
-        <Link to="/withdrawhistory" className='text-white text-[10px] md:text-sm font-bold underline hover:text-[var(--color-neon-accent)] transition-colors duration-300'>
-          Withdraw History
+        <Link to="/deposithistory" className='text-white text-[10px] md:text-sm font-bold underline hover:text-[var(--color-neon-accent)] transition-colors duration-300'>
+          Deposit History
         </Link>
       </div>
       {/* Wallet Cards */}
